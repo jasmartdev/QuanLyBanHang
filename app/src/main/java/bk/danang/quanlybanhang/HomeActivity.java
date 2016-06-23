@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import bk.danang.quanlybanhang.controller.LoaiSPController;
 import bk.danang.quanlybanhang.controller.NhanHieuController;
 import bk.danang.quanlybanhang.controller.PermissionController;
 
@@ -19,6 +20,7 @@ import bk.danang.quanlybanhang.model.LoginFormResponse;
 import bk.danang.quanlybanhang.model.NhanHieu;
 import bk.danang.quanlybanhang.webinterface.AuthenticationService;
 import bk.danang.quanlybanhang.webinterface.LoaiSPService;
+import bk.danang.quanlybanhang.webinterface.LoaiSanPhamService;
 import bk.danang.quanlybanhang.webinterface.NhanHieuService;
 import retrofit.Call;
 import retrofit.Callback;
@@ -27,6 +29,11 @@ import retrofit.Response;
 import retrofit.Retrofit;
 
 public class HomeActivity extends AppCompatActivity  {
+
+    private Retrofit retrofit = new Retrofit.Builder()
+            .baseUrl(AppConstant.WEB_API_BASE)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,8 +56,7 @@ public class HomeActivity extends AppCompatActivity  {
                 startActivity(intent);
                 break;
             case R.id.btn_ql_loaisp:
-                intent = new Intent(this, QuanLyLoaiSPActivity.class);
-                startActivity(intent);
+                quanlyLoaiSP();
                 break;
             case R.id.btn_ql_nhanhieu:
                 quanlyNhanHieu();
@@ -74,17 +80,25 @@ public class HomeActivity extends AppCompatActivity  {
         }
     }
 
+    private  void quanlyLoaiSP(){
+        LoaiSanPhamService nhanHieuService = retrofit.create(LoaiSanPhamService.class);
+
+        final Call<List<LoaiSP>> call = nhanHieuService.getAll();
+        call.enqueue(new Callback<List<LoaiSP>>() {
+            public void onResponse(Response<List<LoaiSP>> response, Retrofit retrofit) {
+                LoaiSPController.getInstance().setLoaiSPs(response.body());
+                startActivity(new Intent(HomeActivity.this, QuanLyLoaiSPActivity.class));
+            }
+
+            public void onFailure(Throwable t) {
+
+            }
+        });
+    }
 
     private  void quanlyNhanHieu(){
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(AppConstant.WEB_API_BASE)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
 
-        // prepare call in Retrofit 2.0
         NhanHieuService nhanHieuService = retrofit.create(NhanHieuService.class);
-
-
 
         final Call<List<NhanHieu>> call = nhanHieuService.getAll();
         call.enqueue(new Callback<List<NhanHieu>>() {

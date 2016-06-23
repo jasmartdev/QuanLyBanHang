@@ -1,10 +1,12 @@
 package bk.danang.quanlybanhang.controller;
 
+import java.util.List;
+
 import bk.danang.quanlybanhang.model.LoaiSP;
 
 public class LoaiSPController {
     private static LoaiSPController instance;
-    private LoaiSP[] loaiSPs;
+    private List<LoaiSP> loaiSPs;
 
     public static LoaiSPController getInstance() {
         if (instance == null) {
@@ -13,11 +15,11 @@ public class LoaiSPController {
         return instance;
     }
 
-    public LoaiSP[] getLoaiSPs() {
+    public List<LoaiSP> getLoaiSPs() {
         return loaiSPs;
     }
 
-    public void setLoaiSPs(LoaiSP[] loaiSPs) {
+    public void setLoaiSPs(List<LoaiSP> loaiSPs) {
         this.loaiSPs = loaiSPs;
     }
 }

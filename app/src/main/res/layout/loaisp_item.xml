@@ -11,11 +11,4 @@
         android:text="Kết nối"
         android:textSize="@dimen/label_size"
         android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/tv_mo_ta"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tv_loaisp"
-        android:text="Dành cho máy Ascus" />
 </RelativeLayout>

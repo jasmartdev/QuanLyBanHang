@@ -1,14 +1,9 @@
 package bk.danang.quanlybanhang.model;
 
+import com.google.gson.annotations.SerializedName;
+
 public class SanPham {
     private int id;
-    private String name;
-    private String type;
-    private int number;
-    private int price;
-    private int priceVip;
-    private int priceRetail; //giá bán lẻ
-    private int priceWholesale ; //giá bán sỉ
 
     public int getId() {
         return id;
@@ -18,6 +13,8 @@ public class SanPham {
         this.id = id;
     }
 
+    private String name;
+
     public String getName() {
         return name;
     }
@@ -26,51 +23,88 @@ public class SanPham {
         this.name = name;
     }
 
-    public String getType() {
-        return type;
+    @SerializedName("retail_price")
+    private int retailPrice;
+
+    public int getRetailPrice() {
+        return retailPrice;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setRetailPrice(int retailPrice) {
+        this.retailPrice = retailPrice;
     }
 
-    public int getNumber() {
-        return number;
+    @SerializedName("wholesale_price")
+    private int wholesalePrice;
+
+    public int getWholesalePrice() {
+        return wholesalePrice;
     }
 
-    public void setNumber(int number) {
-        this.number = number;
+    public void setWholesalePrice(int wholesalePrice) {
+        this.wholesalePrice = wholesalePrice;
     }
 
-    public int getPrice() {
-        return price;
+    @SerializedName("origin_price")
+    private int originPrice;
+
+    public int getOriginPrice() {
+        return originPrice;
     }
 
-    public void setPrice(int price) {
-        this.price = price;
+    public void setOriginPrice(int originPrice) {
+        this.originPrice = originPrice;
     }
 
-    public int getPriceVip() {
-        return priceVip;
+    @SerializedName("vip_price")
+    private int vipPrice;
+
+    public int getVipPrice() {
+        return vipPrice;
     }
 
-    public void setPriceVip(int priceVip) {
-        this.priceVip = priceVip;
+    public void setVipPrice(int vipPrice) {
+        this.vipPrice = vipPrice;
     }
 
-    public int getPriceRetail() {
-        return priceRetail;
+    @SerializedName("image_url")
+    private String Imageurl;
+
+    public String getImageurl() {
+        return Imageurl;
     }
 
-    public void setPriceRetail(int priceRetail) {
-        this.priceRetail = priceRetail;
+    public void setImageurl(String imageurl) {
+        Imageurl = imageurl;
     }
 
-    public int getPriceWholesale() {
-        return priceWholesale;
+    @SerializedName("category_id")
+    private int categoryId;
+
+    public int getCategoryId() {
+        return categoryId;
     }
 
-    public void setPriceWholesale(int priceWholesale) {
-        this.priceWholesale = priceWholesale;
+    public void setCategoryId(int categoryId) {
+        this.categoryId = categoryId;
+    }
+    @SerializedName("brand_id")
+    private int brandId;
+
+    public int getBrandId() {
+        return brandId;
+    }
+
+    public void setBrandId(int brandId) {
+        this.brandId = brandId;
+    }
+    private int quantity;
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 }

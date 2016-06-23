@@ -42,7 +42,7 @@ public class SanPhamActivity extends AppCompatActivity {
         if (id != -1) {
             SanPham sanPham = SanPhamController.getInstance().getSanPhams()[id];
             ed_sanpham.setText(sanPham.getName());
-            ed_so_luong.setText(Integer.toString(sanPham.getNumber()));
+            ed_so_luong.setText(Integer.toString(sanPham.getQuantity()));
         }
     }
 

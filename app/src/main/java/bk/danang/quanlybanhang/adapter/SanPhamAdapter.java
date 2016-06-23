@@ -46,8 +46,8 @@ public class SanPhamAdapter extends BaseAdapter {
         TextView tv_tri_gia = (TextView) convertView.findViewById(R.id.tv_tri_gia);
         TextView tv_so_luong = (TextView) convertView.findViewById(R.id.tv_so_luong);
         tv_ten_sp.setText(sanPham.getName());
-        tv_tri_gia.setText(Integer.toString(sanPham.getPrice()));
-        tv_so_luong.setText(Integer.toString(sanPham.getNumber()));
+        tv_tri_gia.setText(Integer.toString(sanPham.getOriginPrice()));
+        tv_so_luong.setText(Integer.toString(sanPham.getQuantity()));
         convertView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {

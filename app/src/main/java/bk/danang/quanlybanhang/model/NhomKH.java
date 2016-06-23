@@ -1,8 +1,9 @@
 package bk.danang.quanlybanhang.model;
 
+import com.google.gson.annotations.SerializedName;
+
 public class NhomKH {
     private int id;
-    private String name;
 
     public int getId() {
         return id;
@@ -12,11 +13,34 @@ public class NhomKH {
         this.id = id;
     }
 
+    private String name;
+
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    private String note;
+
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
+    }
+
+    @SerializedName("discount")
+    private int discountPercent;
+
+    public int getDiscountPercent() {
+        return discountPercent;
+    }
+
+    public void setDiscountPercent(int discountPercent) {
+        this.discountPercent = discountPercent;
     }
 }

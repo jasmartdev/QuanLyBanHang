@@ -1,5 +1,6 @@
 package bk.danang.quanlybanhang;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -21,5 +22,7 @@ public class LoginActivity extends AppCompatActivity {
     public void Login(View view) {
         name = ed_user_name.getText().toString();
         pass = ed_user_pass.getText().toString();
+        Intent intent = new Intent(this, HomeActivity.class);
+        startActivity(intent);
     }
 }

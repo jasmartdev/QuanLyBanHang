@@ -42,12 +42,10 @@ public class LoaiSPAdapter  extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         if (convertView == null) {
-            convertView = LayoutInflater.from(context).inflate(R.layout.san_pham_item, parent, false);
+            convertView = LayoutInflater.from(context).inflate(R.layout.loaisp_item, parent, false);
         }
         final LoaiSP loaiSP = loaiSPs[position];
         TextView tv_ten_sp = (TextView) convertView.findViewById(R.id.tv_ten_sp);
-        TextView tv_tri_gia = (TextView) convertView.findViewById(R.id.tv_tri_gia);
-        TextView tv_so_luong = (TextView) convertView.findViewById(R.id.tv_so_luong);
         tv_ten_sp.setText(loaiSP.getName());
         convertView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override

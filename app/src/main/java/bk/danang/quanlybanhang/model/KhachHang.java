@@ -1,14 +1,9 @@
 package bk.danang.quanlybanhang.model;
 
+import com.google.gson.annotations.SerializedName;
+
 public class KhachHang {
     private int id;
-    private String name;
-    private String gender;
-    private String address;
-    private String phone;
-    private String email;
-    private String group;
-    private String note;
 
     public int getId() {
         return id;
@@ -18,12 +13,18 @@ public class KhachHang {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    @SerializedName("group_id")
+    private int groupId;
+
+    public int getGroupId() {
+        return groupId;
     }
-    public void setName(String name) {
-        this.name = name;
+
+    public void setGroupId(int groupId) {
+        this.groupId = groupId;
     }
+
+    private String gender;
 
     public String getGender() {
         return gender;
@@ -33,6 +34,18 @@ public class KhachHang {
         this.gender = gender;
     }
 
+    private String name;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    private String address;
+
     public String getAddress() {
         return address;
     }
@@ -40,6 +53,19 @@ public class KhachHang {
     public void setAddress(String address) {
         this.address = address;
     }
+
+    @SerializedName("phone_number")
+    private String phoneNumber;
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    private String email;
 
     public String getEmail() {
         return email;
@@ -49,13 +75,7 @@ public class KhachHang {
         this.email = email;
     }
 
-    public String getGroup() {
-        return group;
-    }
-
-    public void setGroup(String group) {
-        this.group = group;
-    }
+    private String note;
 
     public String getNote() {
         return note;
@@ -63,13 +83,5 @@ public class KhachHang {
 
     public void setNote(String note) {
         this.note = note;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
     }
 }

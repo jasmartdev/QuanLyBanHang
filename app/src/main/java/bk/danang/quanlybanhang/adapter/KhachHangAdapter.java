@@ -49,7 +49,6 @@ public class KhachHangAdapter extends BaseAdapter {
         tv_ten_khach.setText(khachHang.getName());
         tv_gioi_tinh.setText(khachHang.getGender());
         tv_dia_chi.setText(khachHang.getAddress());
-        tv_nhom.setText(khachHang.getGroup());
         convertView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {

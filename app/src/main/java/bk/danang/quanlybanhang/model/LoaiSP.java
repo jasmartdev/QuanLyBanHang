@@ -2,7 +2,6 @@ package bk.danang.quanlybanhang.model;
 
 public class LoaiSP {
     private int id;
-    private String name;
 
     public int getId() {
         return id;
@@ -11,6 +10,8 @@ public class LoaiSP {
     public void setId(int id) {
         this.id = id;
     }
+
+    private String name;
 
     public String getName() {
         return name;

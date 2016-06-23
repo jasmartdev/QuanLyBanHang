@@ -12,9 +12,6 @@ import bk.danang.quanlybanhang.R;
 import bk.danang.quanlybanhang.HoaDonActivity;
 import bk.danang.quanlybanhang.model.HoaDon;
 
-/**
- * Created by Admin on 6/23/2016.
- */
 public class HoaDonAdapter extends BaseAdapter {
     private HoaDon[] hoaDons;
     private Context context;
@@ -46,7 +43,10 @@ public class HoaDonAdapter extends BaseAdapter {
         }
         final HoaDon hoaDon = hoaDons[position];
         TextView tv_ten_sp = (TextView) convertView.findViewById(R.id.tv_ten_sp);
-        tv_ten_sp.setText(hoaDon.getName());
+        TextView tv_tri_gia = (TextView) convertView.findViewById(R.id.tv_tri_gia);
+        TextView tv_so_luong = (TextView) convertView.findViewById(R.id.tv_so_luong);
+        TextView tv_ten_nv = (TextView) convertView.findViewById(R.id.tv_ten_nv);
+        tv_so_luong.setText(Integer.toString(hoaDon.getQuantity()));
         convertView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {

@@ -4,15 +4,15 @@ package bk.danang.quanlybanhang.model;
  * Created by voqua on 6/24/2016.
  */
 public class LoginFormResponse {
-    private Role role;
+    private int role;
 
     private String authentication;
 
-    public Role getRole() {
+    public int getRole() {
         return role;
     }
 
-    public void setRole(Role role) {
+    public void setRole(int role) {
         this.role = role;
     }
 

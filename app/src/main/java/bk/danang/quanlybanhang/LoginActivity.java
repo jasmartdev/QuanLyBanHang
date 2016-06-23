@@ -12,6 +12,7 @@ import android.widget.Toast;
 import java.io.IOException;
 import java.util.List;
 
+import bk.danang.quanlybanhang.controller.PermissionController;
 import bk.danang.quanlybanhang.model.LoaiSP;
 import bk.danang.quanlybanhang.model.LoginForm;
 import bk.danang.quanlybanhang.model.LoginFormResponse;
@@ -55,13 +56,18 @@ public class LoginActivity extends AppCompatActivity implements Callback<LoginFo
 
     @Override
     public void onResponse(Response<LoginFormResponse> response, Retrofit retrofit) {
-        Intent intent = new Intent(this, HomeActivity.class);
-        startActivity(intent);
-
+        if (response == null || response.body() == null) {
+            Toast.makeText(this, getString(R.string.login_fail), Toast.LENGTH_SHORT).show();
+        } else {
+            PermissionController.getInstance().setIsAdmin(response.body().getRole() == 1);
+            Intent intent = new Intent(this, HomeActivity.class);
+            startActivity(intent);
+            finish();
+        }
     }
 
     @Override
     public void onFailure(Throwable t) {
-        Toast.makeText(this, "Dang nhap that bai", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, getString(R.string.login_fail), Toast.LENGTH_SHORT).show();
     }
 }

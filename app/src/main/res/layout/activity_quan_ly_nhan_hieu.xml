@@ -12,5 +12,15 @@
     <ListView
         android:id="@+id/lv_nhanhieu"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"></ListView>
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btn_Add"
+        android:layout_alignParentTop="true"></ListView>
+
+    <Button
+        android:id="@+id/btn_Add"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:onClick="Add"
+        android:text="@string/quanly_them" />
 </RelativeLayout>

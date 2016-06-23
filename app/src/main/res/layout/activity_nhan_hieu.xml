@@ -24,10 +24,18 @@
             android:id="@+id/ed_nhanhieu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
+
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="Save"
             android:text="@string/quanly_luu" />
+
+        <Button
+            android:id="@+id/btn_delete"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="Delete"
+            android:text="@string/quanly_xoa" />
     </LinearLayout>
 </ScrollView>

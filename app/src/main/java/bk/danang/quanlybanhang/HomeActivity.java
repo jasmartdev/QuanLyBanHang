@@ -7,13 +7,19 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import bk.danang.quanlybanhang.controller.NhanHieuController;
 import bk.danang.quanlybanhang.controller.PermissionController;
 
 import java.io.IOException;
 import java.util.List;
 
 import bk.danang.quanlybanhang.model.LoaiSP;
+import bk.danang.quanlybanhang.model.LoginForm;
+import bk.danang.quanlybanhang.model.LoginFormResponse;
+import bk.danang.quanlybanhang.model.NhanHieu;
+import bk.danang.quanlybanhang.webinterface.AuthenticationService;
 import bk.danang.quanlybanhang.webinterface.LoaiSPService;
+import bk.danang.quanlybanhang.webinterface.NhanHieuService;
 import retrofit.Call;
 import retrofit.Callback;
 import retrofit.GsonConverterFactory;
@@ -47,8 +53,7 @@ public class HomeActivity extends AppCompatActivity  {
                 startActivity(intent);
                 break;
             case R.id.btn_ql_nhanhieu:
-                intent = new Intent(this, QuanLyNhanHieuActivity.class);
-                startActivity(intent);
+                quanlyNhanHieu();
                 break;
             case R.id.btn_ql_khachang:
                 intent = new Intent(this, QuanLyKhachHangActivity.class);
@@ -70,4 +75,27 @@ public class HomeActivity extends AppCompatActivity  {
     }
 
 
+    private  void quanlyNhanHieu(){
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(AppConstant.WEB_API_BASE)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        // prepare call in Retrofit 2.0
+        NhanHieuService nhanHieuService = retrofit.create(NhanHieuService.class);
+
+
+
+        final Call<List<NhanHieu>> call = nhanHieuService.getAll();
+        call.enqueue(new Callback<List<NhanHieu>>() {
+            public void onResponse(Response<List<NhanHieu>> response, Retrofit retrofit) {
+                NhanHieuController.getInstance().setNhanHieus(response.body());
+                startActivity(new Intent(HomeActivity.this, QuanLyNhanHieuActivity.class));
+            }
+
+            public void onFailure(Throwable t) {
+
+            }
+        });
+    }
 }

@@ -1,10 +1,12 @@
 package bk.danang.quanlybanhang.controller;
 
+import java.util.List;
+
 import bk.danang.quanlybanhang.model.NhanHieu;
 
 public class NhanHieuController {
     private static NhanHieuController instance;
-    private NhanHieu[] nhanHieus;
+    private List<NhanHieu> nhanHieus;
 
     public static NhanHieuController getInstance() {
         if (instance == null) {
@@ -13,11 +15,11 @@ public class NhanHieuController {
         return instance;
     }
 
-    public NhanHieu[] getNhanHieus() {
+    public List<NhanHieu> getNhanHieus() {
         return nhanHieus;
     }
 
-    public void setNhanHieus(NhanHieu[] nhanHieus) {
+    public void setNhanHieus(List<NhanHieu> nhanHieus) {
         this.nhanHieus = nhanHieus;
     }
 }

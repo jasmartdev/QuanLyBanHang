@@ -8,32 +8,34 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import java.util.List;
+
 import bk.danang.quanlybanhang.R;
 import bk.danang.quanlybanhang.NhanHieuActivity;
 import bk.danang.quanlybanhang.model.NhanHieu;
 
 public class NhanHieuAdapter  extends BaseAdapter {
-    private NhanHieu[] nhanHieus;
+    private List<NhanHieu> nhanHieus;
     private Context context;
 
-    public NhanHieuAdapter(Context context, NhanHieu[] nhanHieus) {
+    public NhanHieuAdapter(Context context, List<NhanHieu> nhanHieus) {
         this.context = context;
         this.nhanHieus = nhanHieus;
     }
 
     @Override
     public int getCount() {
-        return nhanHieus.length;
+        return nhanHieus.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return nhanHieus[position];
+        return nhanHieus.size();
     }
 
     @Override
     public long getItemId(int position) {
-        return nhanHieus[position].getId();
+        return nhanHieus.get(position).getId();
     }
 
     @Override
@@ -41,7 +43,7 @@ public class NhanHieuAdapter  extends BaseAdapter {
         if (convertView == null) {
             convertView = LayoutInflater.from(context).inflate(R.layout.nhan_hieu_item, parent, false);
         }
-        final NhanHieu nhanHieu = nhanHieus[position];
+        final NhanHieu nhanHieu = nhanHieus.get(position);
         TextView tv_nhan_hieu = (TextView) convertView.findViewById(R.id.tv_nhan_hieu);
         tv_nhan_hieu.setText(nhanHieu.getName());
         convertView.setOnLongClickListener(new View.OnLongClickListener() {

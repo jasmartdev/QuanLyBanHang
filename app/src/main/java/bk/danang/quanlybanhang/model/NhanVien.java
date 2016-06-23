@@ -55,13 +55,13 @@ public class NhanVien {
         this.jobTitle = jobTitle;
     }
 
-    private Role role;
+    private int role;
 
-    public Role getRole() {
+    public int getRole() {
         return role;
     }
 
-    public void setRole(Role role) {
+    public void setRole(int role) {
         this.role = role;
     }
 

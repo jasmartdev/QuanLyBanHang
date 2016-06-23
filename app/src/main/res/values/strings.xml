@@ -40,4 +40,5 @@
     <string name="nhanvien_ten">Tên nhân viên</string>
     <string name="nhanvien_dia_chi">Địa chỉ nhân viên</string>
     <string name="nhanvien_cong_viec">Công việc</string>
+    <string name="login_fail">Đăng nhập thất bại</string>
 </resources>

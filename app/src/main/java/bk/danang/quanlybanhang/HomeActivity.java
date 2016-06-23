@@ -3,9 +3,21 @@ package bk.danang.quanlybanhang;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
-public class HomeActivity extends AppCompatActivity {
+import java.io.IOException;
+import java.util.List;
+
+import bk.danang.quanlybanhang.model.LoaiSP;
+import bk.danang.quanlybanhang.webinterface.LoaiSPService;
+import retrofit.Call;
+import retrofit.Callback;
+import retrofit.GsonConverterFactory;
+import retrofit.Response;
+import retrofit.Retrofit;
+
+public class HomeActivity extends AppCompatActivity  {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,4 +62,6 @@ public class HomeActivity extends AppCompatActivity {
                 break;
         }
     }
+
+
 }

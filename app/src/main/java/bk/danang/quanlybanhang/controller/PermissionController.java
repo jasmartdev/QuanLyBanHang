@@ -11,11 +11,11 @@ public class PermissionController {
         return instance;
     }
 
-    public boolean getSanPhams() {
+    public boolean getIsAdmin() {
         return isAdmin;
     }
 
-    public void setSanPhams(boolean isAdmin) {
+    public void setIsAdmin(boolean isAdmin) {
         this.isAdmin = isAdmin;
     }
 }

@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import bk.danang.quanlybanhang.controller.PermissionController;
 import bk.danang.quanlybanhang.controller.SanPhamController;
 import bk.danang.quanlybanhang.model.SanPham;
 
@@ -19,6 +20,9 @@ public class NhanHieuActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nhan_hieu);
         ed_nhanhieu = (EditText) findViewById(R.id.ed_nhanhieu);
+        if (!PermissionController.getInstance().getIsAdmin()) {
+            ((Button) findViewById(R.id.btn_delete)).setVisibility(View.INVISIBLE);
+        }
         Intent intent = getIntent();
         id = intent.getIntExtra("object", -1);
         if (id == -1) {

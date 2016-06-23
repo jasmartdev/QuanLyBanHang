@@ -65,6 +65,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+<<<<<<< HEAD
       <file leaf-file-name="AuthenticationService.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/bk/danang/quanlybanhang/webinterface/AuthenticationService.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -73,10 +74,19 @@
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+=======
+      <file leaf-file-name="HoaDonActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/bk/danang/quanlybanhang/HoaDonActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="33" column="8" selection-start-line="33" selection-start-column="8" selection-end-line="35" selection-end-column="9" />
+              <folding />
+>>>>>>> 4d95bdb76012d5b4f1623515318b9dfb33d23a34
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="LoginFormResponse.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/bk/danang/quanlybanhang/model/LoginFormResponse.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -92,10 +102,19 @@
                 <element signature="e#436#437#0" expanded="true" />
                 <element signature="e#488#489#0" expanded="true" />
               </folding>
+=======
+      <file leaf-file-name="KhachHangActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/bk/danang/quanlybanhang/KhachHangActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="32" column="9" selection-start-line="32" selection-start-column="9" selection-end-line="32" selection-end-column="9" />
+              <folding />
+>>>>>>> 4d95bdb76012d5b4f1623515318b9dfb33d23a34
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="LoginForm.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/bk/danang/quanlybanhang/model/LoginForm.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -115,10 +134,19 @@
                 <element signature="e#731#732#0" expanded="true" />
                 <element signature="e#783#784#0" expanded="true" />
               </folding>
+=======
+      <file leaf-file-name="LoaiSPActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/bk/danang/quanlybanhang/LoaiSPActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="25" column="9" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="9" />
+              <folding />
+>>>>>>> 4d95bdb76012d5b4f1623515318b9dfb33d23a34
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="NhanHieu.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/bk/danang/quanlybanhang/model/NhanHieu.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -134,11 +162,19 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+=======
+      <file leaf-file-name="LoginActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/bk/danang/quanlybanhang/LoginActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="25" column="30" selection-start-line="25" selection-start-column="30" selection-end-line="25" selection-end-column="30" />
+>>>>>>> 4d95bdb76012d5b4f1623515318b9dfb33d23a34
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="HomeActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/bk/danang/quanlybanhang/HomeActivity.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -147,37 +183,72 @@
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+=======
+      <file leaf-file-name="NhanHieuActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/bk/danang/quanlybanhang/NhanHieuActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="24" column="9" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
+              <folding />
+>>>>>>> 4d95bdb76012d5b4f1623515318b9dfb33d23a34
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="Role.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/bk/danang/quanlybanhang/model/Role.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+=======
+      <file leaf-file-name="NhomKHActivity.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/bk/danang/quanlybanhang/NhomKHActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.5511022">
+              <caret line="26" column="9" selection-start-line="26" selection-start-column="9" selection-end-line="26" selection-end-column="9" />
+>>>>>>> 4d95bdb76012d5b4f1623515318b9dfb33d23a34
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="LoginActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/bk/danang/quanlybanhang/LoginActivity.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="-3.4482758">
               <caret line="50" column="22" selection-start-line="50" selection-start-column="22" selection-end-line="50" selection-end-column="22" />
+=======
+      <file leaf-file-name="HomeActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/bk/danang/quanlybanhang/HomeActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="16" column="8" selection-start-line="16" selection-start-column="8" selection-end-line="18" selection-end-column="9" />
+>>>>>>> 4d95bdb76012d5b4f1623515318b9dfb33d23a34
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="SanPham.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/bk/danang/quanlybanhang/model/SanPham.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="25" column="35" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="35" />
+=======
+      <file leaf-file-name="activity_hoa_don.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_hoa_don.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-4.0545454">
+              <caret line="147" column="8" selection-start-line="147" selection-start-column="8" selection-end-line="147" selection-end-column="8" />
+>>>>>>> 4d95bdb76012d5b4f1623515318b9dfb33d23a34
               <folding />
             </state>
+          </provider>
+          <provider editor-type-id="android-designer">
+            <state />
           </provider>
         </entry>
       </file>
@@ -186,6 +257,12 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+<<<<<<< HEAD
+=======
+        <option value="Interface" />
+        <option value="layoutResourceFile_vertical" />
+        <option value="Enum" />
+>>>>>>> 4d95bdb76012d5b4f1623515318b9dfb33d23a34
         <option value="Class" />
       </list>
     </option>
@@ -1853,7 +1930,36 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/app/src/main/java/bk/danang/quanlybanhang/model/Request.java" />
+=======
+        <option value="$PROJECT_DIR$/app/src/main/java/bk/danang/quanlybanhang/controller/HoaDonController.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/bk/danang/quanlybanhang/QuanLyHoaDonActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_hoa_don.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/bk/danang/quanlybanhang/controller/LoaiSPController.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/bk/danang/quanlybanhang/QuanLyLoaiSPActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_loaisp.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/bk/danang/quanlybanhang/controller/NhanHieuController.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_nhan_hieu.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/bk/danang/quanlybanhang/controller/NhomKHController.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/bk/danang/quanlybanhang/adapter/NhomKHAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_nhomkh.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/bk/danang/quanlybanhang/QuanLyNhomKHActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/bk/danang/quanlybanhang/controller/NhanVienController.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/bk/danang/quanlybanhang/adapter/NhanVienAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/bk/danang/quanlybanhang/NhanVienActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_nhan_vien.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/bk/danang/quanlybanhang/QuanLyNhanVienActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/bk/danang/quanlybanhang/adapter/NhanHieuAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/bk/danang/quanlybanhang/QuanLyNhanHieuActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_quan_ly_nhan_hieu.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_quan_ly_hoa_don.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_quan_ly_khach_hang.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_quan_ly_loaisp.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_quan_ly_nhan_vien.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_quan_ly_nhomkh.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_quan_ly_san_pham.xml" />
+>>>>>>> 4d95bdb76012d5b4f1623515318b9dfb33d23a34
         <option value="$PROJECT_DIR$/app/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/java/bk/danang/quanlybanhang/webinterface/LoaiSPService.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/bk/danang/quanlybanhang/HomeActivity.java" />
@@ -1863,6 +1969,22 @@
         <option value="$PROJECT_DIR$/app/src/main/java/bk/danang/quanlybanhang/webinterface/Authentication.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/bk/danang/quanlybanhang/webinterface/AuthenticationService.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/bk/danang/quanlybanhang/LoginActivity.java" />
+<<<<<<< HEAD
+=======
+        <option value="$PROJECT_DIR$/app/src/main/java/bk/danang/quanlybanhang/model/NhanHieu.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/bk/danang/quanlybanhang/model/HoaDon.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/bk/danang/quanlybanhang/adapter/HoaDonAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/bk/danang/quanlybanhang/model/KhachHang.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/bk/danang/quanlybanhang/adapter/KhachHangAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/bk/danang/quanlybanhang/adapter/LoaiSPAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/bk/danang/quanlybanhang/controller/PermissionController.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/bk/danang/quanlybanhang/HomeActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/bk/danang/quanlybanhang/HoaDonActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/bk/danang/quanlybanhang/KhachHangActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/bk/danang/quanlybanhang/LoaiSPActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/bk/danang/quanlybanhang/NhanHieuActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/bk/danang/quanlybanhang/NhomKHActivity.java" />
+>>>>>>> 4d95bdb76012d5b4f1623515318b9dfb33d23a34
       </list>
     </option>
   </component>
@@ -1951,6 +2073,7 @@
               <option name="myItemId" value="quanlybanhang" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
+<<<<<<< HEAD
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -1974,6 +2097,27 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+=======
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controller" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="QuanLyBanHang" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="manifests" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidManifestsGroupNode" />
+            </PATH_ELEMENT>
+          </PATH>
+>>>>>>> 4d95bdb76012d5b4f1623515318b9dfb33d23a34
         </subPane>
       </pane>
       <pane id="Scratches" />
@@ -2264,8 +2408,13 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
+<<<<<<< HEAD
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
     <editor active="true" />
+=======
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="false" />
+>>>>>>> 4d95bdb76012d5b4f1623515318b9dfb33d23a34
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -2281,8 +2430,12 @@
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+<<<<<<< HEAD
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24962178" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32885906" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+=======
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17750533" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+>>>>>>> 4d95bdb76012d5b4f1623515318b9dfb33d23a34
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
@@ -2340,6 +2493,7 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/app/src/main/java/bk/danang/quanlybanhang/controller/HoaDonController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2370,6 +2524,19 @@
           <caret line="28" column="42" selection-start-line="28" selection-start-column="42" selection-end-line="28" selection-end-column="42" />
           <folding />
         </state>
+=======
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_nhomkh.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6109091">
+          <caret line="34" column="40" selection-start-line="34" selection-start-column="29" selection-end-line="34" selection-end-column="40" />
+          <folding>
+            <element signature="e#2306#2326#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+>>>>>>> 4d95bdb76012d5b4f1623515318b9dfb33d23a34
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/bk/danang/quanlybanhang/webinterface/LoaiSPService.java">
@@ -2390,6 +2557,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/app/src/main/java/bk/danang/quanlybanhang/controller/NhanHieuController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2399,6 +2567,9 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/bk/danang/quanlybanhang/HomeActivity.java">
+=======
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/bk/danang/quanlybanhang/adapter/NhanVienAdapter.java">
+>>>>>>> 4d95bdb76012d5b4f1623515318b9dfb33d23a34
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="19" column="52" selection-start-line="19" selection-start-column="52" selection-end-line="19" selection-end-column="52" />
@@ -2408,6 +2579,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/app/src/main/java/bk/danang/quanlybanhang/LoginActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2417,6 +2589,9 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/bk/danang/quanlybanhang/controller/KhachHangController.java">
+=======
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_nhan_vien.xml">
+>>>>>>> 4d95bdb76012d5b4f1623515318b9dfb33d23a34
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
@@ -2533,10 +2708,17 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/app/src/main/java/bk/danang/quanlybanhang/model/NhomKH.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+=======
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2728732">
+          <caret line="10" column="34" selection-start-line="10" selection-start-column="34" selection-end-line="10" selection-end-column="34" />
+>>>>>>> 4d95bdb76012d5b4f1623515318b9dfb33d23a34
           <folding />
         </state>
       </provider>
@@ -2629,15 +2811,146 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/app/src/main/java/bk/danang/quanlybanhang/webinterface/AuthenticationService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.71903324">
           <caret line="14" column="20" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
+=======
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/loaisp_item.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.6363635">
+          <caret line="15" column="33" selection-start-line="15" selection-start-column="25" selection-end-line="15" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/bk/danang/quanlybanhang/model/LoaiSP.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/bk/danang/quanlybanhang/controller/SanPhamController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="4" column="32" selection-start-line="4" selection-start-column="32" selection-end-line="21" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/bk/danang/quanlybanhang/controller/PermissionController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="17" column="26" selection-start-line="17" selection-start-column="26" selection-end-line="17" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/san_pham_item.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.2">
+          <caret line="15" column="35" selection-start-line="15" selection-start-column="25" selection-end-line="15" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/bk/danang/quanlybanhang/adapter/LoaiSPAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.45490983">
+          <caret line="48" column="0" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/bk/danang/quanlybanhang/model/KhachHang.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.9198397">
+          <caret line="75" column="5" selection-start-line="75" selection-start-column="5" selection-end-line="75" selection-end-column="5" />
+>>>>>>> 4d95bdb76012d5b4f1623515318b9dfb33d23a34
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+=======
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_hoa_don.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.0545454">
+          <caret line="147" column="8" selection-start-line="147" selection-start-column="8" selection-end-line="147" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/bk/danang/quanlybanhang/HoaDonActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="33" column="8" selection-start-line="33" selection-start-column="8" selection-end-line="35" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/bk/danang/quanlybanhang/HomeActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="16" column="8" selection-start-line="16" selection-start-column="8" selection-end-line="18" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/bk/danang/quanlybanhang/KhachHangActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="32" column="9" selection-start-line="32" selection-start-column="9" selection-end-line="32" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/bk/danang/quanlybanhang/LoaiSPActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="25" column="9" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/bk/danang/quanlybanhang/LoginActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="25" column="30" selection-start-line="25" selection-start-column="30" selection-end-line="25" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/bk/danang/quanlybanhang/NhanHieuActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="24" column="9" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/bk/danang/quanlybanhang/NhomKHActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5511022">
+          <caret line="26" column="9" selection-start-line="26" selection-start-column="9" selection-end-line="26" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+>>>>>>> 4d95bdb76012d5b4f1623515318b9dfb33d23a34
   </component>
 </project>

@@ -5,6 +5,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
+
+import bk.danang.quanlybanhang.controller.PermissionController;
 
 import java.io.IOException;
 import java.util.List;
@@ -23,6 +26,9 @@ public class HomeActivity extends AppCompatActivity  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        if (!PermissionController.getInstance().getIsAdmin()) {
+            ((Button) findViewById(R.id.btn_ql_nhanvien)).setVisibility(View.INVISIBLE);
+        }
     }
 
     public void SelectFeature(View view) {

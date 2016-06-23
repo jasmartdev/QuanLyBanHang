@@ -9,6 +9,7 @@ import android.widget.EditText;
 import android.widget.RadioGroup;
 
 import bk.danang.quanlybanhang.controller.KhachHangController;
+import bk.danang.quanlybanhang.controller.PermissionController;
 import bk.danang.quanlybanhang.model.KhachHang;
 
 public class KhachHangActivity extends AppCompatActivity {
@@ -27,6 +28,9 @@ public class KhachHangActivity extends AppCompatActivity {
         ed_nhomkh = (EditText) findViewById(R.id.ed_nhomkh);
         ed_ghi_chu = (EditText) findViewById(R.id.ed_ghi_chu);
         rdg_gioi_tinh = (RadioGroup) findViewById(R.id.rdg_gioi_tinh);
+        if (!PermissionController.getInstance().getIsAdmin()) {
+            ((Button) findViewById(R.id.btn_delete)).setVisibility(View.INVISIBLE);
+        }
         Intent intent = getIntent();
         id = intent.getIntExtra("object", -1);
         if (id == -1) {

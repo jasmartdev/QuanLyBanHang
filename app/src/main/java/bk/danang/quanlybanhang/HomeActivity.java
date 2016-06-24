@@ -11,6 +11,7 @@ import android.widget.Toast;
 import bk.danang.quanlybanhang.controller.KhachHangController;
 import bk.danang.quanlybanhang.controller.LoaiSPController;
 import bk.danang.quanlybanhang.controller.NhanHieuController;
+import bk.danang.quanlybanhang.controller.NhanVienController;
 import bk.danang.quanlybanhang.controller.NhomKHController;
 import bk.danang.quanlybanhang.controller.PermissionController;
 
@@ -20,11 +21,13 @@ import bk.danang.quanlybanhang.controller.SanPhamController;
 import bk.danang.quanlybanhang.model.KhachHang;
 import bk.danang.quanlybanhang.model.LoaiSP;
 import bk.danang.quanlybanhang.model.NhanHieu;
+import bk.danang.quanlybanhang.model.NhanVien;
 import bk.danang.quanlybanhang.model.NhomKH;
 import bk.danang.quanlybanhang.model.SanPham;
 import bk.danang.quanlybanhang.webinterface.KhachHangService;
 import bk.danang.quanlybanhang.webinterface.LoaiSPService;
 import bk.danang.quanlybanhang.webinterface.NhanHieuService;
+import bk.danang.quanlybanhang.webinterface.NhanVienService;
 import bk.danang.quanlybanhang.webinterface.NhomKHService;
 import bk.danang.quanlybanhang.webinterface.SanPhamService;
 import retrofit.Call;
@@ -78,10 +81,28 @@ public class HomeActivity extends AppCompatActivity {
                 startActivity(intent);
                 break;
             case R.id.btn_ql_nhanvien:
-                intent = new Intent(this, QuanLyNhanVienActivity.class);
-                startActivity(intent);
+                quanlyNhanVien();
                 break;
         }
+    }
+
+    private void quanlyNhanVien(){
+        progressDialog.show();
+        NhanVienService nhanVienService = retrofit.create(NhanVienService.class);
+        final Call<List<NhanVien>> call = nhanVienService.getAll(PermissionController.getInstance().getAuthentication());
+        call.enqueue(new Callback<List<NhanVien>>() {
+            public void onResponse(Response<List<NhanVien>> response, Retrofit retrofit) {
+                progressDialog.dismiss();
+                NhanVienController.getInstance().setNhanViens(response.body());
+                startActivity(new Intent(HomeActivity.this, QuanLyNhanVienActivity.class));
+            }
+
+            @Override
+            public void onFailure(Throwable t) {
+                progressDialog.dismiss();
+                Toast.makeText(HomeActivity.this, getString(R.string.loading_msg_fail), Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     private void quanlySanPham() {

@@ -29,9 +29,7 @@ public class QuanLyNhanVienActivity extends AppCompatActivity {
 
     private void setUpListView() {
         lv_nhanvien = (ListView) findViewById(R.id.lv_nhanvien);
-        NhanVien[] nhanViens = new NhanVien[8];
-        NhanVienController.getInstance().setNhanViens(nhanViens);
-        nhanVienAdapter = new NhanVienAdapter(this, nhanViens);
+        nhanVienAdapter = new NhanVienAdapter(this, NhanVienController.getInstance().getNhanViens());
         lv_nhanvien.setAdapter(nhanVienAdapter);
     }
 

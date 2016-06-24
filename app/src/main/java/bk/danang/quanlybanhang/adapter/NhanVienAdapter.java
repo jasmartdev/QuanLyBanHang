@@ -8,44 +8,53 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import java.util.List;
+
 import bk.danang.quanlybanhang.R;
 import bk.danang.quanlybanhang.NhanVienActivity;
 import bk.danang.quanlybanhang.model.NhanVien;
+import bk.danang.quanlybanhang.util.Util;
 
 public class NhanVienAdapter  extends BaseAdapter {
-    private NhanVien[] nhanViens;
+    private List<NhanVien> nhanViens;
     private Context context;
 
-    public NhanVienAdapter(Context context, NhanVien[] nhanViens) {
+    public NhanVienAdapter(Context context, List<NhanVien> nhanViens) {
         this.context = context;
         this.nhanViens = nhanViens;
     }
 
     @Override
     public int getCount() {
-        return nhanViens.length;
+        return nhanViens.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return nhanViens[position];
+        return nhanViens.get(position);
     }
 
     @Override
     public long getItemId(int position) {
-        return nhanViens[position].getId();
+        return nhanViens.get(position).getId();
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         if (convertView == null) {
-            convertView = LayoutInflater.from(context).inflate(R.layout.nhan_hieu_item, parent, false);
+            convertView = LayoutInflater.from(context).inflate(R.layout.nhan_vien_item, parent, false);
         }
-        final NhanVien nhanVien = nhanViens[position];
-        TextView tv_ten_sp = (TextView) convertView.findViewById(R.id.tv_ten_sp);
-        TextView tv_tri_gia = (TextView) convertView.findViewById(R.id.tv_tri_gia);
-        TextView tv_so_luong = (TextView) convertView.findViewById(R.id.tv_so_luong);
-        tv_ten_sp.setText(nhanVien.getName());
+        final NhanVien nhanVien = nhanViens.get(position);
+        TextView tvTenNv = (TextView) convertView.findViewById(R.id.tv_ten_nv);
+        TextView tvGioiTinh = (TextView) convertView.findViewById(R.id.tv_gioi_tinh);
+        TextView tvDiaChi = (TextView) convertView.findViewById(R.id.tv_dia_chi);
+        TextView tvCongViec = (TextView) convertView.findViewById(R.id.tv_cong_viec);
+
+        tvTenNv.setText(nhanVien.getName());
+        tvGioiTinh.setText(Util.ConvertGender(nhanVien.getGender()));
+        tvDiaChi.setText(nhanVien.getAddress());
+        tvCongViec.setText(nhanVien.getJobTitle());
+
         convertView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {

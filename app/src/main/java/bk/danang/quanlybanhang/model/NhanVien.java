@@ -65,13 +65,13 @@ public class NhanVien {
         this.role = role;
     }
 
-    private Gender gender;
+    private int gender;
 
-    public Gender getGender() {
+    public int getGender() {
         return gender;
     }
 
-    public void setGender(Gender gender) {
+    public void setGender(int gender) {
         this.gender = gender;
     }
 

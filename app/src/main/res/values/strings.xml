@@ -43,4 +43,6 @@
     <string name="login_fail">Đăng nhập thất bại</string>
     <string name="loading_msg">Đang cập nhật dữ liệu từ server...</string>
     <string name="loading_msg_fail">Đang cập nhật dữ liệu từ server thất bại</string>
+    <string name="login_name">Tên đăng nhập</string>
+    <string name="password">Mật khẩu</string>
 </resources>

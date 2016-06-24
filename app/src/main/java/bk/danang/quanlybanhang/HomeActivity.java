@@ -86,6 +86,11 @@ public class HomeActivity extends AppCompatActivity {
         }
     }
 
+    private  void quanlyHoaDon(){
+        progressDialog.show();
+
+    }
+
     private void quanlyNhanVien(){
         progressDialog.show();
         NhanVienService nhanVienService = retrofit.create(NhanVienService.class);

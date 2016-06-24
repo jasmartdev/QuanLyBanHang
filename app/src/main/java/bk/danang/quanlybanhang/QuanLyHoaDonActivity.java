@@ -29,9 +29,8 @@ public class QuanLyHoaDonActivity extends AppCompatActivity {
 
     private void setUpListView() {
         lv_hoadon = (ListView) findViewById(R.id.lv_hoadon);
-        HoaDon[] hoaDons = new HoaDon[8];
-        HoaDonController.getInstance().setHoaDons(hoaDons);
-        hoaDonAdapter = new HoaDonAdapter(this, hoaDons);
+
+        hoaDonAdapter = new HoaDonAdapter(this, HoaDonController.getInstance().getHoaDons());
         lv_hoadon.setAdapter(hoaDonAdapter);
     }
 

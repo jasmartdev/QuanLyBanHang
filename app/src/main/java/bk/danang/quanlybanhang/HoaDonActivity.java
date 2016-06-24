@@ -41,13 +41,13 @@ public class HoaDonActivity extends AppCompatActivity {
 
     public void setObject() {
         if (id != -1) {
-            HoaDon hoaDon = HoaDonController.getInstance().getHoaDons()[id];
+            //HoaDon hoaDon = HoaDonController.getInstance().getHoaDons().get()id];
         }
     }
 
     public void Save(View view) {
         if (id != -1) {
-            HoaDon hoaDon = HoaDonController.getInstance().getHoaDons()[id];
+            //HoaDon hoaDon = HoaDonController.getInstance().getHoaDons()[id];
         }
         this.finish();
     }

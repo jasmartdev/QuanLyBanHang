@@ -8,32 +8,34 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import java.util.List;
+
 import bk.danang.quanlybanhang.R;
 import bk.danang.quanlybanhang.HoaDonActivity;
 import bk.danang.quanlybanhang.model.HoaDon;
 
 public class HoaDonAdapter extends BaseAdapter {
-    private HoaDon[] hoaDons;
+    private List<HoaDon> hoaDons;
     private Context context;
 
-    public HoaDonAdapter(Context context, HoaDon[] hoaDons) {
+    public HoaDonAdapter(Context context, List<HoaDon> hoaDons) {
         this.context = context;
         this.hoaDons = hoaDons;
     }
 
     @Override
     public int getCount() {
-        return hoaDons.length;
+        return hoaDons.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return hoaDons[position];
+        return hoaDons.get(position);
     }
 
     @Override
     public long getItemId(int position) {
-        return hoaDons[position].getId();
+        return hoaDons.get(position).getId();
     }
 
     @Override
@@ -41,7 +43,7 @@ public class HoaDonAdapter extends BaseAdapter {
         if (convertView == null) {
             convertView = LayoutInflater.from(context).inflate(R.layout.hoa_don_item, parent, false);
         }
-        final HoaDon hoaDon = hoaDons[position];
+        final HoaDon hoaDon = hoaDons.get(position);
         TextView tv_ten_sp = (TextView) convertView.findViewById(R.id.tv_ten_sp);
         TextView tv_tri_gia = (TextView) convertView.findViewById(R.id.tv_tri_gia);
         TextView tv_so_luong = (TextView) convertView.findViewById(R.id.tv_so_luong);

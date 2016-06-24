@@ -11,6 +11,7 @@ import android.widget.Toast;
 import bk.danang.quanlybanhang.controller.PermissionController;
 import bk.danang.quanlybanhang.model.LoginForm;
 import bk.danang.quanlybanhang.model.LoginFormResponse;
+import bk.danang.quanlybanhang.util.LoadAllData;
 import bk.danang.quanlybanhang.webinterface.AuthenticationService;
 import retrofit.Call;
 import retrofit.Callback;
@@ -53,15 +54,25 @@ public class LoginActivity extends AppCompatActivity implements Callback<LoginFo
 
     @Override
     public void onResponse(Response<LoginFormResponse> response, Retrofit retrofit) {
-        progressDialog.dismiss();
+
         if (response == null || response.body() == null) {
             Toast.makeText(this, getString(R.string.login_fail), Toast.LENGTH_SHORT).show();
         } else {
             PermissionController.getInstance().setIsAdmin(response.body().getRole() == 1);
             PermissionController.getInstance().setAuthentication(response.body().getAuthentication());
-            Intent intent = new Intent(this, HomeActivity.class);
-            startActivity(intent);
-            finish();
+            new LoadAllData(new Runnable() {
+                public void run() {
+                    progressDialog.dismiss();
+                    Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+                    startActivity(intent);
+                    finish();
+                }
+            }, new Runnable() {
+                public void run() {
+                    progressDialog.dismiss();
+                    Toast.makeText(LoginActivity.this, getString(R.string.loading_msg_fail), Toast.LENGTH_SHORT).show();
+                }
+            }).start();
         }
     }
 

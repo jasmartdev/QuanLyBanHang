@@ -20,6 +20,15 @@ public class LoaiSPController {
         return loaiSPs;
     }
 
+    public int getIndexOfId(int id){
+        for(int i=0;i<loaiSPs.size();i++){
+            if(loaiSPs.get(i).getId()==id){
+                return i;
+            }
+        }
+        return 0;
+    }
+
     public LoaiSP findById(int id){
         for(LoaiSP loaiSP: loaiSPs){
             if(loaiSP.getId()==id){

@@ -12,6 +12,8 @@ import java.util.List;
 
 import bk.danang.quanlybanhang.R;
 import bk.danang.quanlybanhang.HoaDonActivity;
+import bk.danang.quanlybanhang.controller.NhanVienController;
+import bk.danang.quanlybanhang.controller.SanPhamController;
 import bk.danang.quanlybanhang.model.HoaDon;
 
 public class HoaDonAdapter extends BaseAdapter {
@@ -48,6 +50,11 @@ public class HoaDonAdapter extends BaseAdapter {
         TextView tv_tri_gia = (TextView) convertView.findViewById(R.id.tv_tri_gia);
         TextView tv_so_luong = (TextView) convertView.findViewById(R.id.tv_so_luong);
         TextView tv_ten_nv = (TextView) convertView.findViewById(R.id.tv_ten_nv);
+
+        tv_ten_nv.setText(NhanVienController.getInstance().findById(hoaDon.getEmployeeId())+"");
+        tv_tri_gia.setText(hoaDon.getPrice());
+        tv_ten_sp.setText(SanPhamController.getInstance().findById(hoaDon.getProductionId())+"");
+
         tv_so_luong.setText(Integer.toString(hoaDon.getQuantity()));
         convertView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override

@@ -20,6 +20,14 @@ public class SanPhamController {
         return sanPhams;
     }
 
+    public int getIndexOfId(int id){
+        for(int i=0;i<sanPhams.size();i++){
+            if(sanPhams.get(i).getId()==id){
+                return i;
+            }
+        }
+        return 0;
+    }
     public SanPham findById(int id) {
         for (SanPham sanpham : sanPhams) {
             if (sanpham.getId() == id) {

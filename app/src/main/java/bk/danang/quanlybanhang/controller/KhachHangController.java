@@ -29,6 +29,15 @@ public class KhachHangController {
         return null;
     }
 
+    public int getIndexOfId(int id){
+        for(int i=0;i<khachHangs.size();i++){
+            if(khachHangs.get(i).getId()==id){
+                return i;
+            }
+        }
+        return 0;
+    }
+
     public void setKhachHangs(List<KhachHang> khachHangs) {
         this.khachHangs = khachHangs;
     }

@@ -130,6 +130,7 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void quanlyLoaiSP() {
+        progressDialog.show();
         LoaiSPService loaiSPService = retrofit.create(LoaiSPService.class);
 
         final Call<List<LoaiSP>> call = loaiSPService.getAll(PermissionController.getInstance().getAuthentication());
@@ -148,7 +149,7 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void quanlyNhanHieu() {
-
+        progressDialog.show();
         NhanHieuService nhanHieuService = retrofit.create(NhanHieuService.class);
 
         final Call<List<NhanHieu>> call = nhanHieuService.getAll(PermissionController.getInstance().getAuthentication());
@@ -199,7 +200,7 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void quanlyNhomKH() {
-
+        progressDialog.show();
         NhomKHService nhomKHService = retrofit.create(NhomKHService.class);
 
         final Call<List<NhomKH>> call = nhomKHService.getAll(PermissionController.getInstance().getAuthentication());

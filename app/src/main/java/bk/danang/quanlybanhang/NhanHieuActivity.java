@@ -100,6 +100,7 @@ public class NhanHieuActivity extends AppCompatActivity {
             final Call<Object> call = nhanHieuService.xoa(nhanHieuRequest.getId(), PermissionController.getInstance().getAuthentication());
             call.enqueue(new Callback<Object>() {
                 public void onResponse(Response<Object> response, Retrofit retrofit) {
+                    NhanHieuController.getInstance().getNhanHieus().remove(nhanHieu);
                     finish();
                 }
 

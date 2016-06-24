@@ -108,6 +108,7 @@ public class SanPhamActivity extends AppCompatActivity {
         SanPhamRequest sanPhamRequest = new SanPhamRequest();
         sanPhamRequest.setData(sanPham);
         sanPhamRequest.setAuthentication(PermissionController.getInstance().getAuthentication());
+
         if (id != -1) {
             final Call<Object> call = sanPhamService.sua(sanPhamRequest);
             call.enqueue(new Callback<Object>() {
@@ -124,7 +125,7 @@ public class SanPhamActivity extends AppCompatActivity {
             call.enqueue(new Callback<SanPham>() {
                 public void onResponse(Response<SanPham> response, Retrofit retrofit) {
                     SanPhamController.getInstance().getSanPhams().add(sanPham);
-                    startActivity(new Intent(SanPhamActivity.this, QuanLySanPhamActivity.class));
+                    finish();
                 }
 
                 public void onFailure(Throwable t) {
@@ -144,7 +145,8 @@ public class SanPhamActivity extends AppCompatActivity {
             final Call<Object> call = sanPhamService.xoa(sanPhamRequest.getId(), PermissionController.getInstance().getAuthentication());
             call.enqueue(new Callback<Object>() {
                 public void onResponse(Response<Object> response, Retrofit retrofit) {
-                    startActivity(new Intent(SanPhamActivity.this, QuanLySanPhamActivity.class));
+                    SanPhamController.getInstance().getSanPhams().remove(sanPham);
+                    finish();
                 }
 
                 public void onFailure(Throwable t) {

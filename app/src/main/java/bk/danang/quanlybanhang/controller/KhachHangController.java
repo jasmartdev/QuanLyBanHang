@@ -21,5 +21,6 @@ public class KhachHangController {
 
     public void setKhachHangs(List<KhachHang> khachHangs) {
         this.khachHangs = khachHangs;
+        System.out.println("Hoang "+" "+khachHangs.size());
     }
 }

@@ -18,21 +18,51 @@
             </intent-filter>
         </activity>
         <activity android:name=".HomeActivity" />
-        <activity android:name=".QuanLyHoaDonActivity" />
-        <activity android:name=".HoaDonActivity" />
-        <activity android:name=".QuanLySanPhamActivity" />
-        <activity android:name=".SanPhamActivity" />
-        <activity android:name=".QuanLyLoaiSPActivity" />
-        <activity android:name=".LoaiSPActivity" />
-        <activity android:name=".QuanLyNhanHieuActivity" />
-        <activity android:name=".NhanHieuActivity" />
-        <activity android:name=".QuanLyKhachHangActivity" />
-        <activity android:name=".KhachHangActivity" />
-        <activity android:name=".QuanLyNhomKHActivity" />
-        <activity android:name=".NhomKHActivity" />
-        <activity android:name=".QuanLyNhanVienActivity" />
-        <activity android:name=".NhanVienActivity" />
-        <activity android:name=".QuanLyDoanhThuActivity"></activity>
+        <activity
+            android:name=".QuanLyHoaDonActivity"
+            android:label="@string/quanly_hoadon" />
+        <activity
+            android:name=".HoaDonActivity"
+            android:label="@string/quanly_hoadon" />
+        <activity
+            android:name=".QuanLySanPhamActivity"
+            android:label="@string/quanly_sanpham" />
+        <activity
+            android:name=".SanPhamActivity"
+            android:label="@string/quanly_sanpham" />
+        <activity
+            android:name=".QuanLyLoaiSPActivity"
+            android:label="@string/quanly_loaisp" />
+        <activity
+            android:name=".LoaiSPActivity"
+            android:label="@string/quanly_loaisp" />
+        <activity
+            android:name=".QuanLyNhanHieuActivity"
+            android:label="@string/quanly_nhanhieu" />
+        <activity
+            android:name=".NhanHieuActivity"
+            android:label="@string/quanly_nhanhieu" />
+        <activity
+            android:name=".QuanLyKhachHangActivity"
+            android:label="@string/quanly_khachhang" />
+        <activity
+            android:name=".KhachHangActivity"
+            android:label="@string/quanly_khachhang" />
+        <activity
+            android:name=".QuanLyNhomKHActivity"
+            android:label="@string/quanly_nhomkh" />
+        <activity
+            android:name=".NhomKHActivity"
+            android:label="@string/quanly_nhomkh" />
+        <activity
+            android:name=".QuanLyNhanVienActivity"
+            android:label="@string/quanly_nhanvien" />
+        <activity
+            android:name=".NhanVienActivity"
+            android:label="@string/quanly_nhanvien" />
+        <activity
+            android:name=".QuanLyDoanhThuActivity"
+            android:label="@string/quanly_doanhthu" />
     </application>
 
 </manifest>

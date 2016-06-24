@@ -167,15 +167,28 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void quanlyKhachHang() {
+        progressDialog.show();
+        KhachHangService khachHangService = retrofit.create(KhachHangService.class);
 
-        KhachHangService nhanHieuService = retrofit.create(KhachHangService.class);
-
-        final Call<List<KhachHang>> call = nhanHieuService.getAll(PermissionController.getInstance().getAuthentication());
+        final Call<List<KhachHang>> call = khachHangService.getAll(PermissionController.getInstance().getAuthentication());
         call.enqueue(new Callback<List<KhachHang>>() {
             public void onResponse(Response<List<KhachHang>> response, Retrofit retrofit) {
                 KhachHangController.getInstance().setKhachHangs(response.body());
-                startActivity(new Intent(HomeActivity.this, QuanLyKhachHangActivity.class));
-                progressDialog.dismiss();
+                NhomKHService nhanHieuService = retrofit.create(NhomKHService.class);
+
+                final Call<List<NhomKH>> call = nhanHieuService.getAll(PermissionController.getInstance().getAuthentication());
+                call.enqueue(new Callback<List<NhomKH>>() {
+                    public void onResponse(Response<List<NhomKH>> response, Retrofit retrofit) {
+                        NhomKHController.getInstance().setNhomKHs(response.body());
+                        startActivity(new Intent(HomeActivity.this, QuanLyKhachHangActivity.class));
+                        progressDialog.dismiss();
+                    }
+
+                    public void onFailure(Throwable t) {
+                        progressDialog.dismiss();
+                        Toast.makeText(HomeActivity.this, getString(R.string.loading_msg_fail), Toast.LENGTH_SHORT).show();
+                    }
+                });
             }
 
             public void onFailure(Throwable t) {
@@ -187,9 +200,9 @@ public class HomeActivity extends AppCompatActivity {
 
     private void quanlyNhomKH() {
 
-        NhomKHService nhanHieuService = retrofit.create(NhomKHService.class);
+        NhomKHService nhomKHService = retrofit.create(NhomKHService.class);
 
-        final Call<List<NhomKH>> call = nhanHieuService.getAll(PermissionController.getInstance().getAuthentication());
+        final Call<List<NhomKH>> call = nhomKHService.getAll(PermissionController.getInstance().getAuthentication());
         call.enqueue(new Callback<List<NhomKH>>() {
             public void onResponse(Response<List<NhomKH>> response, Retrofit retrofit) {
                 NhomKHController.getInstance().setNhomKHs(response.body());

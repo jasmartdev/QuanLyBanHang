@@ -14,7 +14,7 @@ import bk.danang.quanlybanhang.R;
 import bk.danang.quanlybanhang.NhanHieuActivity;
 import bk.danang.quanlybanhang.model.NhanHieu;
 
-public class NhanHieuAdapter  extends BaseAdapter {
+public class NhanHieuAdapter extends BaseAdapter {
     private List<NhanHieu> nhanHieus;
     private Context context;
 
@@ -30,7 +30,7 @@ public class NhanHieuAdapter  extends BaseAdapter {
 
     @Override
     public Object getItem(int position) {
-        return nhanHieus.size();
+        return nhanHieus.get(position);
     }
 
     @Override

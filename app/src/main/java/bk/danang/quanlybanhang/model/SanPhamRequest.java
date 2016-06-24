@@ -1,15 +1,15 @@
 package bk.danang.quanlybanhang.model;
 
-public class NhanHieuRequest {
+public class SanPhamRequest {
     private int id;
     private String authentication;
-    private NhanHieu data;
+    private SanPham data;
 
-    public NhanHieu getData() {
+    public SanPham getData() {
         return data;
     }
 
-    public void setData(NhanHieu data) {
+    public void setData(SanPham data) {
         this.data = data;
     }
 

@@ -28,12 +28,9 @@ public class KhachHangActivity extends AppCompatActivity {
         ed_nhomkh = (EditText) findViewById(R.id.ed_nhomkh);
         ed_ghi_chu = (EditText) findViewById(R.id.ed_ghi_chu);
         rdg_gioi_tinh = (RadioGroup) findViewById(R.id.rdg_gioi_tinh);
-        if (!PermissionController.getInstance().getIsAdmin()) {
-            ((Button) findViewById(R.id.btn_delete)).setVisibility(View.INVISIBLE);
-        }
         Intent intent = getIntent();
         id = intent.getIntExtra("object", -1);
-        if (id == -1) {
+        if (id == -1 || !PermissionController.getInstance().getIsAdmin()) {
             ((Button) findViewById(R.id.btn_delete)).setVisibility(View.INVISIBLE);
         }
         setObject();
@@ -41,14 +38,14 @@ public class KhachHangActivity extends AppCompatActivity {
 
     public void setObject() {
         if (id != -1) {
-            KhachHang khachHang = KhachHangController.getInstance().getKhachHangs()[id];
+            KhachHang khachHang = KhachHangController.getInstance().getKhachHangs().get(id);
             ed_khachhang.setText(khachHang.getName());
         }
     }
 
     public void Save(View view) {
         if (id != -1) {
-            KhachHang khachHang = KhachHangController.getInstance().getKhachHangs()[id];
+            KhachHang khachHang = KhachHangController.getInstance().getKhachHangs().get(id);
             khachHang.setName(ed_khachhang.getText().toString());
         }
         this.finish();

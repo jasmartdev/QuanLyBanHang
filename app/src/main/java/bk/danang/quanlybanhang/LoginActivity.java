@@ -1,23 +1,17 @@
 package bk.danang.quanlybanhang;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
-import android.provider.SyncStateContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import java.io.IOException;
-import java.util.List;
-
 import bk.danang.quanlybanhang.controller.PermissionController;
-import bk.danang.quanlybanhang.model.LoaiSP;
 import bk.danang.quanlybanhang.model.LoginForm;
 import bk.danang.quanlybanhang.model.LoginFormResponse;
 import bk.danang.quanlybanhang.webinterface.AuthenticationService;
-import bk.danang.quanlybanhang.webinterface.LoaiSPService;
 import retrofit.Call;
 import retrofit.Callback;
 import retrofit.GsonConverterFactory;
@@ -27,7 +21,7 @@ import retrofit.Retrofit;
 public class LoginActivity extends AppCompatActivity implements Callback<LoginFormResponse> {
     EditText ed_user_name;
     EditText ed_user_pass;
-    String name, pass;
+    ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,9 +29,12 @@ public class LoginActivity extends AppCompatActivity implements Callback<LoginFo
         setContentView(R.layout.activity_login);
         ed_user_name = (EditText) findViewById(R.id.ed_user_name);
         ed_user_pass = (EditText) findViewById(R.id.ed_user_pass);
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage(getString(R.string.loading_msg));
     }
 
     public void Login(View view) {
+        progressDialog.show();
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(AppConstant.WEB_API_BASE)
                 .addConverterFactory(GsonConverterFactory.create())
@@ -56,6 +53,7 @@ public class LoginActivity extends AppCompatActivity implements Callback<LoginFo
 
     @Override
     public void onResponse(Response<LoginFormResponse> response, Retrofit retrofit) {
+        progressDialog.dismiss();
         if (response == null || response.body() == null) {
             Toast.makeText(this, getString(R.string.login_fail), Toast.LENGTH_SHORT).show();
         } else {
@@ -68,6 +66,7 @@ public class LoginActivity extends AppCompatActivity implements Callback<LoginFo
 
     @Override
     public void onFailure(Throwable t) {
+        progressDialog.dismiss();
         Toast.makeText(this, getString(R.string.login_fail), Toast.LENGTH_SHORT).show();
     }
 }

@@ -2,9 +2,6 @@ package bk.danang.quanlybanhang.model;
 
 import com.google.gson.annotations.SerializedName;
 
-/**
- * Created by voqua on 6/24/2016.
- */
 public class LoginForm {
     @SerializedName("user_name")
     private String userName;

@@ -1,9 +1,6 @@
 package bk.danang.quanlybanhang.model;
 
-/**
- * Created by voqua on 6/24/2016.
- */
-public class LoaiSanPhamRequest {
+public class LoaiSPRequest {
     private int id;
 
     private String authentication;

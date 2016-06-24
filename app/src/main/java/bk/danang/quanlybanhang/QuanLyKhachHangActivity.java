@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ListView;
 
+import java.util.List;
+
 import bk.danang.quanlybanhang.adapter.KhachHangAdapter;
 import bk.danang.quanlybanhang.adapter.SanPhamAdapter;
 import bk.danang.quanlybanhang.controller.KhachHangController;
@@ -32,9 +34,7 @@ public class QuanLyKhachHangActivity extends AppCompatActivity {
 
     private void setUpListView() {
         lv_khachhang = (ListView) findViewById(R.id.lv_khachhang);
-        KhachHang[] khachHangs = new KhachHang[2];
-        KhachHangController.getInstance().setKhachHangs(khachHangs);
-        khachHangAdapter = new KhachHangAdapter(this, khachHangs);
+        khachHangAdapter = new KhachHangAdapter(this, KhachHangController.getInstance().getKhachHangs());
         lv_khachhang.setAdapter(khachHangAdapter);
     }
 

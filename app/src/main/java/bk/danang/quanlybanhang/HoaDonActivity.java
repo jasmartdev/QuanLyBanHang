@@ -31,12 +31,9 @@ public class HoaDonActivity extends AppCompatActivity {
         ed_khachhang = (EditText) findViewById(R.id.ed_khachhang);
         ed_dia_chi = (EditText) findViewById(R.id.ed_dia_chi);
         ed_ghi_chu = (EditText) findViewById(R.id.ed_ghi_chu);
-        if (!PermissionController.getInstance().getIsAdmin()) {
-            ((Button) findViewById(R.id.btn_delete)).setVisibility(View.INVISIBLE);
-        }
         Intent intent = getIntent();
         id = intent.getIntExtra("object", -1);
-        if (id == -1) {
+        if (id == -1 || !PermissionController.getInstance().getIsAdmin()) {
             ((Button) findViewById(R.id.btn_delete)).setVisibility(View.INVISIBLE);
         }
         setObject();

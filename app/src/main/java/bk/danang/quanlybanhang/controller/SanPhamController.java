@@ -1,10 +1,12 @@
 package bk.danang.quanlybanhang.controller;
 
+import java.util.List;
+
 import bk.danang.quanlybanhang.model.SanPham;
 
 public class SanPhamController {
     private static SanPhamController instance;
-    private SanPham[] sanPhams;
+    private List<SanPham> sanPhams;
 
     public static SanPhamController getInstance() {
         if (instance == null) {
@@ -13,11 +15,11 @@ public class SanPhamController {
         return instance;
     }
 
-    public SanPham[] getSanPhams() {
+    public List<SanPham> getSanPhams() {
         return sanPhams;
     }
 
-    public void setSanPhams(SanPham[] sanPhams) {
+    public void setSanPhams(List<SanPham> sanPhams) {
         this.sanPhams = sanPhams;
     }
 }

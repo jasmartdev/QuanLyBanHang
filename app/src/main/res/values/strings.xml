@@ -41,4 +41,6 @@
     <string name="nhanvien_dia_chi">Địa chỉ nhân viên</string>
     <string name="nhanvien_cong_viec">Công việc</string>
     <string name="login_fail">Đăng nhập thất bại</string>
+    <string name="loading_msg">Đang cập nhật dữ liệu từ server...</string>
+    <string name="loading_msg_fail">Đang cập nhật dữ liệu từ server thất bại</string>
 </resources>

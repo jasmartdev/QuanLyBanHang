@@ -62,7 +62,8 @@
                 android:id="@+id/ed_so_luong"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/quanly_margin" />
+                android:layout_marginLeft="@dimen/quanly_margin"
+                android:inputType="number" />
         </LinearLayout>
 
         <LinearLayout
@@ -80,7 +81,8 @@
                 android:id="@+id/ed_gia_goc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/quanly_margin" />
+                android:layout_marginLeft="@dimen/quanly_margin"
+                android:inputType="number" />
         </LinearLayout>
 
         <LinearLayout
@@ -98,7 +100,8 @@
                 android:id="@+id/ed_gia_vip"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/quanly_margin" />
+                android:layout_marginLeft="@dimen/quanly_margin"
+                android:inputType="number" />
         </LinearLayout>
 
         <LinearLayout
@@ -116,7 +119,8 @@
                 android:id="@+id/ed_gia_si"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/quanly_margin" />
+                android:layout_marginLeft="@dimen/quanly_margin"
+                android:inputType="number" />
         </LinearLayout>
 
         <LinearLayout
@@ -134,14 +138,9 @@
                 android:id="@+id/ed_gia_le"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/quanly_margin" />
+                android:layout_marginLeft="@dimen/quanly_margin"
+                android:inputType="number" />
         </LinearLayout>
-
-        <CheckBox
-            android:id="@+id/cb_con_hang"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/sanpham_con_hang" />
 
         <Button
             android:layout_width="match_parent"

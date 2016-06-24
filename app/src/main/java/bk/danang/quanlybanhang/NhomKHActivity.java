@@ -8,8 +8,9 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import bk.danang.quanlybanhang.controller.PermissionController;
-import bk.danang.quanlybanhang.controller.SanPhamController;
-import bk.danang.quanlybanhang.model.SanPham;
+import bk.danang.quanlybanhang.controller.KhachHangController;
+import bk.danang.quanlybanhang.model.KhachHang;
+import bk.danang.quanlybanhang.model.KhachHang;
 
 public class NhomKHActivity extends AppCompatActivity {
     private EditText ed_nhomkh, ed_giam_gia, ed_ghi_chu;
@@ -22,12 +23,9 @@ public class NhomKHActivity extends AppCompatActivity {
         ed_nhomkh = (EditText) findViewById(R.id.ed_nhomkh);
         ed_giam_gia = (EditText) findViewById(R.id.ed_giam_gia);
         ed_ghi_chu = (EditText) findViewById(R.id.ed_ghi_chu);
-        if (!PermissionController.getInstance().getIsAdmin()) {
-            ((Button) findViewById(R.id.btn_delete)).setVisibility(View.INVISIBLE);
-        }
         Intent intent = getIntent();
         id = intent.getIntExtra("object", -1);
-        if (id == -1) {
+        if (id == -1 || !PermissionController.getInstance().getIsAdmin()) {
             ((Button) findViewById(R.id.btn_delete)).setVisibility(View.INVISIBLE);
         }
         setObject();
@@ -35,13 +33,13 @@ public class NhomKHActivity extends AppCompatActivity {
 
     public void setObject() {
         if (id != -1) {
-            SanPham sanPham = SanPhamController.getInstance().getSanPhams()[id];
+            KhachHang khachHang = KhachHangController.getInstance().getKhachHangs().get(id);
         }
     }
 
     public void Save(View view) {
         if (id != -1) {
-            SanPham sanPham = SanPhamController.getInstance().getSanPhams()[id];
+            KhachHang khachHang = KhachHangController.getInstance().getKhachHangs().get(id);
         }
         this.finish();
     }

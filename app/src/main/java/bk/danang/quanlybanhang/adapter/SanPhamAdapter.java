@@ -8,32 +8,34 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import java.util.List;
+
 import bk.danang.quanlybanhang.R;
 import bk.danang.quanlybanhang.SanPhamActivity;
 import bk.danang.quanlybanhang.model.SanPham;
 
 public class SanPhamAdapter extends BaseAdapter {
-    private SanPham[] sanPhams;
+    private List<SanPham> sanPhams;
     private Context context;
 
-    public SanPhamAdapter(Context context, SanPham[] sanPhams) {
+    public SanPhamAdapter(Context context, List<SanPham> sanPhams) {
         this.context = context;
         this.sanPhams = sanPhams;
     }
 
     @Override
     public int getCount() {
-        return sanPhams.length;
+        return sanPhams.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return sanPhams[position];
+        return sanPhams.get(position);
     }
 
     @Override
     public long getItemId(int position) {
-        return sanPhams[position].getId();
+        return sanPhams.get(position).getId();
     }
 
     @Override
@@ -41,7 +43,7 @@ public class SanPhamAdapter extends BaseAdapter {
         if (convertView == null) {
             convertView = LayoutInflater.from(context).inflate(R.layout.san_pham_item, parent, false);
         }
-        final SanPham sanPham = sanPhams[position];
+        final SanPham sanPham = sanPhams.get(position);
         TextView tv_ten_sp = (TextView) convertView.findViewById(R.id.tv_ten_sp);
         TextView tv_tri_gia = (TextView) convertView.findViewById(R.id.tv_tri_gia);
         TextView tv_so_luong = (TextView) convertView.findViewById(R.id.tv_so_luong);

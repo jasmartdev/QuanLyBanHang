@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import bk.danang.quanlybanhang.controller.NhanVienController;
+import bk.danang.quanlybanhang.controller.PermissionController;
 import bk.danang.quanlybanhang.model.NhanVien;
 
 public class NhanVienActivity extends AppCompatActivity {
@@ -26,7 +27,7 @@ public class NhanVienActivity extends AppCompatActivity {
         ed_ghi_chu = (EditText) findViewById(R.id.ed_ghi_chu);
         Intent intent = getIntent();
         id = intent.getIntExtra("object", -1);
-        if (id == -1) {
+        if (id == -1 || !PermissionController.getInstance().getIsAdmin()) {
             ((Button) findViewById(R.id.btn_delete)).setVisibility(View.INVISIBLE);
         }
         setObject();

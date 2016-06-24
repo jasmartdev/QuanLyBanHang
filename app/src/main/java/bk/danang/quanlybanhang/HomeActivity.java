@@ -1,35 +1,34 @@
 package bk.danang.quanlybanhang;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import bk.danang.quanlybanhang.controller.LoaiSPController;
 import bk.danang.quanlybanhang.controller.NhanHieuController;
 import bk.danang.quanlybanhang.controller.PermissionController;
 
-import java.io.IOException;
 import java.util.List;
 
+import bk.danang.quanlybanhang.controller.SanPhamController;
 import bk.danang.quanlybanhang.model.LoaiSP;
-import bk.danang.quanlybanhang.model.LoginForm;
-import bk.danang.quanlybanhang.model.LoginFormResponse;
 import bk.danang.quanlybanhang.model.NhanHieu;
-import bk.danang.quanlybanhang.webinterface.AuthenticationService;
+import bk.danang.quanlybanhang.model.SanPham;
 import bk.danang.quanlybanhang.webinterface.LoaiSPService;
-import bk.danang.quanlybanhang.webinterface.LoaiSanPhamService;
 import bk.danang.quanlybanhang.webinterface.NhanHieuService;
+import bk.danang.quanlybanhang.webinterface.SanPhamService;
 import retrofit.Call;
 import retrofit.Callback;
 import retrofit.GsonConverterFactory;
 import retrofit.Response;
 import retrofit.Retrofit;
 
-public class HomeActivity extends AppCompatActivity  {
-
+public class HomeActivity extends AppCompatActivity {
+    ProgressDialog progressDialog;
     private Retrofit retrofit = new Retrofit.Builder()
             .baseUrl(AppConstant.WEB_API_BASE)
             .addConverterFactory(GsonConverterFactory.create())
@@ -42,6 +41,8 @@ public class HomeActivity extends AppCompatActivity  {
         if (!PermissionController.getInstance().getIsAdmin()) {
             ((Button) findViewById(R.id.btn_ql_nhanvien)).setVisibility(View.INVISIBLE);
         }
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage(getString(R.string.loading_msg));
     }
 
     public void SelectFeature(View view) {
@@ -52,8 +53,7 @@ public class HomeActivity extends AppCompatActivity  {
                 startActivity(intent);
                 break;
             case R.id.btn_ql_sanpham:
-                intent = new Intent(this, QuanLySanPhamActivity.class);
-                startActivity(intent);
+                quanlySanPham();
                 break;
             case R.id.btn_ql_loaisp:
                 quanlyLoaiSP();
@@ -80,23 +80,70 @@ public class HomeActivity extends AppCompatActivity  {
         }
     }
 
-    private  void quanlyLoaiSP(){
-        LoaiSanPhamService nhanHieuService = retrofit.create(LoaiSanPhamService.class);
+    private void quanlySanPham() {
+        progressDialog.show();
+        SanPhamService sanPhamService = retrofit.create(SanPhamService.class);
 
-        final Call<List<LoaiSP>> call = nhanHieuService.getAll();
-        call.enqueue(new Callback<List<LoaiSP>>() {
-            public void onResponse(Response<List<LoaiSP>> response, Retrofit retrofit) {
-                LoaiSPController.getInstance().setLoaiSPs(response.body());
-                startActivity(new Intent(HomeActivity.this, QuanLyLoaiSPActivity.class));
+        final Call<List<SanPham>> call = sanPhamService.getAll();
+        call.enqueue(new Callback<List<SanPham>>() {
+            public void onResponse(Response<List<SanPham>> response, Retrofit retrofit) {
+                SanPhamController.getInstance().setSanPhams(response.body());
+                LoaiSPService loaiSPService = retrofit.create(LoaiSPService.class);
+
+                final Call<List<LoaiSP>> call = loaiSPService.getAll();
+                call.enqueue(new Callback<List<LoaiSP>>() {
+                    public void onResponse(Response<List<LoaiSP>> response, Retrofit retrofit) {
+                        LoaiSPController.getInstance().setLoaiSPs(response.body());
+                        NhanHieuService nhanHieuService = retrofit.create(NhanHieuService.class);
+
+                        final Call<List<NhanHieu>> call = nhanHieuService.getAll();
+                        call.enqueue(new Callback<List<NhanHieu>>() {
+                            public void onResponse(Response<List<NhanHieu>> response, Retrofit retrofit) {
+                                NhanHieuController.getInstance().setNhanHieus(response.body());
+                                startActivity(new Intent(HomeActivity.this, QuanLySanPhamActivity.class));
+                                progressDialog.dismiss();
+                            }
+
+                            public void onFailure(Throwable t) {
+                                progressDialog.dismiss();
+                                Toast.makeText(HomeActivity.this, getString(R.string.loading_msg_fail), Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                    }
+
+                    public void onFailure(Throwable t) {
+                        progressDialog.dismiss();
+                        Toast.makeText(HomeActivity.this, getString(R.string.loading_msg_fail), Toast.LENGTH_SHORT).show();
+                    }
+                });
             }
 
             public void onFailure(Throwable t) {
-
+                progressDialog.dismiss();
+                Toast.makeText(HomeActivity.this, getString(R.string.loading_msg_fail), Toast.LENGTH_SHORT).show();
             }
         });
     }
 
-    private  void quanlyNhanHieu(){
+    private void quanlyLoaiSP() {
+        LoaiSPService loaiSPService = retrofit.create(LoaiSPService.class);
+
+        final Call<List<LoaiSP>> call = loaiSPService.getAll();
+        call.enqueue(new Callback<List<LoaiSP>>() {
+            public void onResponse(Response<List<LoaiSP>> response, Retrofit retrofit) {
+                LoaiSPController.getInstance().setLoaiSPs(response.body());
+                startActivity(new Intent(HomeActivity.this, QuanLyLoaiSPActivity.class));
+                progressDialog.dismiss();
+            }
+
+            public void onFailure(Throwable t) {
+                progressDialog.dismiss();
+                Toast.makeText(HomeActivity.this, getString(R.string.loading_msg_fail), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private void quanlyNhanHieu() {
 
         NhanHieuService nhanHieuService = retrofit.create(NhanHieuService.class);
 
@@ -105,10 +152,12 @@ public class HomeActivity extends AppCompatActivity  {
             public void onResponse(Response<List<NhanHieu>> response, Retrofit retrofit) {
                 NhanHieuController.getInstance().setNhanHieus(response.body());
                 startActivity(new Intent(HomeActivity.this, QuanLyNhanHieuActivity.class));
+                progressDialog.dismiss();
             }
 
             public void onFailure(Throwable t) {
-
+                progressDialog.dismiss();
+                Toast.makeText(HomeActivity.this, getString(R.string.loading_msg_fail), Toast.LENGTH_SHORT).show();
             }
         });
     }

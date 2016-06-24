@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import java.util.List;
 
-public abstract class SpinnerAdapter<T> extends ArrayAdapter<T> {
+public class SpinnerAdapter<T> extends ArrayAdapter<T> {
     private Context context;
 
     public SpinnerAdapter(Context context, int textViewResourceId, List<T> objects) {
@@ -17,17 +17,13 @@ public abstract class SpinnerAdapter<T> extends ArrayAdapter<T> {
         this.context = context;
     }
 
-    public abstract void drawText(TextView textView, T object);
-
     public View getView(int position, View convertView, ViewGroup parent) {
-        System.out.println("position " + position + "convertView " + convertView);
         if (convertView == null) {
             convertView = LayoutInflater.from(context).inflate(android.R.layout.simple_spinner_dropdown_item, parent, false);
         }
         T object = getItem(position);
         if (object != null) {
-            System.out.println("position " + position + "convertView " + convertView + "drawwwwwwwwwwwwww");
-            drawText(((TextView) convertView.findViewById(android.R.id.text1)), object);
+            ((TextView) convertView.findViewById(android.R.id.text1)).setText(object.toString());
         }
         return convertView;
     }

@@ -80,12 +80,7 @@ public class SanPhamActivity extends AppCompatActivity {
         }
         List<LoaiSP> loaiSPList = LoaiSPController.getInstance().getLoaiSPs();
         List<NhanHieu> nhanHieuList = NhanHieuController.getInstance().getNhanHieus();
-        spn_loaisp.setAdapter(new SpinnerAdapter<LoaiSP>(this, android.R.layout.simple_spinner_dropdown_item, loaiSPList) {
-            @Override
-            public void drawText(TextView textView, LoaiSP object) {
-                textView.setText(object.getName());
-            }
-        });
+        spn_loaisp.setAdapter(new SpinnerAdapter<LoaiSP>(this, android.R.layout.simple_spinner_dropdown_item, loaiSPList));
         int loaispIndex = 0;
         int nhanhieuIndex = 0;
         if (id != -1) {
@@ -103,12 +98,7 @@ public class SanPhamActivity extends AppCompatActivity {
             }
         }
         spn_loaisp.setSelection(loaispIndex);
-        spn_hieu.setAdapter(new SpinnerAdapter<NhanHieu>(this, android.R.layout.simple_spinner_dropdown_item, nhanHieuList) {
-            @Override
-            public void drawText(TextView textView, NhanHieu object) {
-                textView.setText(object.getName());
-            }
-        });
+        spn_hieu.setAdapter(new SpinnerAdapter<NhanHieu>(this, android.R.layout.simple_spinner_dropdown_item, nhanHieuList));
         spn_hieu.setSelection(nhanhieuIndex);
     }
 

@@ -46,7 +46,6 @@
             android:layout_alignLeft="@+id/ed_user_pass"
             android:layout_alignParentTop="true"
             android:layout_alignStart="@+id/ed_user_pass"
-            android:text="admin"
             android:textSize="@dimen/input_text_size" />
 
         <TextView
@@ -67,7 +66,6 @@
             android:layout_below="@id/ed_user_name"
             android:layout_toRightOf="@id/tv_user_pass"
             android:inputType="textPassword"
-            android:text="123456"
             android:textSize="@dimen/input_text_size" />
     </RelativeLayout>
 

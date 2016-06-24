@@ -1,5 +1,6 @@
 package bk.danang.quanlybanhang;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -39,6 +40,7 @@ public class SanPhamActivity extends AppCompatActivity {
             .baseUrl(AppConstant.WEB_API_BASE)
             .addConverterFactory(GsonConverterFactory.create())
             .build();
+    ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +60,8 @@ public class SanPhamActivity extends AppCompatActivity {
             ((Button) findViewById(R.id.btn_delete)).setVisibility(View.INVISIBLE);
         }
         setObject();
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage(getString(R.string.loading_msg));
     }
 
     public void setObject() {
@@ -103,6 +107,7 @@ public class SanPhamActivity extends AppCompatActivity {
     }
 
     public void Save(View view) {
+        progressDialog.show();
         addDataToObject();
         SanPhamService sanPhamService = retrofit.create(SanPhamService.class);
         SanPhamRequest sanPhamRequest = new SanPhamRequest();
@@ -113,7 +118,7 @@ public class SanPhamActivity extends AppCompatActivity {
             final Call<Object> call = sanPhamService.sua(sanPhamRequest);
             call.enqueue(new Callback<Object>() {
                 public void onResponse(Response<Object> response, Retrofit retrofit) {
-                    startActivity(new Intent(SanPhamActivity.this, QuanLySanPhamActivity.class));
+                    finish();
                 }
 
                 public void onFailure(Throwable t) {
@@ -124,19 +129,21 @@ public class SanPhamActivity extends AppCompatActivity {
             final Call<SanPham> call = sanPhamService.them(sanPhamRequest);
             call.enqueue(new Callback<SanPham>() {
                 public void onResponse(Response<SanPham> response, Retrofit retrofit) {
+                    progressDialog.dismiss();
                     SanPhamController.getInstance().getSanPhams().add(sanPham);
                     finish();
                 }
 
                 public void onFailure(Throwable t) {
+                    progressDialog.dismiss();
                     Toast.makeText(SanPhamActivity.this, getString(R.string.loading_msg_fail), Toast.LENGTH_SHORT).show();
                 }
             });
         }
-        this.finish();
     }
 
     public void Delete(View view) {
+        progressDialog.show();
         SanPhamService sanPhamService = retrofit.create(SanPhamService.class);
         SanPhamRequest sanPhamRequest = new SanPhamRequest();
         sanPhamRequest.setData(sanPham);
@@ -145,16 +152,17 @@ public class SanPhamActivity extends AppCompatActivity {
             final Call<Object> call = sanPhamService.xoa(sanPhamRequest.getId(), PermissionController.getInstance().getAuthentication());
             call.enqueue(new Callback<Object>() {
                 public void onResponse(Response<Object> response, Retrofit retrofit) {
+                    progressDialog.dismiss();
                     SanPhamController.getInstance().getSanPhams().remove(sanPham);
                     finish();
                 }
 
                 public void onFailure(Throwable t) {
+                    progressDialog.dismiss();
                     Toast.makeText(SanPhamActivity.this, getString(R.string.loading_msg_fail), Toast.LENGTH_SHORT).show();
                 }
             });
         }
-        this.finish();
     }
 
     public void addDataToObject() {

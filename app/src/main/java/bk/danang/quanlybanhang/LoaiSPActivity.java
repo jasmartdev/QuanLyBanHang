@@ -1,5 +1,6 @@
 package bk.danang.quanlybanhang;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -27,6 +28,7 @@ public class LoaiSPActivity extends AppCompatActivity {
             .baseUrl(AppConstant.WEB_API_BASE)
             .addConverterFactory(GsonConverterFactory.create())
             .build();
+    ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +41,8 @@ public class LoaiSPActivity extends AppCompatActivity {
             ((Button) findViewById(R.id.btn_delete)).setVisibility(View.INVISIBLE);
         }
         setObject();
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage(getString(R.string.loading_msg));
     }
 
     public void setObject() {
@@ -57,6 +61,7 @@ public class LoaiSPActivity extends AppCompatActivity {
     }
 
     public void Save(View view) {
+        progressDialog.show();
         addDataToObject();
         LoaiSPService loaiSPService = retrofit.create(LoaiSPService.class);
         LoaiSPRequest loaiSPRequest = new LoaiSPRequest();
@@ -77,19 +82,21 @@ public class LoaiSPActivity extends AppCompatActivity {
             final Call<LoaiSP> call = loaiSPService.them(loaiSPRequest);
             call.enqueue(new Callback<LoaiSP>() {
                 public void onResponse(Response<LoaiSP> response, Retrofit retrofit) {
+                    progressDialog.dismiss();
                     LoaiSPController.getInstance().getLoaiSPs().add(loaiSP);
                     finish();
                 }
 
                 public void onFailure(Throwable t) {
+                    progressDialog.dismiss();
                     Toast.makeText(LoaiSPActivity.this, getString(R.string.loading_msg_fail), Toast.LENGTH_SHORT).show();
                 }
             });
         }
-        this.finish();
     }
 
     public void Delete(View view) {
+        progressDialog.show();
         LoaiSPService loaiSPService = retrofit.create(LoaiSPService.class);
         LoaiSPRequest loaiSPRequest = new LoaiSPRequest();
         loaiSPRequest.setData(loaiSP);
@@ -98,15 +105,17 @@ public class LoaiSPActivity extends AppCompatActivity {
             final Call<Object> call = loaiSPService.xoa(loaiSPRequest.getId(), PermissionController.getInstance().getAuthentication());
             call.enqueue(new Callback<Object>() {
                 public void onResponse(Response<Object> response, Retrofit retrofit) {
+                    progressDialog.dismiss();
+                    LoaiSPController.getInstance().getLoaiSPs().remove(loaiSP);
                     finish();
                 }
 
                 public void onFailure(Throwable t) {
+                    progressDialog.dismiss();
                     Toast.makeText(LoaiSPActivity.this, getString(R.string.loading_msg_fail), Toast.LENGTH_SHORT).show();
                 }
             });
         }
-        this.finish();
     }
 
     public void addDataToObject() {

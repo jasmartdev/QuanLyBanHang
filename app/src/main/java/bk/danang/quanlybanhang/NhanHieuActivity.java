@@ -1,5 +1,6 @@
 package bk.danang.quanlybanhang;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -29,6 +30,7 @@ public class NhanHieuActivity extends AppCompatActivity {
             .baseUrl(AppConstant.WEB_API_BASE)
             .addConverterFactory(GsonConverterFactory.create())
             .build();
+    ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +43,8 @@ public class NhanHieuActivity extends AppCompatActivity {
             ((Button) findViewById(R.id.btn_delete)).setVisibility(View.INVISIBLE);
         }
         setObject();
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage(getString(R.string.loading_msg));
     }
 
     public void setObject() {
@@ -59,6 +63,7 @@ public class NhanHieuActivity extends AppCompatActivity {
     }
 
     public void Save(View view) {
+        progressDialog.show();
         addDataToObject();
         NhanHieuService nhanHieuService = retrofit.create(NhanHieuService.class);
         NhanHieuRequest nhanHieuRequest = new NhanHieuRequest();
@@ -79,6 +84,7 @@ public class NhanHieuActivity extends AppCompatActivity {
             final Call<NhanHieu> call = nhanHieuService.them(nhanHieuRequest);
             call.enqueue(new Callback<NhanHieu>() {
                 public void onResponse(Response<NhanHieu> response, Retrofit retrofit) {
+                    progressDialog.dismiss();
                     NhanHieuController.getInstance().getNhanHieus().add(nhanHieu);
                     finish();
                 }
@@ -88,7 +94,6 @@ public class NhanHieuActivity extends AppCompatActivity {
                 }
             });
         }
-        this.finish();
     }
 
     public void Delete(View view) {
@@ -100,6 +105,7 @@ public class NhanHieuActivity extends AppCompatActivity {
             final Call<Object> call = nhanHieuService.xoa(nhanHieuRequest.getId(), PermissionController.getInstance().getAuthentication());
             call.enqueue(new Callback<Object>() {
                 public void onResponse(Response<Object> response, Retrofit retrofit) {
+                    progressDialog.dismiss();
                     NhanHieuController.getInstance().getNhanHieus().remove(nhanHieu);
                     finish();
                 }
@@ -109,7 +115,6 @@ public class NhanHieuActivity extends AppCompatActivity {
                 }
             });
         }
-        this.finish();
     }
 
     public void addDataToObject() {

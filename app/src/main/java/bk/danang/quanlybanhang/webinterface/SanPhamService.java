@@ -10,22 +10,22 @@ import retrofit.http.DELETE;
 import retrofit.http.GET;
 import retrofit.http.POST;
 import retrofit.http.PUT;
-import retrofit.http.Path;
+import retrofit.http.Query;
 
 
 public interface SanPhamService {
-    @GET("api/CategoryProduct")
-    Call<List<SanPham>> getAll();
+    @GET("api/Product")
+    Call<List<SanPham>> getAll(@Query("authentication") String authentication);
 
-    @GET("api/CategoryProduct/{id}")
-    Call<SanPham> chiTiet(@Path("id") int id);
+    @GET("api/Product")
+    Call<SanPham> chiTiet(@Query("id") int id, @Query("authentication") String authentication);
 
-    @POST("api/CategoryProduct")
+    @POST("api/Product")
     Call<SanPham> them(@Body SanPhamRequest sanPhamRequest);
 
-    @PUT("api/CategoryProduct")
-    Call<Object> sua(@Body SanPhamRequest sanPhamRequest);
+    @DELETE("api/Product")
+    Call<Object> xoa(@Query("id") int id, @Query("authentication") String authentication);
 
-    @DELETE("api/CategoryProduct")
-    Call<Object> xoa(SanPhamRequest sanPhamRequest);
+    @PUT("api/Product")
+    Call<Object> sua(@Body SanPhamRequest sanPhamRequest);
 }

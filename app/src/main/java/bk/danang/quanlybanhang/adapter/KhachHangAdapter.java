@@ -13,6 +13,7 @@ import java.util.List;
 import bk.danang.quanlybanhang.R;
 import bk.danang.quanlybanhang.KhachHangActivity;
 import bk.danang.quanlybanhang.model.KhachHang;
+import bk.danang.quanlybanhang.util.Util;
 
 public class KhachHangAdapter extends BaseAdapter {
     private List<KhachHang> khachHangs;
@@ -47,9 +48,8 @@ public class KhachHangAdapter extends BaseAdapter {
         TextView tv_ten_khach = (TextView) convertView.findViewById(R.id.tv_ten_khach);
         TextView tv_gioi_tinh = (TextView) convertView.findViewById(R.id.tv_gioi_tinh);
         TextView tv_dia_chi = (TextView) convertView.findViewById(R.id.tv_dia_chi);
-        TextView tv_nhom = (TextView) convertView.findViewById(R.id.tv_nhom);
         tv_ten_khach.setText(khachHang.getName());
-        tv_gioi_tinh.setText(khachHang.getGender());
+        tv_gioi_tinh.setText(Util.ConvertGender(khachHang.getGender()));
         tv_dia_chi.setText(khachHang.getAddress());
         convertView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override

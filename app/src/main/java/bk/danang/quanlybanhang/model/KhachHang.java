@@ -24,13 +24,13 @@ public class KhachHang {
         this.groupId = groupId;
     }
 
-    private String gender;
+    private int gender;
 
-    public String getGender() {
+    public int getGender() {
         return gender;
     }
 
-    public void setGender(String gender) {
+    public void setGender(int gender) {
         this.gender = gender;
     }
 

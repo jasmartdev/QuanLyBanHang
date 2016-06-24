@@ -29,9 +29,7 @@ public class QuanLyNhomKHActivity extends AppCompatActivity {
 
     private void setUpListView() {
         lv_nhomkh = (ListView) findViewById(R.id.lv_nhomkh);
-        NhomKH[] nhomKHs = new NhomKH[8];
-        NhomKHController.getInstance().setNhomKHs(nhomKHs);
-        nhomKHAdapter = new NhomKHAdapter(this, nhomKHs);
+        nhomKHAdapter = new NhomKHAdapter(this, NhomKHController.getInstance().getNhomKHs());
         lv_nhomkh.setAdapter(nhomKHAdapter);
     }
 

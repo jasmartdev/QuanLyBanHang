@@ -1,10 +1,12 @@
 package bk.danang.quanlybanhang.controller;
 
+import java.util.List;
+
 import bk.danang.quanlybanhang.model.NhomKH;
 
 public class NhomKHController {
     private static NhomKHController instance;
-    private NhomKH[] nhomKHs;
+    private List<NhomKH> nhomKHs;
 
     public static NhomKHController getInstance() {
         if (instance == null) {
@@ -13,11 +15,11 @@ public class NhomKHController {
         return instance;
     }
 
-    public NhomKH[] getNhomKHs() {
+    public List<NhomKH> getNhomKHs() {
         return nhomKHs;
     }
 
-    public void setNhomKHs(NhomKH[] nhomKHs) {
+    public void setNhomKHs(List<NhomKH> nhomKHs) {
         this.nhomKHs = nhomKHs;
     }
 }

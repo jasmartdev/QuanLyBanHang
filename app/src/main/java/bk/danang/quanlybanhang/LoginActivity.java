@@ -58,6 +58,7 @@ public class LoginActivity extends AppCompatActivity implements Callback<LoginFo
             Toast.makeText(this, getString(R.string.login_fail), Toast.LENGTH_SHORT).show();
         } else {
             PermissionController.getInstance().setIsAdmin(response.body().getRole() == 1);
+            PermissionController.getInstance().setAuthentication(response.body().getAuthentication());
             Intent intent = new Intent(this, HomeActivity.class);
             startActivity(intent);
             finish();

@@ -51,6 +51,7 @@
                 android:id="@+id/ed_so_luong"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:inputType="number"
                 android:layout_marginLeft="@dimen/quanly_margin" />
         </LinearLayout>
 
@@ -80,6 +81,7 @@
                 android:id="@+id/ed_giam_gia"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:inputType="number"
                 android:layout_marginLeft="@dimen/quanly_margin" />
         </LinearLayout>
 

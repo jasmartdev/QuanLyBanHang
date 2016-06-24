@@ -1,17 +1,15 @@
 package bk.danang.quanlybanhang.model;
 
-public class LoaiSPRequest {
+public class KhachHangRequest {
     private int id;
-
     private String authentication;
+    private KhachHang data;
 
-    private LoaiSP data;
-
-    public LoaiSP getData() {
+    public KhachHang getData() {
         return data;
     }
 
-    public void setData(LoaiSP data) {
+    public void setData(KhachHang data) {
         this.data = data;
     }
 

@@ -6,15 +6,27 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
+import bk.danang.quanlybanhang.controller.NhomKHController;
 import bk.danang.quanlybanhang.controller.PermissionController;
-import bk.danang.quanlybanhang.controller.KhachHangController;
-import bk.danang.quanlybanhang.model.KhachHang;
-import bk.danang.quanlybanhang.model.KhachHang;
+import bk.danang.quanlybanhang.model.NhomKH;
+import bk.danang.quanlybanhang.model.NhomKHRequest;
+import bk.danang.quanlybanhang.webinterface.NhomKHService;
+import retrofit.Call;
+import retrofit.Callback;
+import retrofit.GsonConverterFactory;
+import retrofit.Response;
+import retrofit.Retrofit;
 
 public class NhomKHActivity extends AppCompatActivity {
     private EditText ed_nhomkh, ed_giam_gia, ed_ghi_chu;
     private int id;
+    NhomKH nhomKH = null;
+    private Retrofit retrofit = new Retrofit.Builder()
+            .baseUrl(AppConstant.WEB_API_BASE)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,18 +44,78 @@ public class NhomKHActivity extends AppCompatActivity {
     }
 
     public void setObject() {
+        if (nhomKH == null) {
+            nhomKH = new NhomKH();
+        }
         if (id != -1) {
-            KhachHang khachHang = KhachHangController.getInstance().getKhachHangs().get(id);
+            for (NhomKH nhomKH1 : NhomKHController.getInstance().getNhomKHs()) {
+                if (nhomKH1.getId() == id) {
+                    nhomKH = nhomKH1;
+                    break;
+                }
+            }
+            ed_nhomkh.setText(nhomKH.getName());
+            ed_giam_gia.setText(Integer.toString(nhomKH.getDiscountPercent()));
+            ed_ghi_chu.setText(nhomKH.getNote());
         }
     }
 
     public void Save(View view) {
+        addDataToObject();
+        NhomKHService nhomKHService = retrofit.create(NhomKHService.class);
+        NhomKHRequest nhomKHRequest = new NhomKHRequest();
+        nhomKHRequest.setData(nhomKH);
+        nhomKHRequest.setAuthentication(PermissionController.getInstance().getAuthentication());
         if (id != -1) {
-            KhachHang khachHang = KhachHangController.getInstance().getKhachHangs().get(id);
+            final Call<Object> call = nhomKHService.sua(nhomKHRequest);
+            call.enqueue(new Callback<Object>() {
+                public void onResponse(Response<Object> response, Retrofit retrofit) {
+                    finish();
+                }
+
+                public void onFailure(Throwable t) {
+                    Toast.makeText(NhomKHActivity.this, getString(R.string.loading_msg_fail), Toast.LENGTH_SHORT).show();
+                }
+            });
+        } else {
+            final Call<NhomKH> call = nhomKHService.them(nhomKHRequest);
+            call.enqueue(new Callback<NhomKH>() {
+                public void onResponse(Response<NhomKH> response, Retrofit retrofit) {
+                    NhomKHController.getInstance().getNhomKHs().add(nhomKH);
+                    finish();
+                }
+
+                public void onFailure(Throwable t) {
+                    Toast.makeText(NhomKHActivity.this, getString(R.string.loading_msg_fail), Toast.LENGTH_SHORT).show();
+                }
+            });
         }
         this.finish();
     }
 
     public void Delete(View view) {
+        NhomKHService nhomKHService = retrofit.create(NhomKHService.class);
+        NhomKHRequest nhomKHRequest = new NhomKHRequest();
+        nhomKHRequest.setData(nhomKH);
+        nhomKHRequest.setAuthentication(PermissionController.getInstance().getAuthentication());
+        if (id != -1) {
+            final Call<Object> call = nhomKHService.xoa(nhomKHRequest.getId(), PermissionController.getInstance().getAuthentication());
+            call.enqueue(new Callback<Object>() {
+                public void onResponse(Response<Object> response, Retrofit retrofit) {
+                    finish();
+                }
+
+                public void onFailure(Throwable t) {
+                    Toast.makeText(NhomKHActivity.this, getString(R.string.loading_msg_fail), Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
+        this.finish();
+    }
+
+    public void addDataToObject() {
+        nhomKH.setName(ed_nhomkh.getText().toString());
+        nhomKH.setDiscountPercent(Integer.parseInt(ed_giam_gia.getText().toString()));
+        nhomKH.setNote(ed_ghi_chu.getText().toString());
     }
 }

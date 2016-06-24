@@ -2,6 +2,8 @@ package bk.danang.quanlybanhang.webinterface;
 
 import java.util.List;
 
+import bk.danang.quanlybanhang.model.HoaDon;
+import bk.danang.quanlybanhang.model.HoaDonRequest;
 import bk.danang.quanlybanhang.model.KhachHang;
 import bk.danang.quanlybanhang.model.KhachHangRequest;
 import retrofit.Call;
@@ -17,17 +19,17 @@ import retrofit.http.Query;
  */
 public interface HoaDonService {
     @GET("api/Invoice")
-    Call<List<KhachHang>> getAll(@Query("authentication") String authentication);
+    Call<List<HoaDon>> getAll(@Query("authentication") String authentication);
 
     @GET("api/Invoice")
-    Call<KhachHang> chiTiet(int id, @Query("authentication") String authentication);
+    Call<HoaDon> chiTiet(int id, @Query("authentication") String authentication);
 
     @POST("api/Invoice")
-    Call<KhachHang> them(@Body KhachHangRequest khachHang);
+    Call<HoaDon> them(@Body HoaDonRequest hoaDonRequest);
 
     @DELETE("api/Invoice")
     Call<Object> xoa(@Query("id") int id, @Query("authentication") String authentication);
 
     @PUT("api/Invoice")
-    Call<Object> sua(@Body KhachHangRequest khachHang);
+    Call<Object> sua(@Body HoaDonRequest hoaDonRequest);
 }

@@ -56,7 +56,7 @@ public class HoaDonActivity extends AppCompatActivity {
         spn_nhomkh.setAdapter(createArrayAdapter(NhomKHController.getInstance().getNhomKHs()));
         spn_ten_nv.setAdapter(createArrayAdapter(NhanVienController.getInstance().getNhanViens()));
         ed_khachhang.setAdapter(createArrayAdapter(KhachHangController.getInstance().getKhachHangs()));
-        
+
         if (id != -1) {
             HoaDon hoaDon = HoaDonController.getInstance().findById(id);
 

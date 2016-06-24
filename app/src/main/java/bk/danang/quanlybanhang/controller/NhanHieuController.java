@@ -1,12 +1,13 @@
 package bk.danang.quanlybanhang.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import bk.danang.quanlybanhang.model.NhanHieu;
 
 public class NhanHieuController {
     private static NhanHieuController instance;
-    private List<NhanHieu> nhanHieus;
+    private List<NhanHieu> nhanHieus= new ArrayList<>();
 
     public static NhanHieuController getInstance() {
         if (instance == null) {

@@ -1,12 +1,13 @@
 package bk.danang.quanlybanhang.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import bk.danang.quanlybanhang.model.SanPham;
 
 public class SanPhamController {
     private static SanPhamController instance;
-    private List<SanPham> sanPhams;
+    private List<SanPham> sanPhams = new ArrayList<>();
 
     public static SanPhamController getInstance() {
         if (instance == null) {

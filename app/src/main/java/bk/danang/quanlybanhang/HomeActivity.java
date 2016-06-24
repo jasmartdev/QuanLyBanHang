@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import bk.danang.quanlybanhang.controller.HoaDonController;
 import bk.danang.quanlybanhang.controller.KhachHangController;
 import bk.danang.quanlybanhang.controller.LoaiSPController;
 import bk.danang.quanlybanhang.controller.NhanHieuController;
@@ -18,12 +19,14 @@ import bk.danang.quanlybanhang.controller.PermissionController;
 import java.util.List;
 
 import bk.danang.quanlybanhang.controller.SanPhamController;
+import bk.danang.quanlybanhang.model.HoaDon;
 import bk.danang.quanlybanhang.model.KhachHang;
 import bk.danang.quanlybanhang.model.LoaiSP;
 import bk.danang.quanlybanhang.model.NhanHieu;
 import bk.danang.quanlybanhang.model.NhanVien;
 import bk.danang.quanlybanhang.model.NhomKH;
 import bk.danang.quanlybanhang.model.SanPham;
+import bk.danang.quanlybanhang.webinterface.HoaDonService;
 import bk.danang.quanlybanhang.webinterface.KhachHangService;
 import bk.danang.quanlybanhang.webinterface.LoaiSPService;
 import bk.danang.quanlybanhang.webinterface.NhanHieuService;
@@ -58,8 +61,7 @@ public class HomeActivity extends AppCompatActivity {
         Intent intent;
         switch (view.getId()) {
             case R.id.btn_ql_hoadon:
-                intent = new Intent(this, QuanLyHoaDonActivity.class);
-                startActivity(intent);
+                quanlyHoaDon();
                 break;
             case R.id.btn_ql_sanpham:
                 quanlySanPham();
@@ -88,7 +90,21 @@ public class HomeActivity extends AppCompatActivity {
 
     private  void quanlyHoaDon(){
         progressDialog.show();
+        HoaDonService hoaDonService = retrofit.create(HoaDonService.class);
+        final Call<List<HoaDon>> call = hoaDonService.getAll(PermissionController.getInstance().getAuthentication());
+        call.enqueue(new Callback<List<HoaDon>>() {
+            public void onResponse(Response<List<HoaDon>> response, Retrofit retrofit) {
+                progressDialog.dismiss();
+                HoaDonController.getInstance().setHoaDons(response.body());
+                startActivity(new Intent(HomeActivity.this, QuanLyHoaDonActivity.class));
+            }
 
+            @Override
+            public void onFailure(Throwable t) {
+                progressDialog.dismiss();
+                Toast.makeText(HomeActivity.this, getString(R.string.loading_msg_fail), Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     private void quanlyNhanVien(){

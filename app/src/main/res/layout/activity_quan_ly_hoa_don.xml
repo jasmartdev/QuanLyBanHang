@@ -14,7 +14,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/btn_Add"
-        android:layout_alignParentTop="true"></ListView>
+        android:layout_alignParentTop="true">
+
+    </ListView>
 
     <Button
         android:id="@+id/btn_Add"

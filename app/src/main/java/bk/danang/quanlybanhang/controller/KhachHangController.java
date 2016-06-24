@@ -1,12 +1,13 @@
 package bk.danang.quanlybanhang.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import bk.danang.quanlybanhang.model.KhachHang;
 
 public class KhachHangController {
     private static KhachHangController instance;
-    private List<KhachHang> khachHangs;
+    private List<KhachHang> khachHangs= new ArrayList<>();
 
     public static KhachHangController getInstance() {
         if (instance == null) {

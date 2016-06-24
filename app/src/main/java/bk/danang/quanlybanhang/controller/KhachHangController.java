@@ -19,8 +19,16 @@ public class KhachHangController {
         return khachHangs;
     }
 
+    public KhachHang findById(int id) {
+        for (KhachHang khachhang : khachHangs) {
+            if (khachhang.getId() == id) {
+                return khachhang;
+            }
+        }
+        return null;
+    }
+
     public void setKhachHangs(List<KhachHang> khachHangs) {
         this.khachHangs = khachHangs;
-        System.out.println("Hoang "+" "+khachHangs.size());
     }
 }

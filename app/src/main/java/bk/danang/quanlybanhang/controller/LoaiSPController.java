@@ -19,6 +19,14 @@ public class LoaiSPController {
         return loaiSPs;
     }
 
+    public LoaiSP findById(int id){
+        for(LoaiSP loaiSP: loaiSPs){
+            if(loaiSP.getId()==id){
+                return loaiSP;
+            }
+        }
+        return  null;
+    }
     public void setLoaiSPs(List<LoaiSP> loaiSPs) {
         this.loaiSPs = loaiSPs;
     }

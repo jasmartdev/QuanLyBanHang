@@ -19,6 +19,14 @@ public class NhanHieuController {
         return nhanHieus;
     }
 
+    public NhanHieu findById(int id){
+        for(NhanHieu nhanhieu: nhanHieus){
+            if(nhanhieu.getId()==id){
+                return nhanhieu;
+            }
+        }
+        return  null;
+    }
     public void setNhanHieus(List<NhanHieu> nhanHieus) {
         this.nhanHieus = nhanHieus;
     }

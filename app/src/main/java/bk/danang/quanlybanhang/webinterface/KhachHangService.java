@@ -13,18 +13,18 @@ import retrofit.http.PUT;
 import retrofit.http.Query;
 
 public interface KhachHangService {
-    @GET("api/CustomerGroup")
+    @GET("api/Customer")
     Call<List<KhachHang>> getAll(@Query("authentication") String authentication);
 
-    @GET("api/CustomerGroup")
+    @GET("api/Customer")
     Call<KhachHang> chiTiet(int id, @Query("authentication") String authentication);
 
-    @POST("api/CustomerGroup")
+    @POST("api/Customer")
     Call<KhachHang> them(@Body KhachHangRequest khachHang);
 
-    @DELETE("api/CustomerGroup")
+    @DELETE("api/Customer")
     Call<Object> xoa(@Query("id") int id, @Query("authentication") String authentication);
 
-    @PUT("api/CustomerGroup")
+    @PUT("api/Customer")
     Call<Object> sua(@Body KhachHangRequest khachHang);
 }

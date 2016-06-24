@@ -101,8 +101,8 @@
             android:text="@string/chung_nhomkh"
             android:textSize="@dimen/label_size" />
 
-        <EditText
-            android:id="@+id/ed_nhomkh"
+        <Spinner
+            android:id="@+id/spn_nhomkh"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 

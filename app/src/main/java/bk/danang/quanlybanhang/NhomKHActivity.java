@@ -1,5 +1,6 @@
 package bk.danang.quanlybanhang;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -27,6 +28,7 @@ public class NhomKHActivity extends AppCompatActivity {
             .baseUrl(AppConstant.WEB_API_BASE)
             .addConverterFactory(GsonConverterFactory.create())
             .build();
+    ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +43,8 @@ public class NhomKHActivity extends AppCompatActivity {
             ((Button) findViewById(R.id.btn_delete)).setVisibility(View.INVISIBLE);
         }
         setObject();
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage(getString(R.string.loading_msg));
     }
 
     public void setObject() {
@@ -61,6 +65,7 @@ public class NhomKHActivity extends AppCompatActivity {
     }
 
     public void Save(View view) {
+        progressDialog.show();
         addDataToObject();
         NhomKHService nhomKHService = retrofit.create(NhomKHService.class);
         NhomKHRequest nhomKHRequest = new NhomKHRequest();
@@ -81,6 +86,7 @@ public class NhomKHActivity extends AppCompatActivity {
             final Call<NhomKH> call = nhomKHService.them(nhomKHRequest);
             call.enqueue(new Callback<NhomKH>() {
                 public void onResponse(Response<NhomKH> response, Retrofit retrofit) {
+                    progressDialog.dismiss();
                     NhomKHController.getInstance().getNhomKHs().add(nhomKH);
                     finish();
                 }
@@ -90,10 +96,10 @@ public class NhomKHActivity extends AppCompatActivity {
                 }
             });
         }
-        this.finish();
     }
 
     public void Delete(View view) {
+        progressDialog.show();
         NhomKHService nhomKHService = retrofit.create(NhomKHService.class);
         NhomKHRequest nhomKHRequest = new NhomKHRequest();
         nhomKHRequest.setData(nhomKH);
@@ -102,6 +108,8 @@ public class NhomKHActivity extends AppCompatActivity {
             final Call<Object> call = nhomKHService.xoa(nhomKHRequest.getId(), PermissionController.getInstance().getAuthentication());
             call.enqueue(new Callback<Object>() {
                 public void onResponse(Response<Object> response, Retrofit retrofit) {
+                    progressDialog.dismiss();
+                    NhomKHController.getInstance().getNhomKHs().remove(nhomKH);
                     finish();
                 }
 
@@ -110,7 +118,6 @@ public class NhomKHActivity extends AppCompatActivity {
                 }
             });
         }
-        this.finish();
     }
 
     public void addDataToObject() {

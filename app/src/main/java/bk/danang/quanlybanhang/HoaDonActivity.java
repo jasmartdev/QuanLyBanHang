@@ -1,5 +1,6 @@
 package bk.danang.quanlybanhang;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -26,6 +27,7 @@ public class HoaDonActivity extends AppCompatActivity {
     Spinner spn_sanpham, spn_loaisp, ed_khachhang, spn_gia_ban, spn_nhomkh, spn_ten_nv;
     EditText ed_so_luong, ed_giam_gia, ed_dia_chi, ed_ghi_chu;
     private int id;
+    ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +49,8 @@ public class HoaDonActivity extends AppCompatActivity {
             ((Button) findViewById(R.id.btn_delete)).setVisibility(View.INVISIBLE);
         }
         setObject();
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage(getString(R.string.loading_msg));
     }
 
     public void setObject() {
@@ -62,9 +66,6 @@ public class HoaDonActivity extends AppCompatActivity {
 
             ed_giam_gia.setText(hoaDon.getDiscountPercent()+"");
             ed_ghi_chu.setText(hoaDon.getDescription());
-
-
-
 
         }
     }

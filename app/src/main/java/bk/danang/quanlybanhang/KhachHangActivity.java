@@ -147,6 +147,7 @@ public class KhachHangActivity extends AppCompatActivity {
             call.enqueue(new Callback<Object>() {
                 public void onResponse(Response<Object> response, Retrofit retrofit) {
                     progressDialog.dismiss();
+                    KhachHangController.getInstance().getKhachHangs().remove(khachHang);
                     finish();
                 }
 

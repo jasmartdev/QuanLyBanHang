@@ -19,6 +19,15 @@ public class SanPhamController {
         return sanPhams;
     }
 
+    public SanPham findById(int id) {
+        for (SanPham sanpham : sanPhams) {
+            if (sanpham.getId() == id) {
+                return sanpham;
+            }
+        }
+        return null;
+    }
+
     public void setSanPhams(List<SanPham> sanPhams) {
         this.sanPhams = sanPhams;
     }

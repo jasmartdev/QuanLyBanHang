@@ -19,6 +19,15 @@ public class NhomKHController {
         return nhomKHs;
     }
 
+    public NhomKH findById(int id) {
+        for (NhomKH nhomKH : nhomKHs) {
+            if (nhomKH.getId() == id) {
+                return nhomKH;
+            }
+        }
+        return null;
+    }
+
     public void setNhomKHs(List<NhomKH> nhomKHs) {
         this.nhomKHs = nhomKHs;
     }

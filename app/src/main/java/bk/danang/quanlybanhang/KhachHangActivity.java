@@ -1,5 +1,6 @@
 package bk.danang.quanlybanhang;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -38,6 +39,7 @@ public class KhachHangActivity extends AppCompatActivity {
             .baseUrl(AppConstant.WEB_API_BASE)
             .addConverterFactory(GsonConverterFactory.create())
             .build();
+    ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +60,8 @@ public class KhachHangActivity extends AppCompatActivity {
             ((Button) findViewById(R.id.btn_delete)).setVisibility(View.INVISIBLE);
         }
         setObject();
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage(getString(R.string.loading_msg));
     }
 
     public void setObject() {
@@ -75,8 +79,12 @@ public class KhachHangActivity extends AppCompatActivity {
             ed_dia_chi.setText(khachHang.getAddress());
             ed_dien_thoai.setText(khachHang.getPhoneNumber());
             ed_email.setText(khachHang.getEmail());
-            rdb_nam.setSelected(khachHang.getGender() == 1);
-            rdb_nu.setSelected(khachHang.getGender() == 2);
+            System.out.println("Hoang gender" + " " + khachHang.getGender());
+            if (khachHang.getGender() == 1) {
+                rdb_nam.setChecked(true);
+            } else {
+                rdb_nu.setChecked(true);
+            }
             ed_ghi_chu.setText(khachHang.getNote());
         }
         List<NhomKH> nhomKHList = NhomKHController.getInstance().getNhomKHs();
@@ -94,6 +102,7 @@ public class KhachHangActivity extends AppCompatActivity {
     }
 
     public void Save(View view) {
+        progressDialog.show();
         addDataToObject();
         KhachHangService khachHangService = retrofit.create(KhachHangService.class);
         KhachHangRequest khachHangRequest = new KhachHangRequest();
@@ -114,19 +123,21 @@ public class KhachHangActivity extends AppCompatActivity {
             final Call<KhachHang> call = khachHangService.them(khachHangRequest);
             call.enqueue(new Callback<KhachHang>() {
                 public void onResponse(Response<KhachHang> response, Retrofit retrofit) {
+                    progressDialog.dismiss();
                     KhachHangController.getInstance().getKhachHangs().add(khachHang);
                     finish();
                 }
 
                 public void onFailure(Throwable t) {
+                    progressDialog.dismiss();
                     Toast.makeText(KhachHangActivity.this, getString(R.string.loading_msg_fail), Toast.LENGTH_SHORT).show();
                 }
             });
         }
-        this.finish();
     }
 
     public void Delete(View view) {
+        progressDialog.show();
         KhachHangService khachHangService = retrofit.create(KhachHangService.class);
         KhachHangRequest khachHangRequest = new KhachHangRequest();
         khachHangRequest.setData(khachHang);
@@ -135,15 +146,16 @@ public class KhachHangActivity extends AppCompatActivity {
             final Call<Object> call = khachHangService.xoa(khachHangRequest.getId(), PermissionController.getInstance().getAuthentication());
             call.enqueue(new Callback<Object>() {
                 public void onResponse(Response<Object> response, Retrofit retrofit) {
+                    progressDialog.dismiss();
                     finish();
                 }
 
                 public void onFailure(Throwable t) {
+                    progressDialog.dismiss();
                     Toast.makeText(KhachHangActivity.this, getString(R.string.loading_msg_fail), Toast.LENGTH_SHORT).show();
                 }
             });
         }
-        this.finish();
     }
 
     public void addDataToObject() {

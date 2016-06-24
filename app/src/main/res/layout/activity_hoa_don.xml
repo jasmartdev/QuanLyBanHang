@@ -91,7 +91,7 @@
             android:text="@string/chung_khachhang"
             android:textSize="@dimen/label_size" />
 
-        <EditText
+        <Spinner
             android:id="@+id/ed_khachhang"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />

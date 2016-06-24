@@ -19,6 +19,15 @@ public class HoaDonController {
         return hoaDons;
     }
 
+    public HoaDon findById(int id){
+        for(HoaDon hoaDon: hoaDons){
+            if(hoaDon.getId()==id){
+                return hoaDon;
+            }
+        }
+        return null;
+    }
+
     public void setHoaDons(List<HoaDon> hoaDons) {
         this.hoaDons = hoaDons;
     }

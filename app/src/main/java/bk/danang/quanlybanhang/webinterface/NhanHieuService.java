@@ -14,9 +14,6 @@ import retrofit.http.GET;
 import retrofit.http.POST;
 import retrofit.http.PUT;
 
-/**
- * Created by voqua on 6/24/2016.
- */
 public interface NhanHieuService {
     @GET("api/Brand")
     Call<List<NhanHieu>> getAll();

@@ -11,9 +11,6 @@ import retrofit.http.GET;
 import retrofit.http.POST;
 import retrofit.http.Path;
 
-/**
- * Created by voqua on 6/24/2016.
- */
 public interface AuthenticationService {
     @POST("api/Authentication")
     Call<LoginFormResponse> authenticate(@Body LoginForm loginForm);

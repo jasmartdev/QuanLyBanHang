@@ -121,7 +121,6 @@ public class SanPhamActivity extends AppCompatActivity {
             final Call<Object> call = sanPhamService.sua(sanPhamRequest);
             call.enqueue(new Callback<Object>() {
                 public void onResponse(Response<Object> response, Retrofit retrofit) {
-                    System.out.println("respone " + response.body());
                     startActivity(new Intent(SanPhamActivity.this, QuanLySanPhamActivity.class));
                 }
 
@@ -133,7 +132,7 @@ public class SanPhamActivity extends AppCompatActivity {
             final Call<SanPham> call = sanPhamService.them(sanPhamRequest);
             call.enqueue(new Callback<SanPham>() {
                 public void onResponse(Response<SanPham> response, Retrofit retrofit) {
-                    System.out.println("respone " + response.body());
+                    SanPhamController.getInstance().getSanPhams().add(sanPham);
                     startActivity(new Intent(SanPhamActivity.this, QuanLySanPhamActivity.class));
                 }
 

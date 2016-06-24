@@ -43,4 +43,8 @@ public class NhomKH {
     public void setDiscountPercent(int discountPercent) {
         this.discountPercent = discountPercent;
     }
+
+    public String toString() {
+        return name;
+    }
 }

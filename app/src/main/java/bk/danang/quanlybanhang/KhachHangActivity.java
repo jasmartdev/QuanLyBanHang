@@ -8,12 +8,18 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Spinner;
 import android.widget.Toast;
 
+import java.util.List;
+
+import bk.danang.quanlybanhang.adapter.SpinnerAdapter;
 import bk.danang.quanlybanhang.controller.KhachHangController;
+import bk.danang.quanlybanhang.controller.NhomKHController;
 import bk.danang.quanlybanhang.controller.PermissionController;
 import bk.danang.quanlybanhang.model.KhachHang;
 import bk.danang.quanlybanhang.model.KhachHangRequest;
+import bk.danang.quanlybanhang.model.NhomKH;
 import bk.danang.quanlybanhang.webinterface.KhachHangService;
 import retrofit.Call;
 import retrofit.Callback;
@@ -22,9 +28,10 @@ import retrofit.Response;
 import retrofit.Retrofit;
 
 public class KhachHangActivity extends AppCompatActivity {
-    EditText ed_khachhang, ed_dia_chi, ed_dien_thoai, ed_email, ed_nhomkh, ed_ghi_chu;
+    EditText ed_khachhang, ed_dia_chi, ed_dien_thoai, ed_email, ed_ghi_chu;
     RadioGroup rdg_gioi_tinh;
     RadioButton rdb_nam, rdb_nu;
+    Spinner spn_nhomkh;
     private int id;
     KhachHang khachHang = null;
     private Retrofit retrofit = new Retrofit.Builder()
@@ -40,7 +47,7 @@ public class KhachHangActivity extends AppCompatActivity {
         ed_dia_chi = (EditText) findViewById(R.id.ed_dia_chi);
         ed_dien_thoai = (EditText) findViewById(R.id.ed_dien_thoai);
         ed_email = (EditText) findViewById(R.id.ed_email);
-        ed_nhomkh = (EditText) findViewById(R.id.ed_nhomkh);
+        spn_nhomkh = (Spinner) findViewById(R.id.spn_nhomkh);
         ed_ghi_chu = (EditText) findViewById(R.id.ed_ghi_chu);
         rdg_gioi_tinh = (RadioGroup) findViewById(R.id.rdg_gioi_tinh);
         rdb_nam = (RadioButton) findViewById(R.id.rdb_nam);
@@ -68,11 +75,22 @@ public class KhachHangActivity extends AppCompatActivity {
             ed_dia_chi.setText(khachHang.getAddress());
             ed_dien_thoai.setText(khachHang.getPhoneNumber());
             ed_email.setText(khachHang.getEmail());
-            ed_nhomkh.setText(khachHang.getGroupId());
             rdb_nam.setSelected(khachHang.getGender() == 1);
             rdb_nu.setSelected(khachHang.getGender() == 2);
             ed_ghi_chu.setText(khachHang.getNote());
         }
+        List<NhomKH> nhomKHList = NhomKHController.getInstance().getNhomKHs();
+        spn_nhomkh.setAdapter(new SpinnerAdapter<NhomKH>(this, android.R.layout.simple_spinner_dropdown_item, nhomKHList));
+        int nhomkhIndex = 0;
+        if (id != -1) {
+            for (int i = 1; i < nhomKHList.size(); i++) {
+                if (nhomKHList.get(i).getId() == khachHang.getGroupId()) {
+                    nhomkhIndex = i;
+                    break;
+                }
+            }
+        }
+        spn_nhomkh.setSelection(nhomkhIndex);
     }
 
     public void Save(View view) {
@@ -130,19 +148,11 @@ public class KhachHangActivity extends AppCompatActivity {
 
     public void addDataToObject() {
         khachHang.setName(ed_khachhang.getText().toString());
-//        khachHang.setPhoneNumber();
-//
-//        khachHang.setGroupId(ed_nhomkh.getText().toString());
-//        khachHang.setNote(ed_ghi_chu.getText().toString());
-//
-//        ed_dia_chi.setText(khachHang.getAddress());
-//        ed_dien_thoai.setText(khachHang.getAddress());
-//        ed_email.setText(khachHang.getAddress());
-//        ed_nhomkh.setText(khachHang.getAddress());
-//        ed_ghi_chu.setText(khachHang.getAddress());
-//        ed_dien_thoai.setText(khachHang.getAddress());
-//        rdb_nam.setSelected(khachHang.getGender() == 1);
-//        rdb_nu.setSelected(khachHang.getGender() == 2);
-//        ed_ghi_chu.setText(khachHang.getNote());
+        khachHang.setAddress(ed_dia_chi.getText().toString());
+        khachHang.setPhoneNumber(ed_dien_thoai.getText().toString());
+        khachHang.setEmail(ed_email.getText().toString());
+        khachHang.setGroupId(((NhomKH) spn_nhomkh.getSelectedItem()).getId());
+        khachHang.setGender(rdb_nam.isChecked() ? 1 : 2);
+        khachHang.setNote(ed_ghi_chu.getText().toString());
     }
 }

@@ -12,6 +12,7 @@ import java.util.List;
 
 import bk.danang.quanlybanhang.R;
 import bk.danang.quanlybanhang.SanPhamActivity;
+import bk.danang.quanlybanhang.control.ImageUrlView;
 import bk.danang.quanlybanhang.model.SanPham;
 
 public class SanPhamAdapter extends BaseAdapter {
@@ -47,9 +48,12 @@ public class SanPhamAdapter extends BaseAdapter {
         TextView tv_ten_sp = (TextView) convertView.findViewById(R.id.tv_ten_sp);
         TextView tv_tri_gia = (TextView) convertView.findViewById(R.id.tv_tri_gia);
         TextView tv_so_luong = (TextView) convertView.findViewById(R.id.tv_so_luong);
+        ImageUrlView img = (ImageUrlView)convertView.findViewById(R.id.sanpham_photo);
+
         tv_ten_sp.setText(sanPham.getName());
         tv_tri_gia.setText(Integer.toString(sanPham.getOriginPrice()));
         tv_so_luong.setText(Integer.toString(sanPham.getQuantity()));
+        img.setUrl(sanPham.getImageurl());
         convertView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {

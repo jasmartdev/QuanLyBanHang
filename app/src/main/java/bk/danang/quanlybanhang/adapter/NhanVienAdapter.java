@@ -15,7 +15,7 @@ import bk.danang.quanlybanhang.NhanVienActivity;
 import bk.danang.quanlybanhang.model.NhanVien;
 import bk.danang.quanlybanhang.util.Util;
 
-public class NhanVienAdapter  extends BaseAdapter {
+public class NhanVienAdapter extends BaseAdapter {
     private List<NhanVien> nhanViens;
     private Context context;
 
@@ -52,8 +52,8 @@ public class NhanVienAdapter  extends BaseAdapter {
 
         tvTenNv.setText(nhanVien.getName());
         tvGioiTinh.setText(Util.ConvertGender(nhanVien.getGender()));
-        tvDiaChi.setText(nhanVien.getAddress());
-        tvCongViec.setText(nhanVien.getJobTitle());
+        tvDiaChi.setText("Địa chỉ:" + nhanVien.getAddress());
+        tvCongViec.setText("Công việc:" + nhanVien.getJobTitle());
 
         convertView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override

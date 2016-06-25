@@ -64,4 +64,6 @@
     <string name="activity_title_ct_nhanvien">Chi tiết nhân viên</string>
     <string name="activity_title_ct_nhomkh">Chi tiết nhóm khách hàng</string>
     <string name="activity_title_ct_sanpham">Chi tiết sản phẩm</string>
+    <string name="chung_gia">Giá</string>
+    <string name="chung_tien">VNĐ</string>
 </resources>

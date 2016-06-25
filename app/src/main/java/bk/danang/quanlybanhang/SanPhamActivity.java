@@ -84,7 +84,7 @@ public class SanPhamActivity extends AppCompatActivity {
             ed_gia_vip.setText(Integer.toString(sanPham.getVipPrice()));
             ed_gia_si.setText(Integer.toString(sanPham.getWholesalePrice()));
             ed_gia_le.setText(Integer.toString(sanPham.getRetailPrice()));
-            ed_image_url.setText(sanPham.getImageurl().toString());
+            ed_image_url.setText(sanPham.getImageurl());
             imgPhoto.setUrl(sanPham.getImageurl());
             imgPhoto.setVisibility(View.VISIBLE);
         }

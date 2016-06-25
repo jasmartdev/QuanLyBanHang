@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import bk.danang.quanlybanhang.controller.DoanhThuController;
 import bk.danang.quanlybanhang.controller.HoaDonController;
 import bk.danang.quanlybanhang.controller.KhachHangController;
 import bk.danang.quanlybanhang.controller.LoaiSPController;
@@ -19,6 +20,7 @@ import bk.danang.quanlybanhang.controller.PermissionController;
 import java.util.List;
 
 import bk.danang.quanlybanhang.controller.SanPhamController;
+import bk.danang.quanlybanhang.model.DoanhThuResponse;
 import bk.danang.quanlybanhang.model.HoaDon;
 import bk.danang.quanlybanhang.model.KhachHang;
 import bk.danang.quanlybanhang.model.LoaiSP;
@@ -29,6 +31,7 @@ import bk.danang.quanlybanhang.model.NhanVien;
 import bk.danang.quanlybanhang.model.NhomKH;
 import bk.danang.quanlybanhang.model.SanPham;
 import bk.danang.quanlybanhang.webinterface.AuthenticationService;
+import bk.danang.quanlybanhang.webinterface.DoanhThuService;
 import bk.danang.quanlybanhang.webinterface.HoaDonService;
 import bk.danang.quanlybanhang.webinterface.KhachHangService;
 import bk.danang.quanlybanhang.webinterface.LoaiSPService;
@@ -82,13 +85,27 @@ public class HomeActivity extends AppCompatActivity {
                 quanlyNhomKH();
                 break;
             case R.id.btn_ql_doanhthu:
-                intent = new Intent(this, QuanLyDoanhThuActivity.class);
-                startActivity(intent);
+                xemDoanhThu();
                 break;
             case R.id.btn_ql_nhanvien:
                 quanlyNhanVien();
                 break;
         }
+    }
+
+    private void xemDoanhThu(){
+        DoanhThuService service = retrofit.create(DoanhThuService.class);
+        service.getAll(PermissionController.getInstance().getAuthentication()).enqueue(new Callback<DoanhThuResponse>() {
+            public void onResponse(Response<DoanhThuResponse> response, Retrofit retrofit) {
+                DoanhThuController.getInstance().setDoanhThuResponse(response.body());
+                startActivity( new Intent(HomeActivity.this, QuanLyDoanhThuActivity.class));
+            }
+
+            public void onFailure(Throwable t) {
+                PermissionController.getInstance().setAuthentication("");
+                finish();
+            }
+        });
     }
 
     public void dangXuat(View view){

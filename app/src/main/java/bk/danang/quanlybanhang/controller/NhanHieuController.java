@@ -20,6 +20,15 @@ public class NhanHieuController {
         return nhanHieus;
     }
 
+    public int getIndexOfId(int id){
+        for(int i=0;i<nhanHieus.size();i++){
+            if(nhanHieus.get(i).getId()==id){
+                return i;
+            }
+        }
+        return 0;
+    }
+
     public NhanHieu findById(int id){
         for(NhanHieu nhanhieu: nhanHieus){
             if(nhanhieu.getId()==id){

@@ -89,29 +89,12 @@ public class SanPhamActivity extends AppCompatActivity {
             imgPhoto.setVisibility(View.VISIBLE);
         }
 
-        List<LoaiSP> loaiSPList = LoaiSPController.getInstance().getLoaiSPs();
-        List<NhanHieu> nhanHieuList = NhanHieuController.getInstance().getNhanHieus();
-        spn_loaisp.setAdapter(createArrayAdapter(loaiSPList));
-        spn_hieu.setAdapter(createArrayAdapter(nhanHieuList));
 
-        int loaispIndex = 0;
-        int nhanhieuIndex = 0;
-        if (id != -1) {
-            for (int i = 1; i < loaiSPList.size(); i++) {
-                if (loaiSPList.get(i).getId() == sanPham.getCategoryId()) {
-                    loaispIndex = i;
-                    break;
-                }
-            }
-            for (int i = 1; i < loaiSPList.size(); i++) {
-                if (loaiSPList.get(i).getId() == sanPham.getCategoryId()) {
-                    nhanhieuIndex = i;
-                    break;
-                }
-            }
-        }
-        spn_loaisp.setSelection(loaispIndex);
-        spn_hieu.setSelection(nhanhieuIndex);
+        spn_loaisp.setAdapter(createArrayAdapter(LoaiSPController.getInstance().getLoaiSPs()));
+        spn_hieu.setAdapter(createArrayAdapter(NhanHieuController.getInstance().getNhanHieus()));
+
+        spn_loaisp.setSelection(LoaiSPController.getInstance().getIndexOfId(sanPham.getCategoryId()));
+        spn_hieu.setSelection(NhanHieuController.getInstance().getIndexOfId(sanPham.getBrandId()));
     }
 
     private <T> ArrayAdapter<T> createArrayAdapter(List<T> data){
@@ -128,6 +111,7 @@ public class SanPhamActivity extends AppCompatActivity {
         SanPhamService sanPhamService = retrofit.create(SanPhamService.class);
         SanPhamRequest sanPhamRequest = new SanPhamRequest();
         sanPhamRequest.setData(sanPham);
+        sanPhamRequest.setId(sanPham.getId());
         sanPhamRequest.setAuthentication(PermissionController.getInstance().getAuthentication());
 
         if (id != -1) {

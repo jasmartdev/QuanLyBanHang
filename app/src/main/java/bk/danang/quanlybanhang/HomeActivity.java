@@ -22,10 +22,13 @@ import bk.danang.quanlybanhang.controller.SanPhamController;
 import bk.danang.quanlybanhang.model.HoaDon;
 import bk.danang.quanlybanhang.model.KhachHang;
 import bk.danang.quanlybanhang.model.LoaiSP;
+import bk.danang.quanlybanhang.model.LoginForm;
+import bk.danang.quanlybanhang.model.LoginFormResponse;
 import bk.danang.quanlybanhang.model.NhanHieu;
 import bk.danang.quanlybanhang.model.NhanVien;
 import bk.danang.quanlybanhang.model.NhomKH;
 import bk.danang.quanlybanhang.model.SanPham;
+import bk.danang.quanlybanhang.webinterface.AuthenticationService;
 import bk.danang.quanlybanhang.webinterface.HoaDonService;
 import bk.danang.quanlybanhang.webinterface.KhachHangService;
 import bk.danang.quanlybanhang.webinterface.LoaiSPService;
@@ -86,6 +89,25 @@ public class HomeActivity extends AppCompatActivity {
                 quanlyNhanVien();
                 break;
         }
+    }
+
+    public void dangXuat(View view){
+        progressDialog.show();
+        AuthenticationService authenticationService = retrofit.create(AuthenticationService.class);
+        authenticationService.logout(PermissionController.getInstance().getAuthentication()).enqueue(new Callback<LoginFormResponse>() {
+            @Override
+            public void onResponse(Response<LoginFormResponse> response, Retrofit retrofit) {
+                progressDialog.dismiss();
+                PermissionController.getInstance().setAuthentication("");
+                finish();
+            }
+
+            public void onFailure(Throwable t) {
+                progressDialog.dismiss();
+                PermissionController.getInstance().setAuthentication("");
+                finish();
+            }
+        });
     }
 
     private  void quanlyHoaDon(){

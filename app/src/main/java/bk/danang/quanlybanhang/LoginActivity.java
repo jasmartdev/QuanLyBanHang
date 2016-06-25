@@ -65,7 +65,6 @@ public class LoginActivity extends AppCompatActivity implements Callback<LoginFo
                     progressDialog.dismiss();
                     Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
                     startActivity(intent);
-                    finish();
                 }
             }, new Runnable() {
                 public void run() {

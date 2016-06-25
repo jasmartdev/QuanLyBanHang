@@ -99,11 +99,8 @@ public class LoaiSPActivity extends AppCompatActivity {
     public void Delete(View view) {
         progressDialog.show();
         LoaiSPService loaiSPService = retrofit.create(LoaiSPService.class);
-        LoaiSPRequest loaiSPRequest = new LoaiSPRequest();
-        loaiSPRequest.setData(loaiSP);
-        loaiSPRequest.setAuthentication(PermissionController.getInstance().getAuthentication());
         if (id != -1) {
-            final Call<Object> call = loaiSPService.xoa(loaiSPRequest.getId(), PermissionController.getInstance().getAuthentication());
+            final Call<Object> call = loaiSPService.xoa(id, PermissionController.getInstance().getAuthentication());
             call.enqueue(new Callback<Object>() {
                 public void onResponse(Response<Object> response, Retrofit retrofit) {
                     progressDialog.dismiss();

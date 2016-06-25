@@ -1,5 +1,6 @@
 package bk.danang.quanlybanhang;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -32,7 +33,7 @@ public class NhanVienActivity extends AppCompatActivity {
             .baseUrl(AppConstant.WEB_API_BASE)
             .addConverterFactory(GsonConverterFactory.create())
             .build();
-
+    ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,10 +45,10 @@ public class NhanVienActivity extends AppCompatActivity {
         ed_email = (EditText) findViewById(R.id.ed_email);
         ed_cong_viec = (EditText) findViewById(R.id.ed_cong_viec);
         ed_ghi_chu = (EditText) findViewById(R.id.ed_ghi_chu);
-        ed_ten_dang_nhap= (EditText)findViewById(R.id.ed_dangnhap);
-        ed_mat_khau = (EditText)findViewById(R.id.ed_password);
-        rbGenderMale = (RadioButton)findViewById(R.id.rdb_nam);
-        rbGenderFemale = (RadioButton)findViewById(R.id.rdb_nu);
+        ed_ten_dang_nhap = (EditText) findViewById(R.id.ed_dangnhap);
+        ed_mat_khau = (EditText) findViewById(R.id.ed_password);
+        rbGenderMale = (RadioButton) findViewById(R.id.rdb_nam);
+        rbGenderFemale = (RadioButton) findViewById(R.id.rdb_nu);
 
         Intent intent = getIntent();
         id = intent.getIntExtra("object", -1);
@@ -55,6 +56,8 @@ public class NhanVienActivity extends AppCompatActivity {
             ((Button) findViewById(R.id.btn_delete)).setVisibility(View.INVISIBLE);
         }
         setObject();
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage(getString(R.string.loading_msg));
     }
 
     public void setObject() {
@@ -68,23 +71,24 @@ public class NhanVienActivity extends AppCompatActivity {
             ed_cong_viec.setText(nhanVien.getJobTitle());
             ed_ghi_chu.setText(nhanVien.getNote());
             ed_ten_dang_nhap.setText(nhanVien.getLoginName());
-            if(nhanVien.getGender()==1){
+            if (nhanVien.getGender() == 1) {
                 rbGenderMale.setChecked(true);
-            }else{
+            } else {
                 rbGenderFemale.setChecked(true);
             }
         }
     }
 
     public void Save(View view) {
-        NhanVien nhanVien=  (id == -1)?new NhanVien():NhanVienController.getInstance().findById(id);
+        progressDialog.show();
+        NhanVien nhanVien = (id == -1) ? new NhanVien() : NhanVienController.getInstance().findById(id);
 
         nhanVien.setPassword(ed_mat_khau.getText().toString());
         nhanVien.setAddress(ed_dia_chi.getText().toString());
         nhanVien.setEmail(ed_email.getText().toString());
-        if(rbGenderMale.isChecked()){
+        if (rbGenderMale.isChecked()) {
             nhanVien.setGender(1);
-        }else{
+        } else {
             nhanVien.setGender(2);
         }
         nhanVien.setName(ed_nhanvien.getText().toString());
@@ -99,26 +103,30 @@ public class NhanVienActivity extends AppCompatActivity {
         nhanVienRequest.setId(nhanVien.getId());
         nhanVienRequest.setAuthentication(PermissionController.getInstance().getAuthentication());
 
-        if(id==-1){
+        if (id == -1) {
             final Call<NhanVien> call = nhanVienService.them(nhanVienRequest);
             call.enqueue(new Callback<NhanVien>() {
                 public void onResponse(Response<NhanVien> response, Retrofit retrofit) {
+                    progressDialog.dismiss();
                     NhanVienController.getInstance().getNhanViens().add(response.body());
                     finish();
                 }
 
                 public void onFailure(Throwable t) {
+                    progressDialog.dismiss();
                     Toast.makeText(NhanVienActivity.this, getString(R.string.loading_msg_fail), Toast.LENGTH_SHORT).show();
                 }
             });
-        }else{
+        } else {
             final Call<Object> call = nhanVienService.sua(nhanVienRequest);
             call.enqueue(new Callback<Object>() {
                 public void onResponse(Response<Object> response, Retrofit retrofit) {
+                    progressDialog.dismiss();
                     finish();
                 }
 
                 public void onFailure(Throwable t) {
+                    progressDialog.dismiss();
                     Toast.makeText(NhanVienActivity.this, getString(R.string.loading_msg_fail), Toast.LENGTH_SHORT).show();
                 }
             });
@@ -126,14 +134,17 @@ public class NhanVienActivity extends AppCompatActivity {
     }
 
     public void Delete(View view) {
+        progressDialog.show();
         NhanVienService nhanVienService = retrofit.create(NhanVienService.class);
         final Call<Object> call = nhanVienService.xoa(id, PermissionController.getInstance().getAuthentication());
         call.enqueue(new Callback<Object>() {
             public void onResponse(Response<Object> response, Retrofit retrofit) {
+                progressDialog.dismiss();
                 finish();
             }
 
             public void onFailure(Throwable t) {
+                progressDialog.dismiss();
                 Toast.makeText(NhanVienActivity.this, getString(R.string.loading_msg_fail), Toast.LENGTH_SHORT).show();
             }
         });

@@ -101,12 +101,12 @@ public class KhachHangActivity extends AppCompatActivity {
         spn_nhomkh.setSelection(nhomkhIndex);
     }
 
-    private <T> ArrayAdapter<T> createArrayAdapter(List<T> data){
-        return new ArrayAdapter<T>(this,android.R.layout.simple_spinner_dropdown_item, data);
+    private <T> ArrayAdapter<T> createArrayAdapter(List<T> data) {
+        return new ArrayAdapter<T>(this, android.R.layout.simple_spinner_dropdown_item, data);
     }
 
-    private <T> ArrayAdapter<T> createArrayAdapter(T[] data){
-        return new ArrayAdapter<T>(this,android.R.layout.simple_spinner_dropdown_item, data);
+    private <T> ArrayAdapter<T> createArrayAdapter(T[] data) {
+        return new ArrayAdapter<T>(this, android.R.layout.simple_spinner_dropdown_item, data);
     }
 
     public void Save(View view) {
@@ -122,10 +122,12 @@ public class KhachHangActivity extends AppCompatActivity {
             final Call<Object> call = khachHangService.sua(khachHangRequest);
             call.enqueue(new Callback<Object>() {
                 public void onResponse(Response<Object> response, Retrofit retrofit) {
+                    progressDialog.dismiss();
                     finish();
                 }
 
                 public void onFailure(Throwable t) {
+                    progressDialog.dismiss();
                     Toast.makeText(KhachHangActivity.this, getString(R.string.loading_msg_fail), Toast.LENGTH_SHORT).show();
                 }
             });

@@ -21,6 +21,12 @@ public class QuanLyLoaiSPActivity extends AppCompatActivity {
         setUpListView();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        loaiSPAdapter.notifyDataSetChanged();
+    }
+
     private void setUpListView() {
         lv_loaisp = (ListView) findViewById(R.id.lv_loaisp);
         loaiSPAdapter = new LoaiSPAdapter(this, LoaiSPController.getInstance().getLoaiSPs());

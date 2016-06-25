@@ -19,6 +19,7 @@
     </ListView>
 
     <Button
+        style="@style/buttonRoundConnerStrongBlue"
         android:id="@+id/btn_Add"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

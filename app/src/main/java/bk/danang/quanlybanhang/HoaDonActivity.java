@@ -41,12 +41,11 @@ public class HoaDonActivity extends AppCompatActivity {
     Spinner spn_sanpham, ed_khachhang, spn_gia_ban, spn_ten_nv;
     EditText ed_so_luong, ed_giam_gia, ed_ghi_chu;
     private int id;
-    ProgressDialog progressDialog;
     private Retrofit retrofit = new Retrofit.Builder()
             .baseUrl(AppConstant.WEB_API_BASE)
             .addConverterFactory(GsonConverterFactory.create())
             .build();
-
+    ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -99,6 +98,7 @@ public class HoaDonActivity extends AppCompatActivity {
 
 
     public void Save(View view) {
+        progressDialog.show();
         HoaDon hoaDon = new HoaDon();
         if (id != -1) {
             hoaDon = HoaDonController.getInstance().findById(id);
@@ -125,11 +125,13 @@ public class HoaDonActivity extends AppCompatActivity {
             final Call<HoaDon> call = hoaDonService.them(hoaDonRequest);
             call.enqueue(new Callback<HoaDon>() {
                 public void onResponse(Response<HoaDon> response, Retrofit retrofit) {
+                    progressDialog.dismiss();
                     HoaDonController.getInstance().getHoaDons().add(response.body());
                     finish();
                 }
 
                 public void onFailure(Throwable t) {
+                    progressDialog.dismiss();
                     Toast.makeText(HoaDonActivity.this, getString(R.string.loading_msg_fail), Toast.LENGTH_SHORT).show();
                 }
             });
@@ -137,10 +139,12 @@ public class HoaDonActivity extends AppCompatActivity {
             final Call<Object> call = hoaDonService.sua(hoaDonRequest);
             call.enqueue(new Callback<Object>() {
                 public void onResponse(Response<Object> response, Retrofit retrofit) {
+                    progressDialog.dismiss();
                     finish();
                 }
 
                 public void onFailure(Throwable t) {
+                    progressDialog.dismiss();
                     Toast.makeText(HoaDonActivity.this, getString(R.string.loading_msg_fail), Toast.LENGTH_SHORT).show();
                 }
             });
@@ -148,16 +152,18 @@ public class HoaDonActivity extends AppCompatActivity {
     }
 
     public void Delete(View view) {
-
+        progressDialog.show();
         HoaDonService hoaDonService = retrofit.create(HoaDonService.class);
         hoaDonService.xoa(id, PermissionController.getInstance().getAuthentication()).enqueue(new Callback<Object>() {
             public void onResponse(Response<Object> response, Retrofit retrofit) {
+                progressDialog.dismiss();
                 HoaDon hoaDon = HoaDonController.getInstance().findById(id);
                 HoaDonController.getInstance().getHoaDons().remove(hoaDon);
                 finish();
             }
 
             public void onFailure(Throwable t) {
+                progressDialog.dismiss();
                 Toast.makeText(HoaDonActivity.this, getString(R.string.loading_msg_fail), Toast.LENGTH_SHORT).show();
             }
         });

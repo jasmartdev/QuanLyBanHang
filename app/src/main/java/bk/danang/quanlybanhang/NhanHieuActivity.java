@@ -68,16 +68,18 @@ public class NhanHieuActivity extends AppCompatActivity {
         NhanHieuService nhanHieuService = retrofit.create(NhanHieuService.class);
         NhanHieuRequest nhanHieuRequest = new NhanHieuRequest();
         nhanHieuRequest.setData(nhanHieu);
-        nhanHieuRequest.setId(nhanHieuRequest.getId());
+        nhanHieuRequest.setId(nhanHieu.getId());
         nhanHieuRequest.setAuthentication(PermissionController.getInstance().getAuthentication());
         if (id != -1) {
             final Call<Object> call = nhanHieuService.sua(nhanHieuRequest);
             call.enqueue(new Callback<Object>() {
                 public void onResponse(Response<Object> response, Retrofit retrofit) {
+                    progressDialog.dismiss();
                     finish();
                 }
 
                 public void onFailure(Throwable t) {
+                    progressDialog.dismiss();
                     Toast.makeText(NhanHieuActivity.this, getString(R.string.loading_msg_fail), Toast.LENGTH_SHORT).show();
                 }
             });
@@ -91,6 +93,7 @@ public class NhanHieuActivity extends AppCompatActivity {
                 }
 
                 public void onFailure(Throwable t) {
+                    progressDialog.dismiss();
                     Toast.makeText(NhanHieuActivity.this, getString(R.string.loading_msg_fail), Toast.LENGTH_SHORT).show();
                 }
             });
@@ -98,12 +101,10 @@ public class NhanHieuActivity extends AppCompatActivity {
     }
 
     public void Delete(View view) {
+        progressDialog.show();
         NhanHieuService nhanHieuService = retrofit.create(NhanHieuService.class);
-        NhanHieuRequest nhanHieuRequest = new NhanHieuRequest();
-        nhanHieuRequest.setData(nhanHieu);
-        nhanHieuRequest.setAuthentication(PermissionController.getInstance().getAuthentication());
         if (id != -1) {
-            final Call<Object> call = nhanHieuService.xoa(nhanHieuRequest.getId(), PermissionController.getInstance().getAuthentication());
+            final Call<Object> call = nhanHieuService.xoa(id, PermissionController.getInstance().getAuthentication());
             call.enqueue(new Callback<Object>() {
                 public void onResponse(Response<Object> response, Retrofit retrofit) {
                     progressDialog.dismiss();
@@ -112,6 +113,7 @@ public class NhanHieuActivity extends AppCompatActivity {
                 }
 
                 public void onFailure(Throwable t) {
+                    progressDialog.dismiss();
                     Toast.makeText(NhanHieuActivity.this, getString(R.string.loading_msg_fail), Toast.LENGTH_SHORT).show();
                 }
             });

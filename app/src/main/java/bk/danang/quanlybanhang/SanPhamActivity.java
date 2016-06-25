@@ -147,10 +147,6 @@ public class SanPhamActivity extends AppCompatActivity {
     public void Delete(View view) {
         progressDialog.show();
         SanPhamService sanPhamService = retrofit.create(SanPhamService.class);
-        SanPhamRequest sanPhamRequest = new SanPhamRequest();
-        sanPhamRequest.setData(sanPham);
-        sanPhamRequest.setId(sanPham.getId());
-        sanPhamRequest.setAuthentication(PermissionController.getInstance().getAuthentication());
         if (id != -1) {
             final Call<Object> call = sanPhamService.xoa(id, PermissionController.getInstance().getAuthentication());
             call.enqueue(new Callback<Object>() {

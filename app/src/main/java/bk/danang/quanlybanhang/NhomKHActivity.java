@@ -77,10 +77,12 @@ public class NhomKHActivity extends AppCompatActivity {
             final Call<Object> call = nhomKHService.sua(nhomKHRequest);
             call.enqueue(new Callback<Object>() {
                 public void onResponse(Response<Object> response, Retrofit retrofit) {
+                    progressDialog.dismiss();
                     finish();
                 }
 
                 public void onFailure(Throwable t) {
+                    progressDialog.dismiss();
                     Toast.makeText(NhomKHActivity.this, getString(R.string.loading_msg_fail), Toast.LENGTH_SHORT).show();
                 }
             });
@@ -94,6 +96,7 @@ public class NhomKHActivity extends AppCompatActivity {
                 }
 
                 public void onFailure(Throwable t) {
+                    progressDialog.dismiss();
                     Toast.makeText(NhomKHActivity.this, getString(R.string.loading_msg_fail), Toast.LENGTH_SHORT).show();
                 }
             });
@@ -103,11 +106,8 @@ public class NhomKHActivity extends AppCompatActivity {
     public void Delete(View view) {
         progressDialog.show();
         NhomKHService nhomKHService = retrofit.create(NhomKHService.class);
-        NhomKHRequest nhomKHRequest = new NhomKHRequest();
-        nhomKHRequest.setData(nhomKH);
-        nhomKHRequest.setAuthentication(PermissionController.getInstance().getAuthentication());
         if (id != -1) {
-            final Call<Object> call = nhomKHService.xoa(nhomKHRequest.getId(), PermissionController.getInstance().getAuthentication());
+            final Call<Object> call = nhomKHService.xoa(id, PermissionController.getInstance().getAuthentication());
             call.enqueue(new Callback<Object>() {
                 public void onResponse(Response<Object> response, Retrofit retrofit) {
                     progressDialog.dismiss();
@@ -116,6 +116,7 @@ public class NhomKHActivity extends AppCompatActivity {
                 }
 
                 public void onFailure(Throwable t) {
+                    progressDialog.dismiss();
                     Toast.makeText(NhomKHActivity.this, getString(R.string.loading_msg_fail), Toast.LENGTH_SHORT).show();
                 }
             });

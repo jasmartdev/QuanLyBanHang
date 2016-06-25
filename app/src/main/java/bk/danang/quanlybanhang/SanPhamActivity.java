@@ -82,7 +82,7 @@ public class SanPhamActivity extends AppCompatActivity {
             ed_gia_vip.setText(Integer.toString(sanPham.getVipPrice()));
             ed_gia_si.setText(Integer.toString(sanPham.getWholesalePrice()));
             ed_gia_le.setText(Integer.toString(sanPham.getRetailPrice()));
-            ed_image_url.setText(sanPham.getImageurl().toString());
+            ed_image_url.setText(sanPham.getImageurl());
         }
         List<LoaiSP> loaiSPList = LoaiSPController.getInstance().getLoaiSPs();
         List<NhanHieu> nhanHieuList = NhanHieuController.getInstance().getNhanHieus();
@@ -114,6 +114,7 @@ public class SanPhamActivity extends AppCompatActivity {
         SanPhamService sanPhamService = retrofit.create(SanPhamService.class);
         SanPhamRequest sanPhamRequest = new SanPhamRequest();
         sanPhamRequest.setData(sanPham);
+        sanPhamRequest.setId(sanPham.getId());
         sanPhamRequest.setAuthentication(PermissionController.getInstance().getAuthentication());
 
         if (id != -1) {
@@ -149,6 +150,7 @@ public class SanPhamActivity extends AppCompatActivity {
         SanPhamService sanPhamService = retrofit.create(SanPhamService.class);
         SanPhamRequest sanPhamRequest = new SanPhamRequest();
         sanPhamRequest.setData(sanPham);
+        sanPhamRequest.setId(sanPham.getId());
         sanPhamRequest.setAuthentication(PermissionController.getInstance().getAuthentication());
         if (id != -1) {
             final Call<Object> call = sanPhamService.xoa(sanPhamRequest.getId(), PermissionController.getInstance().getAuthentication());

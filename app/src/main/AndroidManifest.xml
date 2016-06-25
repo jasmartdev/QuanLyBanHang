@@ -25,43 +25,50 @@
             android:label="@string/activity_title_ds_hoadon" />
         <activity
             android:name=".HoaDonActivity"
-            android:label="@string/activity_title_ct_hoadon" />
+            android:label="@string/activity_title_ct_hoadon"
+            android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".QuanLySanPhamActivity"
             android:label="@string/activity_title_ds_sanpham" />
         <activity
             android:name=".SanPhamActivity"
-            android:label="@string/activity_title_ct_sanpham" />
+            android:label="@string/activity_title_ct_sanpham"
+            android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".QuanLyLoaiSPActivity"
             android:label="@string/activity_title_ds_loaisp" />
         <activity
             android:name=".LoaiSPActivity"
-            android:label="@string/activity_title_ct_loaisp" />
+            android:label="@string/activity_title_ct_loaisp"
+            android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".QuanLyNhanHieuActivity"
             android:label="@string/activity_title_ds_nhanhieu" />
         <activity
             android:name=".NhanHieuActivity"
-            android:label="@string/activity_title_ct_nhanhieu" />
+            android:label="@string/activity_title_ct_nhanhieu"
+            android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".QuanLyKhachHangActivity"
             android:label="@string/activity_title_ds_khachhang" />
         <activity
             android:name=".KhachHangActivity"
-            android:label="@string/activity_title_ct_khachhang" />
+            android:label="@string/activity_title_ct_khachhang"
+            android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".QuanLyNhomKHActivity"
             android:label="@string/activity_title_ds_nhomkh" />
         <activity
             android:name=".NhomKHActivity"
-            android:label="@string/activity_title_ct_nhomkh" />
+            android:label="@string/activity_title_ct_nhomkh"
+            android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".QuanLyNhanVienActivity"
             android:label="@string/activity_title_ds_nhanvien" />
         <activity
             android:name=".NhanVienActivity"
-            android:label="@string/activity_title_ct_nhanvien" />
+            android:label="@string/activity_title_ct_nhanvien"
+            android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".QuanLyDoanhThuActivity"
             android:label="@string/activity_title_ds_doanhthu" />

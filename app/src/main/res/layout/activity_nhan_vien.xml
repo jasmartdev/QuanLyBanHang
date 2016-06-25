@@ -15,8 +15,8 @@
         android:orientation="vertical">
 
 
-
         <TextView
+            style="@style/textviewLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/nhanvien_ten"
@@ -24,9 +24,12 @@
 
         <EditText
             android:id="@+id/ed_nhanvien"
+            style="@style/edittextRoundConnerWhite"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
+
         <TextView
+            style="@style/textviewLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/login_name"
@@ -34,10 +37,12 @@
 
         <EditText
             android:id="@+id/ed_dangnhap"
+            style="@style/edittextRoundConnerWhite"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
         <TextView
+            style="@style/textviewLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/password"
@@ -45,26 +50,31 @@
 
         <EditText
             android:id="@+id/ed_password"
+            style="@style/edittextRoundConnerWhite"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPassword"
-            />
+            android:inputType="textPassword" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_vertical">
 
             <TextView
+                style="@style/textviewLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/quanly_margin"
                 android:layout_marginRight="@dimen/quanly_margin"
                 android:text="@string/khachhang_gioi_tinh"
                 android:textSize="@dimen/label_size" />
 
             <RadioGroup
                 android:id="@+id/rdg_gioi_tinh"
+                style="@style/radioButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/quanly_margin"
                 android:layout_marginLeft="@dimen/quanly_margin"
                 android:orientation="horizontal">
 
@@ -86,6 +96,7 @@
         </LinearLayout>
 
         <TextView
+            style="@style/textviewLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/nhanvien_dia_chi"
@@ -93,10 +104,12 @@
 
         <EditText
             android:id="@+id/ed_dia_chi"
+            style="@style/edittextRoundConnerWhite"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
         <TextView
+            style="@style/textviewLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/khachhang_dien_thoai"
@@ -104,11 +117,13 @@
 
         <EditText
             android:id="@+id/ed_dien_thoai"
+            style="@style/edittextRoundConnerWhite"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="phone" />
 
         <TextView
+            style="@style/textviewLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/khachhang_email"
@@ -116,11 +131,13 @@
 
         <EditText
             android:id="@+id/ed_email"
+            style="@style/edittextRoundConnerWhite"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textEmailAddress" />
 
         <TextView
+            style="@style/textviewLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/nhanvien_cong_viec"
@@ -128,10 +145,12 @@
 
         <EditText
             android:id="@+id/ed_cong_viec"
+            style="@style/edittextRoundConnerWhite"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
         <TextView
+            style="@style/textviewLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/chung_ghi_chu"
@@ -139,11 +158,13 @@
 
         <EditText
             android:id="@+id/ed_ghi_chu"
+            style="@style/edittextRoundConnerWhite.Large"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textMultiLine" />
 
         <Button
+            style="@style/buttonRoundConnerStrongBlue"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="Save"
@@ -151,6 +172,7 @@
 
         <Button
             android:id="@+id/btn_delete"
+            style="@style/buttonRoundConnerStrongBlue"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="Delete"

@@ -15,6 +15,7 @@
         android:orientation="vertical">
 
         <TextView
+            style="@style/textviewLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/chung_sanpham"
@@ -22,6 +23,7 @@
 
         <Spinner
             android:id="@+id/spn_sanpham"
+            style="@style/spinnerRoundConnerWhite"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
@@ -31,6 +33,7 @@
             android:orientation="horizontal">
 
             <TextView
+                style="@style/textviewLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/chung_so_luong"
@@ -38,13 +41,15 @@
 
             <EditText
                 android:id="@+id/ed_so_luong"
+                style="@style/edittextRoundConnerWhite"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="number"
-                android:layout_marginLeft="@dimen/quanly_margin" />
+                android:layout_marginLeft="@dimen/quanly_margin"
+                android:inputType="number" />
         </LinearLayout>
 
         <TextView
+            style="@style/textviewLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/hoadon_gia_ban"
@@ -52,6 +57,7 @@
 
         <Spinner
             android:id="@+id/spn_gia_ban"
+            style="@style/spinnerRoundConnerWhite"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
@@ -61,6 +67,7 @@
             android:orientation="horizontal">
 
             <TextView
+                style="@style/textviewLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/chung_giam_gia"
@@ -68,14 +75,16 @@
 
             <EditText
                 android:id="@+id/ed_giam_gia"
+                style="@style/edittextRoundConnerWhite"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="number"
-                android:layout_marginLeft="@dimen/quanly_margin" />
+                android:layout_marginLeft="@dimen/quanly_margin"
+                android:inputType="number" />
         </LinearLayout>
 
 
         <TextView
+            style="@style/textviewLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/chung_khachhang"
@@ -83,10 +92,12 @@
 
         <Spinner
             android:id="@+id/ed_khachhang"
+            style="@style/spinnerRoundConnerWhite"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
         <TextView
+            style="@style/textviewLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/hoadon_ten_nv"
@@ -94,10 +105,12 @@
 
         <Spinner
             android:id="@+id/spn_ten_nv"
+            style="@style/spinnerRoundConnerWhite"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
         <TextView
+            style="@style/textviewLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/chung_ghi_chu"
@@ -105,11 +118,13 @@
 
         <EditText
             android:id="@+id/ed_ghi_chu"
+            style="@style/edittextRoundConnerWhite.Large"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textMultiLine" />
 
         <Button
+            style="@style/buttonRoundConnerStrongBlue"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="Save"
@@ -117,6 +132,7 @@
 
         <Button
             android:id="@+id/btn_delete"
+            style="@style/buttonRoundConnerStrongBlue"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="Delete"

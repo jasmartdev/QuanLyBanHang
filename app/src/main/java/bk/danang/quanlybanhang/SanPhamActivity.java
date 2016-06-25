@@ -120,10 +120,12 @@ public class SanPhamActivity extends AppCompatActivity {
             final Call<Object> call = sanPhamService.sua(sanPhamRequest);
             call.enqueue(new Callback<Object>() {
                 public void onResponse(Response<Object> response, Retrofit retrofit) {
+                    progressDialog.dismiss();
                     finish();
                 }
 
                 public void onFailure(Throwable t) {
+                    progressDialog.dismiss();
                     Toast.makeText(SanPhamActivity.this, getString(R.string.loading_msg_fail), Toast.LENGTH_SHORT).show();
                 }
             });

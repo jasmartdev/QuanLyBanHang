@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -14,7 +15,6 @@ import android.widget.Toast;
 
 import java.util.List;
 
-import bk.danang.quanlybanhang.adapter.SpinnerAdapter;
 import bk.danang.quanlybanhang.controller.KhachHangController;
 import bk.danang.quanlybanhang.controller.NhomKHController;
 import bk.danang.quanlybanhang.controller.PermissionController;
@@ -88,7 +88,7 @@ public class KhachHangActivity extends AppCompatActivity {
             ed_ghi_chu.setText(khachHang.getNote());
         }
         List<NhomKH> nhomKHList = NhomKHController.getInstance().getNhomKHs();
-        spn_nhomkh.setAdapter(new SpinnerAdapter<NhomKH>(this, android.R.layout.simple_spinner_dropdown_item, nhomKHList));
+        spn_nhomkh.setAdapter(createArrayAdapter(nhomKHList));
         int nhomkhIndex = 0;
         if (id != -1) {
             for (int i = 1; i < nhomKHList.size(); i++) {
@@ -99,6 +99,14 @@ public class KhachHangActivity extends AppCompatActivity {
             }
         }
         spn_nhomkh.setSelection(nhomkhIndex);
+    }
+
+    private <T> ArrayAdapter<T> createArrayAdapter(List<T> data){
+        return new ArrayAdapter<T>(this,android.R.layout.simple_spinner_dropdown_item, data);
+    }
+
+    private <T> ArrayAdapter<T> createArrayAdapter(T[] data){
+        return new ArrayAdapter<T>(this,android.R.layout.simple_spinner_dropdown_item, data);
     }
 
     public void Save(View view) {

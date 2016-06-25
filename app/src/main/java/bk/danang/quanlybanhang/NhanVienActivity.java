@@ -96,6 +96,7 @@ public class NhanVienActivity extends AppCompatActivity {
         NhanVienService nhanVienService = retrofit.create(NhanVienService.class);
         NhanVienRequest nhanVienRequest = new NhanVienRequest();
         nhanVienRequest.setData(nhanVien);
+        nhanVienRequest.setId(nhanVien.getId());
         nhanVienRequest.setAuthentication(PermissionController.getInstance().getAuthentication());
 
         if(id==-1){

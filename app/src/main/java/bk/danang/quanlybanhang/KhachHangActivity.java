@@ -141,11 +141,8 @@ public class KhachHangActivity extends AppCompatActivity {
     public void Delete(View view) {
         progressDialog.show();
         KhachHangService khachHangService = retrofit.create(KhachHangService.class);
-        KhachHangRequest khachHangRequest = new KhachHangRequest();
-        khachHangRequest.setData(khachHang);
-        khachHangRequest.setAuthentication(PermissionController.getInstance().getAuthentication());
         if (id != -1) {
-            final Call<Object> call = khachHangService.xoa(khachHangRequest.getId(), PermissionController.getInstance().getAuthentication());
+            final Call<Object> call = khachHangService.xoa(khachHang.getId(), PermissionController.getInstance().getAuthentication());
             call.enqueue(new Callback<Object>() {
                 public void onResponse(Response<Object> response, Retrofit retrofit) {
                     progressDialog.dismiss();

@@ -70,6 +70,7 @@ public class NhomKHActivity extends AppCompatActivity {
         NhomKHService nhomKHService = retrofit.create(NhomKHService.class);
         NhomKHRequest nhomKHRequest = new NhomKHRequest();
         nhomKHRequest.setData(nhomKH);
+        nhomKHRequest.setId(nhomKH.getId());
         nhomKHRequest.setAuthentication(PermissionController.getInstance().getAuthentication());
         if (id != -1) {
             final Call<Object> call = nhomKHService.sua(nhomKHRequest);

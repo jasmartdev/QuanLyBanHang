@@ -68,6 +68,7 @@ public class NhanHieuActivity extends AppCompatActivity {
         NhanHieuService nhanHieuService = retrofit.create(NhanHieuService.class);
         NhanHieuRequest nhanHieuRequest = new NhanHieuRequest();
         nhanHieuRequest.setData(nhanHieu);
+        nhanHieuRequest.setId(nhanHieuRequest.getId());
         nhanHieuRequest.setAuthentication(PermissionController.getInstance().getAuthentication());
         if (id != -1) {
             final Call<Object> call = nhanHieuService.sua(nhanHieuRequest);

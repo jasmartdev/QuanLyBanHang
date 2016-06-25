@@ -8,4 +8,76 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="buttonRoundConnerStrongBlue" parent="android:Widget.Holo.Light.Button">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/round_conner_strong_blue</item>
+        <item name="android:textSize">24dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:layout_marginBottom">10dp</item>
+    </style>
+
+    <style name="edittextRoundConnerLightBlue" parent="android:Widget.Holo.Light.EditText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/round_conner_light_blue</item>
+        <item name="android:textSize">24dp</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:paddingBottom">5dp</item>
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:paddingRight">5dp</item>
+        <item name="android:paddingLeft">15dp</item>
+        <item name="android:gravity">left|center_vertical</item>
+        <item name="android:drawablePadding">15dp</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:layout_marginBottom">10dp</item>
+    </style>
+
+    <style name="edittextRoundConnerWhite" parent="android:Widget.Holo.Light.EditText">
+        <item name="android:background">@drawable/round_conner_white</item>
+        <item name="android:textSize">24dp</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">36dp</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:padding">5dp</item>
+        <item name="android:gravity">left|center_vertical</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:layout_marginBottom">10dp</item>
+    </style>
+
+    <style name="edittextRoundConnerWhite.Large" parent="edittextRoundConnerWhite">
+        <item name="android:layout_height">72dp</item>
+        <item name="android:singleLine">false</item>
+        <item name="android:scrollbars">vertical</item>
+    </style>
+
+    <style name="spinnerRoundConnerWhite" parent="android:Widget.Holo.Light.Spinner">
+        <item name="android:background">@drawable/round_conner_white_arrow_down</item>
+        <item name="android:textSize">24dp</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">36dp</item>
+        <item name="android:gravity">left</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:layout_marginBottom">10dp</item>
+        <item name="android:dropDownVerticalOffset">28dp</item>
+    </style>
+
+    <style name="textviewLabel" parent="android:Widget.Holo.Light.TextView">
+        <item name="android:textSize">22dp</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:editable">false</item>
+        <item name="android:clickable">false</item>
+        <item name="android:layout_alignParentLeft">true</item>
+        <item name="android:gravity">left</item>
+        <item name="android:layout_marginTop">15dp</item>
+    </style>
 </resources>

@@ -46,4 +46,22 @@
     <string name="login_name">Tên đăng nhập</string>
     <string name="password">Mật khẩu</string>
     <string name="quantity">Số lượng</string>
+    <string name="activity_title_login">Đăng nhập</string>
+    <string name="activity_title_home">Quản lý</string>
+    <string name="activity_title_ds_doanhthu">Danh sách doanh thu</string>
+    <string name="activity_title_ds_hoadon">Danh sách hóa đơn</string>
+    <string name="activity_title_ds_khachhang">Danh sách khách hàng</string>
+    <string name="activity_title_ds_loaisp">Danh sách loại sản phẩm</string>
+    <string name="activity_title_ds_nhanhieu">Danh sách nhãn hiệu</string>
+    <string name="activity_title_ds_nhanvien">Danh sách nhân viên</string>
+    <string name="activity_title_ds_nhomkh">Danh sách nhóm khách hàng</string>
+    <string name="activity_title_ds_sanpham">Danh sách sản phẩm</string>
+    <string name="activity_title_ct_doanhthu">Chi tiết doanh thu</string>
+    <string name="activity_title_ct_hoadon">Chi tiết hóa đơn</string>
+    <string name="activity_title_ct_khachhang">Chi tiết khách hàng</string>
+    <string name="activity_title_ct_loaisp">Chi tiết loại sản phẩm</string>
+    <string name="activity_title_ct_nhanhieu">Chi tiết nhãn hiệu</string>
+    <string name="activity_title_ct_nhanvien">Chi tiết nhân viên</string>
+    <string name="activity_title_ct_nhomkh">Chi tiết nhóm khách hàng</string>
+    <string name="activity_title_ct_sanpham">Chi tiết sản phẩm</string>
 </resources>

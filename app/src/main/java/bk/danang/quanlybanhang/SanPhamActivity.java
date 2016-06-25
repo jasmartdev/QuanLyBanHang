@@ -84,7 +84,7 @@ public class SanPhamActivity extends AppCompatActivity {
             ed_gia_vip.setText(Integer.toString(sanPham.getVipPrice()));
             ed_gia_si.setText(Integer.toString(sanPham.getWholesalePrice()));
             ed_gia_le.setText(Integer.toString(sanPham.getRetailPrice()));
-            ed_image_url.setText(sanPham.getImageurl().toString());
+            ed_image_url.setText(sanPham.getImageurl());
             imgPhoto.setUrl(sanPham.getImageurl());
             imgPhoto.setVisibility(View.VISIBLE);
         }
@@ -150,7 +150,7 @@ public class SanPhamActivity extends AppCompatActivity {
         sanPhamRequest.setId(sanPham.getId());
         sanPhamRequest.setAuthentication(PermissionController.getInstance().getAuthentication());
         if (id != -1) {
-            final Call<Object> call = sanPhamService.xoa(sanPhamRequest.getId(), PermissionController.getInstance().getAuthentication());
+            final Call<Object> call = sanPhamService.xoa(id, PermissionController.getInstance().getAuthentication());
             call.enqueue(new Callback<Object>() {
                 public void onResponse(Response<Object> response, Retrofit retrofit) {
                     progressDialog.dismiss();

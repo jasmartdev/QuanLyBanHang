@@ -33,7 +33,7 @@ import retrofit.Retrofit;
 
 public class SanPhamActivity extends AppCompatActivity {
     private Spinner spn_loaisp, spn_hieu;
-    private EditText ed_sanpham, ed_so_luong, ed_gia_goc, ed_gia_vip, ed_gia_si, ed_gia_le;
+    private EditText ed_sanpham, ed_so_luong, ed_gia_goc, ed_gia_vip, ed_gia_si, ed_gia_le, ed_image_url;
     private int id;
     SanPham sanPham = null;
     private Retrofit retrofit = new Retrofit.Builder()
@@ -54,6 +54,7 @@ public class SanPhamActivity extends AppCompatActivity {
         ed_gia_vip = (EditText) findViewById(R.id.ed_gia_vip);
         ed_gia_si = (EditText) findViewById(R.id.ed_gia_si);
         ed_gia_le = (EditText) findViewById(R.id.ed_gia_le);
+        ed_image_url = (EditText) findViewById(R.id.ed_image_url);
         Intent intent = getIntent();
         id = intent.getIntExtra("object", -1);
         if (id == -1 || !PermissionController.getInstance().getIsAdmin()) {
@@ -81,6 +82,7 @@ public class SanPhamActivity extends AppCompatActivity {
             ed_gia_vip.setText(Integer.toString(sanPham.getVipPrice()));
             ed_gia_si.setText(Integer.toString(sanPham.getWholesalePrice()));
             ed_gia_le.setText(Integer.toString(sanPham.getRetailPrice()));
+            ed_image_url.setText(sanPham.getImageurl().toString());
         }
         List<LoaiSP> loaiSPList = LoaiSPController.getInstance().getLoaiSPs();
         List<NhanHieu> nhanHieuList = NhanHieuController.getInstance().getNhanHieus();
@@ -174,5 +176,6 @@ public class SanPhamActivity extends AppCompatActivity {
         sanPham.setVipPrice(Integer.parseInt(ed_gia_vip.getText().toString()));
         sanPham.setWholesalePrice(Integer.parseInt(ed_gia_si.getText().toString()));
         sanPham.setRetailPrice(Integer.parseInt(ed_gia_le.getText().toString()));
+        sanPham.setImageurl(ed_image_url.getText().toString());
     }
 }

@@ -31,7 +31,7 @@
     <string name="sanpham_gia_si">Giá sỉ</string>
     <string name="sanpham_gia_le">Giá lẻ</string>
     <string name="sanpham_gia_vip">Giá VIP</string>
-    <string name="sanpham_con_hang">Còn hàng</string>
+    <string name="sanpham_image_url">Link hình ảnh</string>
     <string name="loaisp_mo_ta">Mô tả</string>
     <string name="khachhang_ten">Tên khách hàng</string>
     <string name="khachhang_gioi_tinh">Giới tính</string>

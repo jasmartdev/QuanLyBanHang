@@ -15,6 +15,7 @@
         android:orientation="vertical">
 
         <TextView
+            style="@style/textviewLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/chung_sanpham"
@@ -22,10 +23,12 @@
 
         <EditText
             android:id="@+id/ed_sanpham"
+            style="@style/edittextRoundConnerWhite"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
         <TextView
+            style="@style/textviewLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/chung_loaisp"
@@ -33,10 +36,12 @@
 
         <Spinner
             android:id="@+id/spn_loaisp"
+            style="@style/spinnerRoundConnerWhite"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
         <TextView
+            style="@style/textviewLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/chung_nhan_hieu"
@@ -44,105 +49,102 @@
 
         <Spinner
             android:id="@+id/spn_hieu"
+            style="@style/spinnerRoundConnerWhite"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
-        <LinearLayout
+        <TextView
+            style="@style/textviewLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/chung_so_luong"
+            android:textSize="@dimen/label_size" />
+
+        <EditText
+            android:id="@+id/ed_so_luong"
+            style="@style/edittextRoundConnerWhite"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_marginLeft="@dimen/quanly_margin"
+            android:inputType="number" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/chung_so_luong"
-                android:textSize="@dimen/label_size" />
+        <TextView
+            style="@style/textviewLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sanpham_gia_goc"
+            android:textSize="@dimen/label_size" />
 
-            <EditText
-                android:id="@+id/ed_so_luong"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/quanly_margin"
-                android:inputType="number" />
-        </LinearLayout>
-
-        <LinearLayout
+        <EditText
+            android:id="@+id/ed_gia_goc"
+            style="@style/edittextRoundConnerWhite"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_marginLeft="@dimen/quanly_margin"
+            android:inputType="number" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/sanpham_gia_goc"
-                android:textSize="@dimen/label_size" />
+        <TextView
+            style="@style/edittextRoundConnerWhite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sanpham_gia_vip"
+            android:textSize="@dimen/label_size" />
 
-            <EditText
-                android:id="@+id/ed_gia_goc"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/quanly_margin"
-                android:inputType="number" />
-        </LinearLayout>
-
-        <LinearLayout
+        <EditText
+            android:id="@+id/ed_gia_vip"
+            style="@style/edittextRoundConnerWhite"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_marginLeft="@dimen/quanly_margin"
+            android:inputType="number" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/sanpham_gia_vip"
-                android:textSize="@dimen/label_size" />
+        <TextView
+            style="@style/textviewLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sanpham_gia_si"
+            android:textSize="@dimen/label_size" />
 
-            <EditText
-                android:id="@+id/ed_gia_vip"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/quanly_margin"
-                android:inputType="number" />
-        </LinearLayout>
-
-        <LinearLayout
+        <EditText
+            android:id="@+id/ed_gia_si"
+            style="@style/edittextRoundConnerWhite"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_marginLeft="@dimen/quanly_margin"
+            android:inputType="number" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/sanpham_gia_si"
-                android:textSize="@dimen/label_size" />
+        <TextView
+            style="@style/textviewLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sanpham_gia_le"
+            android:textSize="@dimen/label_size" />
 
-            <EditText
-                android:id="@+id/ed_gia_si"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/quanly_margin"
-                android:inputType="number" />
-        </LinearLayout>
-
-        <LinearLayout
+        <EditText
+            android:id="@+id/ed_gia_le"
+            style="@style/edittextRoundConnerWhite"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_marginLeft="@dimen/quanly_margin"
+            android:inputType="number" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/sanpham_gia_le"
-                android:textSize="@dimen/label_size" />
+        <TextView
+            style="@style/textviewLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sanpham_image_url"
+            android:textSize="@dimen/label_size" />
 
-            <EditText
-                android:id="@+id/ed_gia_le"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/quanly_margin"
-                android:inputType="number" />
-        </LinearLayout>
+        <EditText
+            android:id="@+id/ed_image_url"
+            style="@style/edittextRoundConnerWhite"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/quanly_margin"
+            android:inputType="textUri" />
 
         <Button
+            style="@style/buttonRoundConnerStrongBlue"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="Save"
@@ -150,6 +152,7 @@
 
         <Button
             android:id="@+id/btn_delete"
+            style="@style/buttonRoundConnerStrongBlue"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="Delete"

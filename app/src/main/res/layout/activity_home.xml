@@ -9,81 +9,90 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".HomeActivity">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        >
+        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/btn_ql_hoadon"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/quanly_margin"
-        android:onClick="SelectFeature"
-        android:text="@string/quanly_hoadon" />
+        <Button
+            android:id="@+id/btn_ql_hoadon"
+            style="@style/buttonRoundConnerLightBlue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/quanly_margin"
+            android:onClick="SelectFeature"
+            android:text="@string/quanly_hoadon" />
 
-    <Button
-        android:id="@+id/btn_ql_sanpham"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/quanly_margin"
-        android:onClick="SelectFeature"
-        android:text="@string/quanly_sanpham" />
+        <Button
+            android:id="@+id/btn_ql_sanpham"
+            style="@style/buttonRoundConnerLightBlue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/quanly_margin"
+            android:onClick="SelectFeature"
+            android:text="@string/quanly_sanpham" />
 
-    <Button
-        android:id="@+id/btn_ql_loaisp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/quanly_margin"
-        android:onClick="SelectFeature"
-        android:text="@string/quanly_loaisp" />
+        <Button
+            android:id="@+id/btn_ql_loaisp"
+            style="@style/buttonRoundConnerLightBlue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/quanly_margin"
+            android:onClick="SelectFeature"
+            android:text="@string/quanly_loaisp" />
 
-    <Button
-        android:id="@+id/btn_ql_nhanhieu"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/quanly_margin"
-        android:onClick="SelectFeature"
-        android:text="@string/quanly_nhanhieu" />
+        <Button
+            android:id="@+id/btn_ql_nhanhieu"
+            style="@style/buttonRoundConnerLightBlue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/quanly_margin"
+            android:onClick="SelectFeature"
+            android:text="@string/quanly_nhanhieu" />
 
-    <Button
-        android:id="@+id/btn_ql_khachang"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/quanly_margin"
-        android:onClick="SelectFeature"
-        android:text="@string/quanly_khachhang" />
+        <Button
+            android:id="@+id/btn_ql_khachang"
+            style="@style/buttonRoundConnerLightBlue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/quanly_margin"
+            android:onClick="SelectFeature"
+            android:text="@string/quanly_khachhang" />
 
-    <Button
-        android:id="@+id/btn_ql_nhomkh"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/quanly_margin"
-        android:onClick="SelectFeature"
-        android:text="@string/quanly_nhomkh" />
+        <Button
+            android:id="@+id/btn_ql_nhomkh"
+            style="@style/buttonRoundConnerLightBlue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/quanly_margin"
+            android:onClick="SelectFeature"
+            android:text="@string/quanly_nhomkh" />
 
-    <Button
-        android:id="@+id/btn_ql_doanhthu"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/quanly_margin"
-        android:onClick="SelectFeature"
-        android:text="@string/quanly_doanhthu" />
+        <Button
+            android:id="@+id/btn_ql_doanhthu"
+            style="@style/buttonRoundConnerLightBlue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/quanly_margin"
+            android:onClick="SelectFeature"
+            android:text="@string/quanly_doanhthu" />
 
-    <Button
-        android:id="@+id/btn_ql_nhanvien"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/quanly_margin"
-        android:onClick="SelectFeature"
-        android:text="@string/quanly_nhanvien" />
+        <Button
+            android:id="@+id/btn_ql_nhanvien"
+            style="@style/buttonRoundConnerLightBlue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/quanly_margin"
+            android:onClick="SelectFeature"
+            android:text="@string/quanly_nhanvien" />
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/quanly_margin"
-        android:onClick="dangXuat"
-        android:text="Đăng xuất" />
+        <Button
+            style="@style/buttonRoundConnerLightBlue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/quanly_margin"
+            android:onClick="dangXuat"
+            android:text="Đăng xuất" />
     </LinearLayout>
 </ScrollView>

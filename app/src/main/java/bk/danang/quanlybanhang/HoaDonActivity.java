@@ -118,6 +118,7 @@ public class HoaDonActivity extends AppCompatActivity {
         HoaDonService hoaDonService = retrofit.create(HoaDonService.class);
         HoaDonRequest hoaDonRequest = new HoaDonRequest();
         hoaDonRequest.setData(hoaDon);
+        hoaDonRequest.setId(hoaDon.getId());
         hoaDonRequest.setAuthentication(PermissionController.getInstance().getAuthentication());
         if (id == -1) {
             final Call<HoaDon> call = hoaDonService.them(hoaDonRequest);

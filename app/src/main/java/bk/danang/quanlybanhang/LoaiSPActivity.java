@@ -66,6 +66,7 @@ public class LoaiSPActivity extends AppCompatActivity {
         LoaiSPService loaiSPService = retrofit.create(LoaiSPService.class);
         LoaiSPRequest loaiSPRequest = new LoaiSPRequest();
         loaiSPRequest.setData(loaiSP);
+        loaiSPRequest.setId(loaiSP.getId());
         loaiSPRequest.setAuthentication(PermissionController.getInstance().getAuthentication());
         if (id != -1) {
             final Call<Object> call = loaiSPService.sua(loaiSPRequest);

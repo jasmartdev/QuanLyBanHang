@@ -107,7 +107,9 @@ public class KhachHangActivity extends AppCompatActivity {
         KhachHangService khachHangService = retrofit.create(KhachHangService.class);
         KhachHangRequest khachHangRequest = new KhachHangRequest();
         khachHangRequest.setData(khachHang);
+        khachHangRequest.setId(khachHang.getId());
         khachHangRequest.setAuthentication(PermissionController.getInstance().getAuthentication());
+
         if (id != -1) {
             final Call<Object> call = khachHangService.sua(khachHangRequest);
             call.enqueue(new Callback<Object>() {

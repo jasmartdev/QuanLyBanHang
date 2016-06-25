@@ -53,11 +53,11 @@ public class HoaDonAdapter extends BaseAdapter {
         TextView tv_ten_nv = (TextView) convertView.findViewById(R.id.tv_ten_nv);
 
 
-        tv_ten_nv.setText(NhanVienController.getInstance().findById(hoaDon.getEmployeeId())+"");
-        tv_tri_gia.setText(hoaDon.getPrice()+"");
-        tv_ten_sp.setText(SanPhamController.getInstance().findById(hoaDon.getProductionId())+"");
+        tv_ten_nv.setText(NhanVienController.getInstance().findById(hoaDon.getEmployeeId()) + "");
+        tv_tri_gia.setText(context.getString(R.string.chung_gia) + ":" + hoaDon.getPrice() + context.getString(R.string.chung_tien));
+        tv_ten_sp.setText(SanPhamController.getInstance().findById(hoaDon.getProductionId()) + "");
 
-        tv_so_luong.setText(Integer.toString(hoaDon.getQuantity()));
+        tv_so_luong.setText(context.getString(R.string.chung_so_luong) + ":" + Integer.toString(hoaDon.getQuantity()));
         convertView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {

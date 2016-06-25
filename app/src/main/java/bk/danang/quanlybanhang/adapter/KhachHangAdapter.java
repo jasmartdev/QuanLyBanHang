@@ -50,7 +50,7 @@ public class KhachHangAdapter extends BaseAdapter {
         TextView tv_dia_chi = (TextView) convertView.findViewById(R.id.tv_dia_chi);
         tv_ten_khach.setText(khachHang.getName());
         tv_gioi_tinh.setText(Util.ConvertGender(khachHang.getGender()));
-        tv_dia_chi.setText(khachHang.getAddress());
+        tv_dia_chi.setText("Địa chỉ:" + khachHang.getAddress());
         convertView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {

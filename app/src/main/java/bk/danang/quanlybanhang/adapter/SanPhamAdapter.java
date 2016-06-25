@@ -48,11 +48,11 @@ public class SanPhamAdapter extends BaseAdapter {
         TextView tv_ten_sp = (TextView) convertView.findViewById(R.id.tv_ten_sp);
         TextView tv_tri_gia = (TextView) convertView.findViewById(R.id.tv_tri_gia);
         TextView tv_so_luong = (TextView) convertView.findViewById(R.id.tv_so_luong);
-        ImageUrlView img = (ImageUrlView)convertView.findViewById(R.id.sanpham_photo);
+        ImageUrlView img = (ImageUrlView) convertView.findViewById(R.id.sanpham_photo);
 
         tv_ten_sp.setText(sanPham.getName());
-        tv_tri_gia.setText(Integer.toString(sanPham.getOriginPrice()));
-        tv_so_luong.setText(Integer.toString(sanPham.getQuantity()));
+        tv_tri_gia.setText(context.getString(R.string.chung_gia) + ":" + Integer.toString(sanPham.getOriginPrice()));
+        tv_so_luong.setText(context.getString(R.string.chung_so_luong) + ":" + Integer.toString(sanPham.getQuantity()));
         img.setUrl(sanPham.getImageurl());
         convertView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override

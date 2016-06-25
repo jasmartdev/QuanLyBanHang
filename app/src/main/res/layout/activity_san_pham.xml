@@ -84,7 +84,7 @@
             android:inputType="number" />
 
         <TextView
-            style="@style/edittextRoundConnerWhite"
+            style="@style/textviewLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/sanpham_gia_vip"

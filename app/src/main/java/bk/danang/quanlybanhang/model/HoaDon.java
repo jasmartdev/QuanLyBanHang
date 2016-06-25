@@ -54,6 +54,8 @@ public class HoaDon {
     }
 
     public void setDiscountPercent(int discountPercent) {
+        if (discountPercent > 100) discountPercent = 100;
+        else if (discountPercent < 0) discountPercent = 0;
         this.discountPercent = discountPercent;
     }
 

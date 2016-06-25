@@ -13,6 +13,7 @@ import bk.danang.quanlybanhang.controller.NhomKHController;
 import bk.danang.quanlybanhang.controller.PermissionController;
 import bk.danang.quanlybanhang.model.NhomKH;
 import bk.danang.quanlybanhang.model.NhomKHRequest;
+import bk.danang.quanlybanhang.util.Util;
 import bk.danang.quanlybanhang.webinterface.NhomKHService;
 import retrofit.Call;
 import retrofit.Callback;
@@ -123,7 +124,7 @@ public class NhomKHActivity extends AppCompatActivity {
 
     public void addDataToObject() {
         nhomKH.setName(ed_nhomkh.getText().toString());
-        nhomKH.setDiscountPercent(Integer.parseInt(ed_giam_gia.getText().toString()));
+        nhomKH.setDiscountPercent(Util.GetNumber(ed_giam_gia));
         nhomKH.setNote(ed_ghi_chu.getText().toString());
     }
 }

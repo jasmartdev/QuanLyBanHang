@@ -28,6 +28,7 @@ import bk.danang.quanlybanhang.model.LoaiSP;
 import bk.danang.quanlybanhang.model.LoaiSPRequest;
 import bk.danang.quanlybanhang.model.NhanVien;
 import bk.danang.quanlybanhang.model.SanPham;
+import bk.danang.quanlybanhang.util.Util;
 import bk.danang.quanlybanhang.webinterface.HoaDonService;
 import bk.danang.quanlybanhang.webinterface.LoaiSPService;
 import retrofit.Call;
@@ -70,7 +71,7 @@ public class HoaDonActivity extends AppCompatActivity {
 
     public void setObject() {
         spn_sanpham.setAdapter(createArrayAdapter(SanPhamController.getInstance().getSanPhams()));
-        spn_gia_ban.setAdapter(createArrayAdapter(new String[]{"Giá gốc", "Giá bán lẻ", "Giá bán sỉ","Giá vip"}));
+        spn_gia_ban.setAdapter(createArrayAdapter(new String[]{"Giá gốc", "Giá bán lẻ", "Giá bán sỉ", "Giá vip"}));
         spn_ten_nv.setAdapter(createArrayAdapter(NhanVienController.getInstance().getNhanViens()));
         ed_khachhang.setAdapter(createArrayAdapter(KhachHangController.getInstance().getKhachHangs()));
 
@@ -82,18 +83,18 @@ public class HoaDonActivity extends AppCompatActivity {
             spn_ten_nv.setSelection(NhanVienController.getInstance().getIndexOfId(hoaDon.getEmployeeId()));
             spn_gia_ban.setSelection(hoaDon.getRetailPrice());
 
-            ed_giam_gia.setText(hoaDon.getDiscountPercent()+"");
-            ed_so_luong.setText(hoaDon.getQuantity()+"");
+            ed_giam_gia.setText(hoaDon.getDiscountPercent() + "");
+            ed_so_luong.setText(hoaDon.getQuantity() + "");
             ed_ghi_chu.setText(hoaDon.getDescription());
         }
     }
 
-    private <T> ArrayAdapter<T> createArrayAdapter(List<T> data){
-        return new ArrayAdapter<T>(this,android.R.layout.simple_spinner_dropdown_item, data);
+    private <T> ArrayAdapter<T> createArrayAdapter(List<T> data) {
+        return new ArrayAdapter<T>(this, android.R.layout.simple_spinner_dropdown_item, data);
     }
 
-    private <T> ArrayAdapter<T> createArrayAdapter(T[] data){
-        return new ArrayAdapter<T>(this,android.R.layout.simple_spinner_dropdown_item, data);
+    private <T> ArrayAdapter<T> createArrayAdapter(T[] data) {
+        return new ArrayAdapter<T>(this, android.R.layout.simple_spinner_dropdown_item, data);
     }
 
 
@@ -103,17 +104,17 @@ public class HoaDonActivity extends AppCompatActivity {
             hoaDon = HoaDonController.getInstance().findById(id);
         }
 
-        SanPham sanPham = ((SanPham)spn_sanpham.getSelectedItem());
+        SanPham sanPham = ((SanPham) spn_sanpham.getSelectedItem());
         hoaDon.setProductionId(sanPham.getId());
-        hoaDon.setEmployeeId(((NhanVien)spn_ten_nv.getSelectedItem()).getId());
-        hoaDon.setCustomerId(((KhachHang)ed_khachhang.getSelectedItem()).getId());
+        hoaDon.setEmployeeId(((NhanVien) spn_ten_nv.getSelectedItem()).getId());
+        hoaDon.setCustomerId(((KhachHang) ed_khachhang.getSelectedItem()).getId());
         hoaDon.setDescription(ed_ghi_chu.getText().toString());
 
-        hoaDon.setDiscountPercent(Integer.parseInt(ed_giam_gia.getText().toString()));
+        hoaDon.setDiscountPercent(Util.GetNumber(ed_giam_gia));
         int[] giaban = new int[]{sanPham.getOriginPrice(), sanPham.getRetailPrice(), sanPham.getWholesalePrice(), sanPham.getVipPrice()};
         hoaDon.setPrice(giaban[spn_gia_ban.getSelectedItemPosition()]);
         hoaDon.setRetailPrice(spn_gia_ban.getSelectedItemPosition());
-        hoaDon.setQuantity(Integer.parseInt(ed_so_luong.getText().toString()));
+        hoaDon.setQuantity(Util.GetNumber(ed_so_luong));
 
         HoaDonService hoaDonService = retrofit.create(HoaDonService.class);
         HoaDonRequest hoaDonRequest = new HoaDonRequest();
@@ -127,16 +128,18 @@ public class HoaDonActivity extends AppCompatActivity {
                     HoaDonController.getInstance().getHoaDons().add(response.body());
                     finish();
                 }
+
                 public void onFailure(Throwable t) {
                     Toast.makeText(HoaDonActivity.this, getString(R.string.loading_msg_fail), Toast.LENGTH_SHORT).show();
                 }
             });
-        }else{
+        } else {
             final Call<Object> call = hoaDonService.sua(hoaDonRequest);
             call.enqueue(new Callback<Object>() {
                 public void onResponse(Response<Object> response, Retrofit retrofit) {
                     finish();
                 }
+
                 public void onFailure(Throwable t) {
                     Toast.makeText(HoaDonActivity.this, getString(R.string.loading_msg_fail), Toast.LENGTH_SHORT).show();
                 }
@@ -147,7 +150,7 @@ public class HoaDonActivity extends AppCompatActivity {
     public void Delete(View view) {
 
         HoaDonService hoaDonService = retrofit.create(HoaDonService.class);
-        hoaDonService.xoa(id,PermissionController.getInstance().getAuthentication()).enqueue(new Callback<Object>() {
+        hoaDonService.xoa(id, PermissionController.getInstance().getAuthentication()).enqueue(new Callback<Object>() {
             public void onResponse(Response<Object> response, Retrofit retrofit) {
                 HoaDon hoaDon = HoaDonController.getInstance().findById(id);
                 HoaDonController.getInstance().getHoaDons().remove(hoaDon);

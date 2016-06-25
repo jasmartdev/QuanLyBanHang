@@ -13,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.List;
+
 import bk.danang.quanlybanhang.control.ImageUrlView;
 import bk.danang.quanlybanhang.controller.LoaiSPController;
 import bk.danang.quanlybanhang.controller.NhanHieuController;
@@ -22,6 +23,7 @@ import bk.danang.quanlybanhang.model.LoaiSP;
 import bk.danang.quanlybanhang.model.NhanHieu;
 import bk.danang.quanlybanhang.model.SanPham;
 import bk.danang.quanlybanhang.model.SanPhamRequest;
+import bk.danang.quanlybanhang.util.Util;
 import bk.danang.quanlybanhang.webinterface.LoaiSPService;
 import bk.danang.quanlybanhang.webinterface.SanPhamService;
 import retrofit.Call;
@@ -55,7 +57,7 @@ public class SanPhamActivity extends AppCompatActivity {
         ed_gia_si = (EditText) findViewById(R.id.ed_gia_si);
         ed_gia_le = (EditText) findViewById(R.id.ed_gia_le);
         ed_image_url = (EditText) findViewById(R.id.ed_image_url);
-        imgPhoto = (ImageUrlView)findViewById(R.id.sanpham_photo);
+        imgPhoto = (ImageUrlView) findViewById(R.id.sanpham_photo);
 
         Intent intent = getIntent();
         id = intent.getIntExtra("object", -1);
@@ -97,12 +99,12 @@ public class SanPhamActivity extends AppCompatActivity {
         spn_hieu.setSelection(NhanHieuController.getInstance().getIndexOfId(sanPham.getBrandId()));
     }
 
-    private <T> ArrayAdapter<T> createArrayAdapter(List<T> data){
-        return new ArrayAdapter<T>(this,android.R.layout.simple_spinner_dropdown_item, data);
+    private <T> ArrayAdapter<T> createArrayAdapter(List<T> data) {
+        return new ArrayAdapter<T>(this, android.R.layout.simple_spinner_dropdown_item, data);
     }
 
-    private <T> ArrayAdapter<T> createArrayAdapter(T[] data){
-        return new ArrayAdapter<T>(this,android.R.layout.simple_spinner_dropdown_item, data);
+    private <T> ArrayAdapter<T> createArrayAdapter(T[] data) {
+        return new ArrayAdapter<T>(this, android.R.layout.simple_spinner_dropdown_item, data);
     }
 
     public void Save(View view) {
@@ -150,7 +152,7 @@ public class SanPhamActivity extends AppCompatActivity {
         sanPhamRequest.setId(sanPham.getId());
         sanPhamRequest.setAuthentication(PermissionController.getInstance().getAuthentication());
         if (id != -1) {
-            final Call<Object> call = sanPhamService.xoa(sanPhamRequest.getId(), PermissionController.getInstance().getAuthentication());
+            final Call<Object> call = sanPhamService.xoa(id, PermissionController.getInstance().getAuthentication());
             call.enqueue(new Callback<Object>() {
                 public void onResponse(Response<Object> response, Retrofit retrofit) {
                     progressDialog.dismiss();
@@ -170,11 +172,11 @@ public class SanPhamActivity extends AppCompatActivity {
         sanPham.setName(ed_sanpham.getText().toString());
         sanPham.setCategoryId(((LoaiSP) spn_loaisp.getSelectedItem()).getId());
         sanPham.setBrandId(((NhanHieu) spn_hieu.getSelectedItem()).getId());
-        sanPham.setQuantity(Integer.parseInt(ed_so_luong.getText().toString()));
-        sanPham.setOriginPrice(Integer.parseInt(ed_gia_goc.getText().toString()));
-        sanPham.setVipPrice(Integer.parseInt(ed_gia_vip.getText().toString()));
-        sanPham.setWholesalePrice(Integer.parseInt(ed_gia_si.getText().toString()));
-        sanPham.setRetailPrice(Integer.parseInt(ed_gia_le.getText().toString()));
+        sanPham.setQuantity(Util.GetNumber(ed_so_luong));
+        sanPham.setOriginPrice(Util.GetNumber(ed_gia_goc));
+        sanPham.setVipPrice(Util.GetNumber(ed_gia_vip));
+        sanPham.setWholesalePrice(Util.GetNumber(ed_gia_si));
+        sanPham.setRetailPrice(Util.GetNumber(ed_gia_le));
         sanPham.setImageurl(ed_image_url.getText().toString());
     }
 }

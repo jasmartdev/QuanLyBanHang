@@ -47,12 +47,12 @@ public class DoanhThuAdapter extends BaseAdapter {
 
         ChiTietDoanhThu doanhThu = doanhThus.get(position);
 
-        setText(convertView, R.id.price_total,doanhThu.getTotal());
+        setText(convertView, R.id.price_total,doanhThu.getTotal()+ context.getString(R.string.chung_tien));
         setText(convertView, R.id.tv_sanpham,doanhThu.getProduction());
         setText(convertView, R.id.tv_so_luong,doanhThu.getQuantity());
         setText(convertView, R.id.tv_nguoiban,doanhThu.getEmployee());
         setText(convertView, R.id.tv_ten_khach,doanhThu.getCustomer());
-        setText(convertView, R.id.tv_giaban,doanhThu.getPrice());
+        setText(convertView, R.id.tv_giaban,doanhThu.getPrice() + context.getString(R.string.chung_tien));
         setText(convertView, R.id.tv_giamgia,doanhThu.getDiscount());
 
         return convertView;
